@@ -1,0 +1,49 @@
+---
+import type { Testimonial } from '../config';
+
+interface Props {
+  testimonial: Testimonial;
+  variant?: 'card' | 'plain';
+}
+
+const { testimonial, variant = 'card' } = Astro.props;
+---
+
+<figure
+  class:list={[
+    'relative',
+    variant === 'card' && 'rounded-[1.25rem] border border-line bg-cream-soft p-6 shadow-[0_2px_24px_-12px_rgba(26,31,29,0.12)] sm:rounded-[1.5rem] sm:p-8 md:p-10',
+    variant === 'plain' && 'py-6 sm:py-8',
+  ]}
+>
+  <span
+    aria-hidden
+    class="font-display absolute -top-3 left-5 text-5xl leading-none text-clay/50 select-none sm:-top-4 sm:left-7 sm:text-7xl"
+    style="font-variation-settings: 'opsz' 144;"
+  >“</span>
+
+  {testimonial.highlight && (
+    <p
+      class="font-display text-xl leading-[1.25] text-ink text-balance sm:text-2xl"
+      style="font-variation-settings: 'opsz' 72, 'SOFT' 50;"
+    >
+      {testimonial.highlight}
+    </p>
+  )}
+
+  <blockquote
+    class:list={[
+      'text-sm leading-relaxed text-ink-soft text-pretty sm:text-base',
+      testimonial.highlight ? 'mt-3 sm:mt-4' : '',
+    ]}
+  >
+    {testimonial.quote}
+  </blockquote>
+
+  <figcaption class="mt-5 flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-taupe sm:mt-6 sm:gap-3 sm:text-xs">
+    <span class="h-px w-5 bg-clay sm:w-6"></span>
+    <span class="text-ink-soft">{testimonial.name}</span>
+    <span>·</span>
+    <span>{testimonial.city}</span>
+  </figcaption>
+</figure>

@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, legal } from '../config';
+---
+
+<Layout
+  title={`Aviso Legal · ${site.name}`}
+  description="Aviso Legal según LSSI-CE (Ley 34/2002) — datos identificativos del titular del sitio web."
+>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-24">
+    <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
+      Información legal
+    </p>
+    <h1
+      class="mt-4 font-display text-3xl leading-[1.1] text-ink sm:mt-6 sm:text-4xl md:text-5xl text-balance"
+      style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+    >
+      Aviso Legal
+    </h1>
+    <p class="mt-4 text-sm text-taupe sm:text-base">
+      En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de
+      Servicios de la Sociedad de la Información y de Comercio Electrónico
+      (LSSI-CE), se facilitan los siguientes datos identificativos.
+    </p>
+
+    <div class="prose-legal mt-10 space-y-10 sm:mt-12 sm:space-y-12">
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          1. Datos del titular
+        </h2>
+        <dl class="mt-5 divide-y divide-line border-y border-line">
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Titular</dt>
+            <dd class="text-base text-ink-soft">{legal.titular}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Actividad</dt>
+            <dd class="text-base text-ink-soft">{legal.actividad}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">NIE / NIF</dt>
+            <dd class="text-base text-ink-soft">{legal.nif}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Domicilio fiscal</dt>
+            <dd class="text-base text-ink-soft">{legal.direccion}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Correo electrónico</dt>
+            <dd class="text-base text-ink-soft">
+              <a href={`mailto:${legal.email}`} class="underline decoration-line underline-offset-4 hover:decoration-clay">
+                {legal.email}
+              </a>
+            </dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Teléfono</dt>
+            <dd class="text-base text-ink-soft">{legal.telefono}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Sitio web</dt>
+            <dd class="text-base text-ink-soft">{site.url}</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          2. Objeto y ámbito de aplicación
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          El presente Aviso Legal regula el uso del sitio web {site.url} (en
+          adelante, "el Sitio Web"), titularidad de {legal.titular}. La
+          navegación por el Sitio Web atribuye la condición de Usuario e
+          implica la aceptación plena y sin reservas de todas las disposiciones
+          incluidas en este Aviso Legal.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          El Usuario se obliga a hacer un uso correcto del Sitio Web de
+          conformidad con la ley, el presente Aviso Legal, la moral, las
+          buenas costumbres y el orden público.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          3. Propiedad intelectual e industrial
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Todos los contenidos del Sitio Web —textos, fotografías, gráficos,
+          imágenes, iconos, tecnología, software, así como su diseño gráfico
+          y códigos fuente— constituyen una obra cuya propiedad pertenece a
+          {' '}{legal.titular}, sin que puedan entenderse cedidos al Usuario
+          ninguno de los derechos de explotación sobre los mismos más allá
+          de lo estrictamente necesario para el correcto uso del Sitio Web.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Las marcas, nombres comerciales o signos distintivos son
+          titularidad de {legal.titular} o de terceros, sin que pueda
+          entenderse que el acceso al Sitio Web atribuya ningún derecho
+          sobre las mismas.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          4. Exclusión de garantías y responsabilidad
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          {legal.titular} no se hace responsable, en ningún caso, de los daños
+          y perjuicios de cualquier naturaleza que pudieran ocasionar, a
+          título enunciativo: errores u omisiones en los contenidos, falta de
+          disponibilidad del Sitio Web o la transmisión de virus o programas
+          maliciosos o lesivos en los contenidos, a pesar de haber adoptado
+          todas las medidas tecnológicas necesarias para evitarlo.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          5. Enlaces a terceros
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          El Sitio Web puede contener enlaces a sitios web de terceros
+          (entre otros, WhatsApp, Telegram y Calendly). {legal.titular} no
+          ejerce control alguno sobre dichos sitios y contenidos. En ningún
+          caso asumirá responsabilidad alguna por los contenidos de algún
+          enlace perteneciente a un sitio web ajeno.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          6. Ley aplicable y jurisdicción
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          La relación entre {legal.titular} y el Usuario se regirá por la
+          normativa española vigente. Para la resolución de cualquier
+          controversia, las partes se someten a los Juzgados y Tribunales
+          del domicilio del titular, salvo que la ley aplicable disponga
+          otra cosa.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          7. Modificaciones
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          {legal.titular} se reserva el derecho a efectuar sin previo aviso
+          las modificaciones que considere oportunas en el Sitio Web,
+          pudiendo cambiar, suprimir o añadir tanto los contenidos y
+          servicios prestados como la forma en la que éstos aparezcan
+          presentados o localizados.
+        </p>
+      </section>
+    </div>
+
+    <p class="mt-12 text-xs text-taupe">
+      Última actualización: {legal.fechaActualizacion}
+    </p>
+  </article>
+</Layout>

@@ -1,0 +1,246 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site, contact, nav, whatsappUrl } from '../config';
+---
+
+<header class="relative z-30 mx-auto flex max-w-7xl items-center justify-between px-4 pt-4 sm:px-6 sm:pt-6 lg:px-12 lg:pt-8">
+  <a href="/" class="group flex items-center gap-2.5 sm:gap-3">
+    <img
+      src="/images/Carmen_Taube-300x265.png"
+      alt=""
+      width="56"
+      height="50"
+      class="h-16 w-auto sm:h-20"
+      aria-hidden="true"
+    />
+    <div class="leading-tight">
+      <div class="font-display text-lg text-ink sm:text-xl" style="font-variation-settings: 'opsz' 72;">
+        {site.name}
+      </div>
+      <div class="hidden text-[10px] uppercase tracking-[0.24em] text-taupe sm:block">
+        {site.role}
+      </div>
+    </div>
+  </a>
+
+  <!-- Desktop nav -->
+  <nav class="hidden items-center gap-1 text-sm text-ink-soft md:flex md:gap-4">
+    {nav.map((item) => (
+      <a
+        href={item.href}
+        class="rounded-full px-3 py-2 transition-colors hover:text-forest"
+      >
+        {item.label}
+      </a>
+    ))}
+    <a
+      href={whatsappUrl()}
+      target="_blank"
+      rel="noopener"
+      class="group inline-flex items-center gap-2 rounded-full border border-ink/15 bg-cream-soft px-4 py-2 text-sm text-ink transition-all duration-300 hover:border-forest hover:bg-forest hover:text-cream-soft"
+    >
+      <Icon name="simple-icons:whatsapp" class="size-4" />
+      <span>Schreib mir</span>
+    </a>
+  </nav>
+
+  <!-- Mobile hamburger button -->
+  <button
+    id="nav-toggle"
+    type="button"
+    aria-label="Menü öffnen"
+    aria-expanded="false"
+    aria-controls="mobile-nav"
+    class="group relative -mr-1 inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 bg-cream-soft text-ink transition-colors hover:border-forest md:hidden"
+  >
+    <span class="sr-only">Menü öffnen</span>
+    <!-- Animated hamburger / X icon -->
+    <span class="block h-4 w-5 relative" aria-hidden="true">
+      <span class="absolute left-0 top-[3px] block h-[1.5px] w-5 bg-current transition-transform duration-300 ease-out group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"></span>
+      <span class="absolute left-0 top-[8px] block h-[1.5px] w-5 bg-current transition-opacity duration-200 group-aria-expanded:opacity-0"></span>
+      <span class="absolute left-0 top-[13px] block h-[1.5px] w-5 bg-current transition-transform duration-300 ease-out group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"></span>
+    </span>
+  </button>
+</header>
+
+<!-- Mobile menu overlay + panel -->
+<div
+  id="mobile-nav"
+  aria-hidden="true"
+  class="fixed inset-0 z-50 hidden md:hidden"
+>
+  <!-- Backdrop -->
+  <div
+    id="nav-backdrop"
+    class="absolute inset-0 bg-ink/40 opacity-0 transition-opacity duration-300"
+  ></div>
+
+  <!-- Panel -->
+  <aside
+    class="absolute right-0 top-0 flex h-full w-full max-w-[400px] translate-x-full flex-col bg-cream shadow-2xl transition-transform duration-300 ease-out"
+    id="nav-panel"
+  >
+    <div class="flex items-center justify-between px-5 pt-5">
+      <a href="/" class="flex items-center gap-2.5">
+        <img
+          src="/images/Carmen_Taube-300x265.png"
+          alt=""
+          class="h-11 w-auto"
+          aria-hidden="true"
+        />
+        <div class="leading-tight">
+          <div class="font-display text-lg text-ink" style="font-variation-settings: 'opsz' 72;">
+            {site.name}
+          </div>
+          <div class="text-[10px] uppercase tracking-[0.24em] text-taupe">
+            {site.role}
+          </div>
+        </div>
+      </a>
+      <button
+        id="nav-close"
+        type="button"
+        aria-label="Menü schließen"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 bg-cream-soft text-ink transition-colors hover:border-forest"
+      >
+        <Icon name="lucide:x" class="size-5" />
+      </button>
+    </div>
+
+    <!-- Nav links -->
+    <nav class="flex-1 overflow-y-auto px-5 pt-10">
+      <ul class="space-y-1">
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="nav-link group flex items-center justify-between gap-4 rounded-2xl px-4 py-4 font-display text-2xl text-ink transition-colors hover:bg-cream-soft"
+              style="font-variation-settings: 'opsz' 72;"
+            >
+              <span>{item.label}</span>
+              <Icon name="lucide:arrow-up-right" class="size-5 text-taupe transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-forest" />
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Divider -->
+      <div class="my-8 border-t border-line"></div>
+
+      <!-- Direct contact -->
+      <p class="px-4 text-[11px] uppercase tracking-[0.24em] text-clay">Direkt erreichen</p>
+      <div class="mt-4 space-y-2">
+        <a
+          href={whatsappUrl()}
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-3 rounded-2xl bg-forest px-4 py-3.5 text-cream-soft transition-colors hover:bg-forest-deep"
+        >
+          <span class="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full" style="background: #25D366;">
+            <Icon name="simple-icons:whatsapp" class="size-5" />
+          </span>
+          <div class="min-w-0 flex-1">
+            <div class="font-display text-base leading-tight" style="font-variation-settings: 'opsz' 48;">WhatsApp</div>
+            <div class="text-xs text-cream-soft/70">Direkt zu mir</div>
+          </div>
+          <Icon name="lucide:arrow-right" class="size-4 flex-shrink-0 text-cream-soft/60" />
+        </a>
+
+        <a
+          href={contact.telegram.url}
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-3 rounded-2xl border border-line bg-cream-soft px-4 py-3.5 text-ink transition-colors hover:border-forest"
+        >
+          <span class="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full" style="background: #229ED9; color: white;">
+            <Icon name="simple-icons:telegram" class="size-5" />
+          </span>
+          <div class="min-w-0 flex-1">
+            <div class="font-display text-base leading-tight" style="font-variation-settings: 'opsz' 48;">Telegram</div>
+            <div class="truncate text-xs text-taupe">@{contact.telegram.handle}</div>
+          </div>
+          <Icon name="lucide:arrow-right" class="size-4 flex-shrink-0 text-taupe" />
+        </a>
+
+        <a
+          href={contact.calendly.url}
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-3 rounded-2xl border border-line bg-cream-soft px-4 py-3.5 text-ink transition-colors hover:border-forest"
+        >
+          <span class="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-forest text-cream-soft">
+            <Icon name="lucide:calendar" class="size-5" />
+          </span>
+          <div class="min-w-0 flex-1">
+            <div class="font-display text-base leading-tight" style="font-variation-settings: 'opsz' 48;">Termin buchen</div>
+            <div class="text-xs text-taupe">30 Min · kostenfrei</div>
+          </div>
+          <Icon name="lucide:arrow-right" class="size-4 flex-shrink-0 text-taupe" />
+        </a>
+      </div>
+    </nav>
+
+    <!-- Footer in menu -->
+    <div class="border-t border-line px-5 py-5 text-xs text-taupe">
+      <a href={`mailto:${contact.email}`} class="hover:text-forest">{contact.email}</a>
+    </div>
+  </aside>
+</div>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const panel = document.getElementById('mobile-nav');
+  const backdrop = document.getElementById('nav-backdrop');
+  const drawer = document.getElementById('nav-panel');
+  const closeBtn = document.getElementById('nav-close');
+
+  if (!toggle || !panel || !backdrop || !drawer || !closeBtn) {
+    // Elemente fehlen — kein Setup nötig
+  } else {
+    const open = () => {
+      panel.classList.remove('hidden');
+      panel.setAttribute('aria-hidden', 'false');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      // Nächster Frame: Transitions triggern
+      requestAnimationFrame(() => {
+        backdrop.classList.remove('opacity-0');
+        backdrop.classList.add('opacity-100');
+        drawer.classList.remove('translate-x-full');
+      });
+    };
+
+    const close = () => {
+      backdrop.classList.add('opacity-0');
+      backdrop.classList.remove('opacity-100');
+      drawer.classList.add('translate-x-full');
+      toggle.setAttribute('aria-expanded', 'false');
+      // Nach Transition: ausblenden
+      setTimeout(() => {
+        panel.classList.add('hidden');
+        panel.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }, 300);
+    };
+
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      isOpen ? close() : open();
+    });
+
+    closeBtn.addEventListener('click', close);
+    backdrop.addEventListener('click', close);
+
+    // Schließen bei ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        close();
+      }
+    });
+
+    // Schließen wenn ein Nav-Link geklickt wird (Anchor-Navigation auf gleicher Seite)
+    panel.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('click', close);
+    });
+  }
+</script>
