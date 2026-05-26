@@ -74,6 +74,8 @@ export type Program = {
   format: string;
   price: string;
   image: string;
+  /** Fokuspunkt im Bild beim Crop. Default: 'center'. Bei Portraits mit Kopf oben: 'top'. */
+  imagePosition?: 'top' | 'center' | 'bottom';
   contactMessage: string;
 };
 
@@ -95,6 +97,7 @@ export const programs: Program[] = [
     format: 'Online · 1× pro Woche',
     price: 'Auf Anfrage',
     image: '/images/7-Wochen-Coaching_Google-scaled.webp',
+    imagePosition: 'top',
     contactMessage:
       'Hallo Carmen, ich interessiere mich für GRANDIOS, das 7-Wochen-Coaching.',
   },

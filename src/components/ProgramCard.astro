@@ -25,7 +25,11 @@ const isReversed = index % 2 === 1;
         alt={program.title}
         loading="lazy"
         decoding="async"
-        class="aspect-[5/4] h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03] sm:aspect-[5/4] lg:aspect-[4/5]"
+        class:list={[
+          'aspect-[5/4] h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03] sm:aspect-[5/4] lg:aspect-[4/5]',
+          program.imagePosition === 'top' && 'object-top',
+          program.imagePosition === 'bottom' && 'object-bottom',
+        ]}
       />
     </div>
     <!-- Eyebrow tag overlay -->
