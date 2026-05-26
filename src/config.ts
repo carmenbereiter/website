@@ -84,7 +84,7 @@ export const programs: Program[] = [
     title: 'Dein Neustart in 7 Wochen',
     subtitle: '7-Wochen-Coaching · Online',
     short:
-      'Ein Raum für dich. Sieben Wochen klar, still, ehrlich. Mit Impulsen, die nicht laut sind — aber wirken.',
+      'Ein Raum für dich. Sieben Wochen klar, still, ehrlich. Mit Impulsen, die nicht laut sind, aber wirken.',
     bullets: [
       'Klarheit darüber, wer du bist und was du wirklich willst',
       'Ruhe und Ordnung im Kopf und im Leben',
@@ -96,7 +96,7 @@ export const programs: Program[] = [
     price: 'Auf Anfrage',
     image: '/images/7-Wochen-Coaching_Google-scaled.webp',
     contactMessage:
-      'Hallo Carmen, ich interessiere mich für GRANDIOS — das 7-Wochen-Coaching.',
+      'Hallo Carmen, ich interessiere mich für GRANDIOS, das 7-Wochen-Coaching.',
   },
   {
     slug: 'unique',
@@ -104,7 +104,7 @@ export const programs: Program[] = [
     title: 'Exklusive 1:1 Begleitung',
     subtitle: '12 Wochen · Online + optional Gran Canaria',
     short:
-      'Ehrlich. Direkt. Persönlich. Wir gehen tief, lösen Blockaden und schaffen deinen Weg — für Veränderung, die wirklich bleibt.',
+      'Ehrlich. Direkt. Persönlich. Wir gehen tief, lösen Blockaden und schaffen deinen Weg, für Veränderung, die wirklich bleibt.',
     bullets: [
       '12 Wochen individuelles Mentoring auf höchstem Niveau',
       'Klarheit, Struktur und Fokus für Beruf und Leben',
@@ -129,7 +129,7 @@ export const programs: Program[] = [
       'Drei Übernachtungen in einem 5★ Resort inkl. Verpflegung',
       'Exklusives Mentoring an besonderen Locations',
       'Strategien für sichere Entscheidungen und nächste Schritte',
-      'Innere Ruhe, Energie und Fokus — Werkzeuge für den Alltag',
+      'Innere Ruhe, Energie und Fokus, Werkzeuge für den Alltag',
     ],
     duration: '4 Tage / 3 Nächte',
     format: 'Vor Ort · Gran Canaria',
@@ -192,7 +192,7 @@ export const testimonials: Testimonial[] = [
     name: 'Caithlyn',
     city: 'München',
     quote:
-      'Carmen hat eine unnachahmliche Formel, mit der sie Menschen dabei hilft, aus allem herauszukommen. Sie hat mir geholfen, alle meine Themen aufzulösen — auf eine ehrliche, liebevolle Art, wie ich sie jedem von Herzen wünsche.',
+      'Carmen hat eine unnachahmliche Formel, mit der sie Menschen dabei hilft, aus allem herauszukommen. Sie hat mir geholfen, alle meine Themen aufzulösen, auf eine ehrliche, liebevolle Art, wie ich sie jedem von Herzen wünsche.',
   },
   {
     name: 'Verena',
@@ -216,13 +216,31 @@ export const testimonials: Testimonial[] = [
     name: 'Juliet',
     city: 'Schwyz',
     quote:
-      'Die umfassende, inspirierende und kraftvolle Arbeit von Carmen zeigt, wie schnell es möglich ist, sich zu erholen, wenn das Leben Herausforderungen bringt. Sie werden höher zurückkommen, als Sie es jemals für möglich gehalten hätten — mit Anmut und Leichtigkeit.',
+      'Die umfassende, inspirierende und kraftvolle Arbeit von Carmen zeigt, wie schnell es möglich ist, sich zu erholen, wenn das Leben Herausforderungen bringt. Sie werden höher zurückkommen, als Sie es jemals für möglich gehalten hätten, mit Anmut und Leichtigkeit.',
   },
   {
     name: 'Jasmijn',
     city: 'St. Gallen',
     quote:
       'Ich finde die Zusammenarbeit mit Carmen sehr klar, auf den Punkt. Ich habe noch mehr Kunden, ohne den Überblick zu verlieren oder mehr Stress zu erleben. Mein Selbstvertrauen ist deutlich gestiegen. Jede Frau sollte so eine Reise erleben dürfen.',
+  },
+  {
+    name: 'Maria',
+    city: 'Bregenzerwald',
+    quote:
+      'Danke Carmen Bereiter, für alles was du mir möglich machst! Dein Wirken übertrifft sämtliche Vorstellungen, die ich je über ein Mentoring hatte. Das hier ist echt besonders und unvergleichbar mit allem anderen, was ich je erlebt habe! Für mich das Beste, was es gibt.',
+  },
+  {
+    name: 'Laura',
+    city: 'Vorarlberg',
+    quote:
+      'Ich habe an einer 7-wöchigen Begleitung teilgenommen und kann nicht aufhören darüber nachzudenken, wie viel ich gelernt habe und was ich für ein glückliches Leben mitbekommen habe. Vielen Dank für die herzberührende und sehr lehrreiche Zeit. Du hast mich beflügelt, mein Leben zu verändern.',
+  },
+  {
+    name: 'Amara',
+    city: 'Montreux',
+    quote:
+      'Carmen hat mich in meiner bestehenden Business-Struktur genau dort abgeholt, wo ich stand. Mit außergewöhnlicher Herzlichkeit, Feingefühl und Klarheit hat sie mir Wege gezeigt, mein Business auf ein neues Level zu heben. Heute führe ich mein Unternehmen erfolgreicher denn je. Die Unique 1:1 Begleitung ist transformierend und unvergleichlich.',
   },
 ];
 
@@ -261,17 +279,7 @@ export const endorsements: Endorsement[] = [
 ];
 
 /**
- * "Bekannt aus" — Presse-Logos / Auszeichnungen.
- */
-export const press = [
-  {
-    name: 'WOMAN Magazin',
-    image: '/images/562e9b0c-3a08-4277-b037-7d1b16337b47.webp',
-  },
-];
-
-/**
- * Navigationspunkte. Zentral verwaltet — Header und Footer ziehen sich daraus.
+ * Navigationspunkte. Zentral verwaltet, Header und Footer ziehen sich daraus.
  */
 export const nav = [
   { href: '/', label: 'Start' },
@@ -281,7 +289,7 @@ export const nav = [
 ] as const;
 
 /**
- * Datos legales — para Aviso Legal y Política de Privacidad
+ * Datos legales, para Aviso Legal y Política de Privacidad
  * (cumplimiento LSSI-CE + RGPD + LOPDGDD).
  *
  * TODO vor Go-Live ersetzen:
@@ -295,15 +303,15 @@ export const legal = {
   titular: 'Carmen Bereiter',
   /** Berufsbezeichnung in Spanien */
   actividad: 'Coach & Mentora (Autónoma)',
-  /** NIE oder NIF — Platzhalter */
+  /** NIE oder NIF, Platzhalter */
   nif: 'X5832201E',
-  /** Fiscaladresse in Spanien — Platzhalter */
+  /** Fiscaladresse in Spanien, Platzhalter */
   direccion: 'Calle Prudencio Morales 73, 35009 Las Palmas de Gran Canaria',
-  /** Kontakt — wird aus contact.* gespiegelt für Konsistenz */
+  /** Kontakt, wird aus contact.* gespiegelt für Konsistenz */
   email: 'hola@carmenbereiter.com',
   telefono: '+34 627 63 12 57',
   /** Datum der letzten Aktualisierung (für Política de Privacidad sichtbar) */
   fechaActualizacion: '2026-05-26',
-  /** Hosting-Anbieter (wenn bekannt) — sonst leer lassen */
+  /** Hosting-Anbieter (wenn bekannt), sonst leer lassen */
   hostingProveedor: '',
 } as const;

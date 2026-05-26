@@ -11,7 +11,7 @@ const { testimonial, variant = 'card' } = Astro.props;
 
 <figure
   class:list={[
-    'relative',
+    'relative flex h-full flex-col',
     variant === 'card' && 'rounded-[1.25rem] border border-line bg-cream-soft p-6 shadow-[0_2px_24px_-12px_rgba(26,31,29,0.12)] sm:rounded-[1.5rem] sm:p-8 md:p-10',
     variant === 'plain' && 'py-6 sm:py-8',
   ]}
@@ -40,7 +40,7 @@ const { testimonial, variant = 'card' } = Astro.props;
     {testimonial.quote}
   </blockquote>
 
-  <figcaption class="mt-5 flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-taupe sm:mt-6 sm:gap-3 sm:text-xs">
+  <figcaption class="mt-auto flex items-center gap-2 pt-5 text-[11px] uppercase tracking-[0.22em] text-taupe sm:gap-3 sm:pt-6 sm:text-xs">
     <span class="h-px w-5 bg-clay sm:w-6"></span>
     <span class="text-ink-soft">{testimonial.name}</span>
     <span>·</span>
