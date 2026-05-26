@@ -107,14 +107,57 @@ const featuredTestimonials = testimonials.slice(0, 3);
     </div>
   </section>
 
-  <!-- ─────────────── EMPFOHLEN VON ─────────────── -->
-  <section class="relative border-y border-line bg-cream-soft/40">
-    <div class="mx-auto max-w-7xl px-4 py-7 sm:px-6 sm:py-10 lg:px-12">
-      <div class="flex flex-col items-center justify-center gap-3 text-center sm:flex-row sm:gap-6">
-        <span class="text-[10px] uppercase tracking-[0.28em] text-taupe sm:text-xs">Empfohlen von</span>
-        <span class="font-display text-base text-taupe sm:text-xl md:text-2xl" style="font-variation-settings: 'opsz' 48;">
-          Dr. Biyon · Torben Platzer · Kirsten Bühne
-        </span>
+  <!-- ─────────────── BRAND-AFFIRMATION ─────────────── -->
+  <section class="relative border-y border-line bg-cream-soft">
+    <div class="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-16 lg:py-20">
+      <p
+        class="font-display text-2xl text-ink sm:text-3xl"
+        style="font-variation-settings: 'opsz' 72;"
+      >
+        {site.name}
+      </p>
+      <p
+        class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-ink-soft text-pretty sm:mt-6 sm:text-lg"
+      >
+        Coach & Mentorin mit Herz, Klarheit und höchster Professionalität.
+        Für echte Veränderung, die bleibt.
+      </p>
+
+      <div class="mx-auto mt-8 flex items-center justify-center gap-3 sm:mt-10">
+        <span class="h-px w-8 bg-clay"></span>
+        <span class="text-[10px] uppercase tracking-[0.28em] text-taupe sm:text-xs">Vertrauen</span>
+        <span class="h-px w-8 bg-clay"></span>
+      </div>
+      <p class="mx-auto mt-5 max-w-md text-sm leading-relaxed text-taupe sm:text-base">
+        Vertrauen von starken Marken und erstklassigen Resorts.
+      </p>
+
+      <!-- Brand-Logos: einheitliche Box, object-contain skaliert nach Bedarf -->
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:mt-12 sm:gap-x-14 lg:gap-x-20">
+        <div class="flex h-14 w-36 items-center justify-center sm:h-16 sm:w-44">
+          <img
+            src="/images/562e9b0c-3a08-4277-b037-7d1b16337b47.webp"
+            alt="WOMAN Magazin"
+            loading="lazy"
+            class="max-h-full max-w-full object-contain opacity-70 transition-opacity hover:opacity-100"
+          />
+        </div>
+        <div class="flex h-14 w-36 items-center justify-center sm:h-16 sm:w-44">
+          <img
+            src="/images/IMG_4950.webp"
+            alt="Santa Catalina, a Royal Hideaway Hotel"
+            loading="lazy"
+            class="max-h-full max-w-full object-contain opacity-70 transition-opacity hover:opacity-100"
+          />
+        </div>
+        <div class="flex h-14 w-36 items-center justify-center sm:h-16 sm:w-44">
+          <img
+            src="/images/IMG_4961.webp"
+            alt="Salobre Hotel Resort & Serenity"
+            loading="lazy"
+            class="max-h-full max-w-full object-contain opacity-70 transition-opacity hover:opacity-100"
+          />
+        </div>
       </div>
     </div>
   </section>
