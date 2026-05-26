@@ -94,7 +94,7 @@ export const programs: Program[] = [
     duration: '7 Wochen',
     format: 'Online · 1× pro Woche',
     price: 'Auf Anfrage',
-    image: '/images/7-Wochen-Coaching_Google-scaled.jpg',
+    image: '/images/7-Wochen-Coaching_Google-scaled.webp',
     contactMessage:
       'Hallo Carmen, ich interessiere mich für GRANDIOS — das 7-Wochen-Coaching.',
   },
@@ -114,7 +114,7 @@ export const programs: Program[] = [
     duration: '12 Wochen',
     format: 'Online · optional Vor-Ort',
     price: 'Preis auf Anfrage',
-    image: '/images/carmen-bereiter_coaching-mentoring_unique-mentoring.png',
+    image: '/images/carmen-bereiter_coaching-mentoring_unique-mentoring.webp',
     contactMessage:
       'Hallo Carmen, ich interessiere mich für die exklusive 1:1 Begleitung (Unique Mentoring).',
   },
@@ -134,7 +134,7 @@ export const programs: Program[] = [
     duration: '4 Tage / 3 Nächte',
     format: 'Vor Ort · Gran Canaria',
     price: 'Termine auf Anfrage',
-    image: '/images/dive-deep-group-exp-portait-2-Kopie-1024x683.jpg',
+    image: '/images/dive-deep-group-exp-portait-2-Kopie-1024x683.webp',
     contactMessage:
       'Hallo Carmen, ich interessiere mich für das Live-Event auf Gran Canaria.',
   },
@@ -240,21 +240,21 @@ export const endorsements: Endorsement[] = [
   {
     name: 'Dr. Biyon Kattilathu',
     role: 'Speaker & Bestsellerautor',
-    image: '/images/Dr-Biyon-Kattilathu-763x1024-1.jpeg',
+    image: '/images/Dr-Biyon-Kattilathu-763x1024-1.webp',
     quote:
       'Carmen ist einer der empathischsten und ehrlichsten Menschen, die ich kenne. Ihre große Gabe, anderen Menschen zu einem glücklicheren und erfolgreichen Leben zu verhelfen, macht sie ganz besonders.',
   },
   {
     name: 'Kirsten Bühne',
     role: 'CEO',
-    image: '/images/CEObabe-12-Kopie.jpg',
+    image: '/images/CEObabe-12-Kopie.webp',
     quote:
       'Carmens Aura ist so herzlich, warm und natürlich, sodass sich jeder bei ihr sicher und verstanden fühlt. Mit großer Leichtigkeit verbindet sie ihre Kunden mit ihrer wahren Essenz.',
   },
   {
     name: 'Torben Platzer',
     role: 'Unternehmer & Coach',
-    image: '/images/Torben-Platzer-836x1024-1.jpeg',
+    image: '/images/Torben-Platzer-836x1024-1.webp',
     quote:
       'Als Carmen das erste Mal bei mir beim Round Table saß, hat sie mit ihrer Ausstrahlung und Energie jeden in ihren Bann gezogen. Ich kann ihr Mentoring sehr empfehlen.',
   },
@@ -266,7 +266,7 @@ export const endorsements: Endorsement[] = [
 export const press = [
   {
     name: 'WOMAN Magazin',
-    image: '/images/562e9b0c-3a08-4277-b037-7d1b16337b47.jpg',
+    image: '/images/562e9b0c-3a08-4277-b037-7d1b16337b47.webp',
   },
 ];
 
