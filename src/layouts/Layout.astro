@@ -29,6 +29,13 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <title>{title}</title>
+    {import.meta.env.PROD && (
+      <script
+        defer
+        src="https://analytics.pulpo.cloud/script.js"
+        data-website-id="a9ff2541-b307-4e33-953e-c9a2f799c27a"
+      ></script>
+    )}
   </head>
   <body class="bg-cream text-ink antialiased">
     <div class="bg-grain fixed inset-0 -z-10 opacity-70" aria-hidden="true"></div>
