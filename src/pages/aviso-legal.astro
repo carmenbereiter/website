@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { site, legal } from '../config';
+
+const siteUrl = Astro.site?.origin ?? '';
 ---
 
 <Layout
@@ -59,7 +61,7 @@ import { site, legal } from '../config';
           </div>
           <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
             <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Sitio web</dt>
-            <dd class="text-base text-ink-soft">{site.url}</dd>
+            <dd class="text-base text-ink-soft">{siteUrl}</dd>
           </div>
         </dl>
       </section>
@@ -69,7 +71,7 @@ import { site, legal } from '../config';
           2. Objeto y ámbito de aplicación
         </h2>
         <p class="mt-4 text-base leading-relaxed text-ink-soft">
-          El presente Aviso Legal regula el uso del sitio web {site.url} (en
+          El presente Aviso Legal regula el uso del sitio web {siteUrl} (en
           adelante, "el Sitio Web"), titularidad de {legal.titular}. La
           navegación por el Sitio Web atribuye la condición de Usuario e
           implica la aceptación plena y sin reservas de todas las disposiciones

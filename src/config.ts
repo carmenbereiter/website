@@ -16,7 +16,6 @@ export const site = {
   tagline: 'Klarheit. Mut. Veränderung, die bleibt.',
   description:
     'Persönliches Coaching & Mentoring mit Herz, Klarheit und höchster Professionalität. Für Menschen, die ihren nächsten Schritt gehen wollen.',
-  url: 'https://carmenbereiter.com',
 } as const;
 
 export const location = {
