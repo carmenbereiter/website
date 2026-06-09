@@ -138,7 +138,7 @@ export const programs: Program[] = [
     price: 'Termine auf Anfrage',
     image: '/images/dive-deep-group-exp-portait-2-Kopie-1024x683.webp',
     contactMessage:
-      'Hallo Carmen, ich interessiere mich für das Live-Event auf Gran Canaria.',
+      'Hallo Carmen, ich interessiere mich für das Live-Event.',
   },
 ];
 

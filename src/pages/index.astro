@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
 import ProgramCard from '../components/ProgramCard.astro';
+import MassgeschneidertCTA from '../components/MassgeschneidertCTA.astro';
 import Testimonial from '../components/Testimonial.astro';
 import {
   site,
@@ -46,7 +47,7 @@ const featuredTestimonials = testimonials.slice(0, 3);
         >
           Ich begleite dich persönlich, ehrlich, klar und mit Herz
           dabei, deinen Weg zu gehen. Online, im 1:1, oder bei einem
-          Live-Event auf Gran Canaria.
+          Live-Event.
         </p>
 
         <div
@@ -246,6 +247,8 @@ const featuredTestimonials = testimonials.slice(0, 3);
           <ProgramCard program={program} index={i} />
         ))}
       </div>
+
+      <MassgeschneidertCTA bare class="mt-16 sm:mt-20 lg:mt-28" />
     </div>
   </section>
 

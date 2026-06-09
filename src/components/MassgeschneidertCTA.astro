@@ -1,0 +1,106 @@
+---
+/**
+ * Hervorgehobener Hinweis: maßgeschneiderte / individuelle Beratung.
+ * Wiederverwendet auf Startseite, /kontakt und /ueber-mich.
+ *
+ * Barrierefreiheit:
+ *  - eigene <section> mit aria-labelledby → als Landmark + per Überschrift
+ *    auffindbar (Screenreader-Rotor).
+ *  - echte <h2> statt gestyltem <p> → erscheint in der Überschriften-Navigation.
+ *  - sprechender Linktext ("Maßgeschneiderte Beratung anfragen") → isoliert
+ *    verständlich in der Link-Liste.
+ *  - dekorative Icons mit aria-hidden → keine doppelte Vorlese-Ansage.
+ *  - Kontrast cream-soft auf forest-deep erfüllt WCAG AA.
+ */
+import { Icon } from 'astro-icon/components';
+import { contact, whatsappUrl } from '../config';
+
+interface Props {
+  /** Äußere Abstände/Hintergrund der Section, je nach Einbettung. */
+  class?: string;
+  /**
+   * Ohne eigenen max-w-Container rendern – für die Einbettung in eine
+   * Section, die bereits einen `mx-auto max-w-7xl`-Wrapper mitbringt
+   * (z. B. auf der Startseite unter den Programmkarten).
+   */
+  bare?: boolean;
+}
+
+const { class: className = '', bare = false } = Astro.props;
+
+const anfrageText =
+  'Hallo Carmen, ich wünsche mir eine maßgeschneiderte Beratung, die genau zu meiner Situation passt. Können wir dazu sprechen?';
+---
+
+<section aria-labelledby="massgeschneidert-titel" class:list={['relative', className]}>
+  <div class:list={[bare ? 'contents' : 'mx-auto max-w-7xl px-4 sm:px-6 lg:px-12']}>
+    <div
+      class="relative overflow-hidden rounded-[1.5rem] border border-forest/20 bg-forest-deep text-cream-soft sm:rounded-[2rem]"
+    >
+      <!-- atmospheric glow -->
+      <div
+        class="pointer-events-none absolute -top-24 -right-20 h-72 w-72 rounded-full bg-forest/50 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-clay/15 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div
+        class="relative flex flex-col gap-8 p-7 sm:p-10 lg:flex-row lg:items-center lg:justify-between lg:gap-14 lg:p-14"
+      >
+        <div class="lg:max-w-xl">
+          <p
+            class="text-[11px] uppercase tracking-[0.24em] text-clay-soft sm:text-xs sm:tracking-[0.28em]"
+          >
+            Individuell &amp; flexibel
+          </p>
+          <h2
+            id="massgeschneidert-titel"
+            class="mt-3 font-display text-2xl leading-[1.15] text-cream-soft text-balance sm:mt-4 sm:text-3xl md:text-4xl"
+            style="font-variation-settings: 'opsz' 96, 'SOFT' 50;"
+          >
+            Nichts Passendes dabei? Lass es uns <span class="italic text-clay-soft"
+              >maßschneidern</span
+            >.
+          </h2>
+          <p
+            class="mt-4 max-w-xl text-sm leading-relaxed text-cream/70 text-pretty sm:mt-5 sm:text-base"
+          >
+            Jede Begleitung ist individuell. Wenn keines der Formate genau zu dir
+            passt, gestalten wir gemeinsam eine Beratung, die sich an deiner
+            Situation, deinem Tempo und deinen Zielen orientiert.
+          </p>
+        </div>
+
+        <div class="flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col">
+          <a
+            href={whatsappUrl(anfrageText)}
+            target="_blank"
+            rel="noopener"
+            class="group inline-flex items-center justify-center gap-2 rounded-full bg-clay px-6 py-3.5 text-sm text-ink transition-all duration-500 ease-out hover:bg-clay-soft sm:hover:gap-3"
+          >
+            <Icon name="simple-icons:whatsapp" class="size-4" aria-hidden="true" />
+            <span>Maßgeschneiderte Beratung anfragen</span>
+            <Icon
+              name="lucide:arrow-right"
+              class="size-4 transition-transform duration-500 sm:group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </a>
+          <a
+            href={contact.calendly.url}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-cream-soft/30 px-6 py-3.5 text-sm text-cream-soft transition-all duration-300 hover:border-cream-soft hover:bg-cream-soft/10"
+          >
+            Erstgespräch sichern
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
