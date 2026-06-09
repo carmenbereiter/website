@@ -110,8 +110,8 @@ export const programs: Program[] = [
     bullets: [
       '12 Wochen individuelles Mentoring auf höchstem Niveau',
       'Klarheit, Struktur und Fokus für Beruf und Leben',
-      'Optional: zwei Tage 1:1 in einem 5★ Resort auf Gran Canaria',
-      'Diskret, exklusiv, persönlich abgeholt vom Flughafen',
+      'Optional zubuchbar: zwei intensive 1:1 Tage auf Gran Canaria',
+      'Diskret, exklusiv, persönlich',
     ],
     duration: '12 Wochen',
     format: 'Online · optional Vor-Ort',
@@ -123,18 +123,18 @@ export const programs: Program[] = [
   {
     slug: 'live-events',
     eyebrow: 'RENACER',
-    title: 'Live-Events auf Gran Canaria',
+    title: 'Live-Events',
     subtitle: 'Exklusives Live-Erlebnis · Kleine Gruppe',
     short:
-      'Pure Energie, klare Impulse, echter Austausch. Drei Tage in einem 5★ Resort an inspirierenden Orten.',
+      'Pure Energie, klare Impulse, echter Austausch an inspirierenden Orten.',
     bullets: [
-      'Drei Übernachtungen in einem 5★ Resort inkl. Verpflegung',
+      'Inkl. Verpflegung während den Coaching-Zeiten',
       'Exklusives Mentoring an besonderen Locations',
       'Strategien für sichere Entscheidungen und nächste Schritte',
       'Innere Ruhe, Energie und Fokus, Werkzeuge für den Alltag',
     ],
-    duration: '4 Tage / 3 Nächte',
-    format: 'Vor Ort · Gran Canaria',
+    duration: '2 - 4 Tage',
+    format: 'Vor Ort',
     price: 'Termine auf Anfrage',
     image: '/images/dive-deep-group-exp-portait-2-Kopie-1024x683.webp',
     contactMessage:
