@@ -40,7 +40,7 @@ export const contact = {
     url: 'https://t.me/Carmen_Bereiter',
   },
   calendly: {
-    url: 'https://calendly.com/mentorincarmenbereiter/ihrerfolg2025',
+    url: 'https://calendly.com/deinticketzudeinerklarheit/mentorincarmenbereiter',
     label: 'Erstgespräch buchen',
   },
   email: 'hola@carmenbereiter.com',
@@ -259,7 +259,7 @@ export type Endorsement = {
 export const endorsements: Endorsement[] = [
   {
     name: 'Dr. Biyon Kattilathu',
-    role: 'Speaker & Bestsellerautor',
+    role: 'Motivationstrainer & Entertainer',
     image: '/images/Dr-Biyon-Kattilathu-763x1024-1.webp',
     quote:
       'Carmen ist einer der empathischsten und ehrlichsten Menschen, die ich kenne. Ihre große Gabe, anderen Menschen zu einem glücklicheren und erfolgreichen Leben zu verhelfen, macht sie ganz besonders.',
@@ -273,7 +273,7 @@ export const endorsements: Endorsement[] = [
   },
   {
     name: 'Torben Platzer',
-    role: 'Unternehmer & Coach',
+    role: 'Unternehmer & Bestsellerautor',
     image: '/images/Torben-Platzer-836x1024-1.webp',
     quote:
       'Als Carmen das erste Mal bei mir beim Round Table saß, hat sie mit ihrer Ausstrahlung und Energie jeden in ihren Bann gezogen. Ich kann ihr Mentoring sehr empfehlen.',
