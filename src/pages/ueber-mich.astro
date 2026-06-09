@@ -1,26 +1,37 @@
 ---
-import { Icon } from 'astro-icon/components';
-import Layout from '../layouts/Layout.astro';
-import { site, contact, whatsappUrl } from '../config';
+import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
+import { site, contact, whatsappUrl } from "../config";
 ---
 
 <Layout title={`Über mich · ${site.name}`}>
   <!-- ─────────────── HERO ─────────────── -->
-  <section class="relative mx-auto max-w-7xl px-4 pb-12 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-12 lg:pb-24 lg:pt-20">
+  <section
+    class="relative mx-auto max-w-7xl px-4 pb-12 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-12 lg:pb-24 lg:pt-20"
+  >
     <div class="grid items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
       <div class="lg:col-span-7">
-        <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">Hola, ich bin Carmen</p>
+        <p
+          class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]"
+        >
+          Hola, ich bin Carmen
+        </p>
         <h1
           class="mt-4 font-display text-[clamp(2.25rem,7.5vw,4.6rem)] font-normal leading-[1.05] text-ink text-balance sm:mt-6"
           style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
         >
           Mentorin mit Herz, Klarheit und tiefem
-          <span class="italic text-forest" style="font-variation-settings: 'opsz' 144, 'SOFT' 100;">
+          <span
+            class="italic text-forest"
+            style="font-variation-settings: 'opsz' 144, 'SOFT' 100;"
+          >
             Vertrauen
           </span>
           ins Leben.
         </h1>
-        <p class="mt-5 max-w-xl text-base leading-relaxed text-ink-soft text-pretty sm:mt-8 sm:text-lg">
+        <p
+          class="mt-5 max-w-xl text-base leading-relaxed text-ink-soft text-pretty sm:mt-8 sm:text-lg"
+        >
           Gemeinsam und mit Hingabe begleite ich Menschen, ihr ganzheitliches
           Wachstum zu entfalten, innere Klarheit zu gewinnen und eine echte
           Verbindung mit dem Leben zu erleben.
@@ -35,7 +46,9 @@ import { site, contact, whatsappUrl } from '../config';
             class="pointer-events-none absolute -top-3 -right-3 z-0 h-20 w-auto opacity-90 sm:-top-4 sm:-right-4 sm:h-28"
             aria-hidden="true"
           />
-          <div class="relative overflow-hidden rounded-[1.5rem] bg-cream-deep shadow-[0_20px_50px_-20px_rgba(26,31,29,0.3)] sm:rounded-[2rem] sm:shadow-[0_30px_80px_-30px_rgba(26,31,29,0.35)]">
+          <div
+            class="relative overflow-hidden rounded-[1.5rem] bg-cream-deep shadow-[0_20px_50px_-20px_rgba(26,31,29,0.3)] sm:rounded-[2rem] sm:shadow-[0_30px_80px_-30px_rgba(26,31,29,0.35)]"
+          >
             <img
               src="/images/One-to-One-cabecera-Carmen-Bereiter-Coach.webp"
               alt={`Portrait von ${site.name}`}
@@ -50,25 +63,33 @@ import { site, contact, whatsappUrl } from '../config';
 
   <!-- ─────────────── WAS MICH LEITET ─────────────── -->
   <section class="relative border-y border-line bg-cream-soft/40">
-    <div class="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20 lg:px-12 lg:py-28">
-      <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">Was mich leitet</p>
+    <div
+      class="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20 lg:px-12 lg:py-28"
+    >
+      <p
+        class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]"
+      >
+        Was mich leitet
+      </p>
       <h2
         class="mt-4 font-display text-2xl leading-[1.2] text-ink sm:mt-6 sm:text-3xl md:text-5xl text-balance"
         style="font-variation-settings: 'opsz' 96, 'SOFT' 50;"
       >
-        Vertrauen, in das Leben, in mich selbst, in das, was nicht immer sichtbar, aber <span class="italic text-forest">fühlbar</span> ist.
+        Vertrauen, in das Leben, in mich selbst, in das, was nicht immer
+        sichtbar, aber <span class="italic text-forest">fühlbar</span> ist.
       </h2>
-      <div class="mt-7 space-y-5 text-base leading-relaxed text-ink-soft text-pretty sm:mt-10 sm:space-y-6 sm:text-lg">
+      <div
+        class="mt-7 space-y-5 text-base leading-relaxed text-ink-soft text-pretty sm:mt-10 sm:space-y-6 sm:text-lg"
+      >
         <p>
-          Meine Arbeit ist integrativ, intuitiv und tiefgehend. Es geht
-          nicht um schnelle oder oberflächliche Methoden, sondern um echte
-          Veränderung, die bei meinen Klienten spürbar und nachhaltig wirkt.
+          Meine Arbeit ist integrativ, intuitiv und tiefgehend. Es geht nicht um
+          schnelle oder oberflächliche Methoden, sondern um echte Veränderung,
+          die bei meinen Klienten spürbar und nachhaltig wirkt.
         </p>
         <p>
           Du musst nicht alles allein schaffen, und es gibt keinen perfekten
-          Zeitpunkt. Wenn du spürst, dass jetzt dein Moment ist, melde
-          dich ganz unverbindlich. Gemeinsam finden wir deinen Weg.
-          Schritt für Schritt.
+          Zeitpunkt. Wenn du spürst, dass jetzt dein Moment ist, melde dich ganz
+          unverbindlich. Gemeinsam finden wir deinen Weg. Schritt für Schritt.
         </p>
       </div>
     </div>
@@ -76,17 +97,25 @@ import { site, contact, whatsappUrl } from '../config';
 
   <!-- ─────────────── MEINE GESCHICHTE ─────────────── -->
   <section class="relative">
-    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-32">
+    <div
+      class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-32"
+    >
       <div class="grid gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
         <div class="lg:col-span-5">
-          <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">Meine Geschichte</p>
+          <p
+            class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]"
+          >
+            Meine Geschichte
+          </p>
           <h2
             class="mt-4 font-display text-3xl leading-[1.1] text-ink sm:mt-6 md:text-5xl text-balance"
             style="font-variation-settings: 'opsz' 96, 'SOFT' 50;"
           >
             Was mich <span class="italic text-forest">wirklich</span> geprägt hat.
           </h2>
-          <div class="mt-6 overflow-hidden rounded-[1.5rem] bg-cream-deep sm:mt-8 sm:rounded-[2rem]">
+          <div
+            class="mt-6 overflow-hidden rounded-[1.5rem] bg-cream-deep sm:mt-8 sm:rounded-[2rem]"
+          >
             <img
               src="/images/DSC_6130-2-14.13.23-scaled.webp"
               alt="Carmen Bereiter"
@@ -97,36 +126,51 @@ import { site, contact, whatsappUrl } from '../config';
         </div>
 
         <div class="lg:col-span-7 lg:pt-6">
-          <div class="space-y-5 text-base leading-relaxed text-ink-soft text-pretty sm:space-y-6 sm:text-lg">
+          <div
+            class="space-y-5 text-base leading-relaxed text-ink-soft text-pretty sm:space-y-6 sm:text-lg"
+          >
             <p>
-              Viele sehen mich als Frau mit Charisma, einem feinen Gespür
-              für Wohlfühlmomente und sichtbarem Erfolg. Doch hinter dem,
-              was sichtbar ist, liegt ein Weg, den man von außen selten sieht.
+              Viele sehen mich als Frau mit Charisma, einem feinen Gespür für
+              Wohlfühlmomente und sichtbarem Erfolg. Doch hinter dem, was
+              sichtbar ist, liegt ein Weg, den man von außen selten sieht.
             </p>
             <p>
-              Es gab eine Zeit, in der mir der Boden unter den Füßen
-              weggezogen wurde. Verluste, die ich nicht kommen sah und die
-              alles in Frage stellten, was vorher selbstverständlich war.
-              Vielleicht kennst du solche Momente — sie kommen oft
-              unerwartet und verändern, wie man auf das eigene Leben schaut.
+              Es gab eine Zeit, in der mir der Boden unter den Füßen weggezogen
+              wurde. Verluste, die ich nicht kommen sah und die alles in Frage
+              stellten, was vorher selbstverständlich war. Vielleicht kennst du
+              solche Momente — sie kommen oft unerwartet und verändern, wie man
+              auf das eigene Leben schaut.
             </p>
           </div>
 
           <div class="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-3 sm:gap-6">
-            <div class="rounded-2xl border border-line bg-cream-soft/60 p-5 sm:p-6">
-              <div class="text-[11px] uppercase tracking-[0.22em] text-clay">Kopf</div>
+            <div
+              class="rounded-2xl border border-line bg-cream-soft/60 p-5 sm:p-6"
+            >
+              <div class="text-[11px] uppercase tracking-[0.22em] text-clay">
+                Kopf
+              </div>
               <p class="mt-2 text-sm leading-relaxed text-ink-soft sm:mt-3">
-                Fundiertes Wissen und klare Struktur, Coaching, das nachvollziehbar ist.
+                Fundiertes Wissen und klare Struktur, Coaching, das
+                nachvollziehbar ist.
               </p>
             </div>
-            <div class="rounded-2xl border border-line bg-cream-soft/60 p-5 sm:p-6">
-              <div class="text-[11px] uppercase tracking-[0.22em] text-clay">Herz</div>
+            <div
+              class="rounded-2xl border border-line bg-cream-soft/60 p-5 sm:p-6"
+            >
+              <div class="text-[11px] uppercase tracking-[0.22em] text-clay">
+                Herz
+              </div>
               <p class="mt-2 text-sm leading-relaxed text-ink-soft sm:mt-3">
                 Empathie, Augenhöhe und der Mut, ehrlich hinzuschauen.
               </p>
             </div>
-            <div class="rounded-2xl border border-line bg-cream-soft/60 p-5 sm:p-6">
-              <div class="text-[11px] uppercase tracking-[0.22em] text-clay">Seele</div>
+            <div
+              class="rounded-2xl border border-line bg-cream-soft/60 p-5 sm:p-6"
+            >
+              <div class="text-[11px] uppercase tracking-[0.22em] text-clay">
+                Seele
+              </div>
               <p class="mt-2 text-sm leading-relaxed text-ink-soft sm:mt-3">
                 Veränderung, die von innen wirkt und langfristig bleibt.
               </p>
@@ -137,17 +181,163 @@ import { site, contact, whatsappUrl } from '../config';
     </div>
   </section>
 
+  <!-- ─────────────── FÜR UNTERNEHMEN ─────────────── -->
+  <section class="relative overflow-hidden bg-forest-deep text-cream-soft">
+    <!-- atmospheric glow -->
+    <div
+      class="pointer-events-none absolute -top-28 -right-24 h-72 w-72 rounded-full bg-forest/50 blur-3xl"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute -bottom-32 -left-24 h-80 w-80 rounded-full bg-clay/15 blur-3xl"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div
+      class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-12 lg:py-32"
+    >
+      <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-5">
+          <p
+            class="text-[11px] uppercase tracking-[0.24em] text-clay-soft sm:text-xs sm:tracking-[0.28em]"
+          >
+            Auch im Business
+          </p>
+          <h2
+            class="mt-4 font-display text-3xl leading-[1.1] text-cream-soft sm:mt-6 md:text-5xl text-balance"
+            style="font-variation-settings: 'opsz' 96, 'SOFT' 50;"
+          >
+            Stärke beginnt bei den <span class="italic text-clay-soft"
+              >Menschen</span
+            >, die ein Unternehmen tragen.
+          </h2>
+          <p
+            class="mt-6 max-w-md text-base leading-relaxed text-cream/70 text-pretty sm:mt-8 sm:text-lg"
+          >
+            Meine Arbeit endet nicht beim Einzelnen. Ich begleite auch
+            UnternehmerInnen, Führungskräfte und Firmen, und coache auch die
+            Mitarbeitenden, die ein Unternehmen jeden Tag mit Leben füllen.
+          </p>
+          <a
+            href={whatsappUrl()}
+            target="_blank"
+            rel="noopener"
+            class="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-cream-soft transition-colors hover:text-clay-soft sm:mt-10"
+          >
+            <span
+              class="border-b border-cream/30 pb-0.5 transition-colors group-hover:border-clay-soft"
+              >Unverbindlich anfragen</span
+            >
+            <Icon
+              name="lucide:arrow-up-right"
+              class="size-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </a>
+        </div>
+
+        <div class="lg:col-span-7 lg:pt-2">
+          <ol class="border-t border-cream/10">
+            <li
+              class="group flex gap-5 border-b border-cream/10 py-6 sm:gap-8 sm:py-8"
+            >
+              <span
+                class="font-display text-2xl leading-none text-clay-soft/70 transition-colors group-hover:text-clay-soft sm:text-3xl"
+                style="font-variation-settings: 'opsz' 48;">01</span
+              >
+              <div
+                class="transition-transform duration-500 ease-out group-hover:translate-x-1"
+              >
+                <h3
+                  class="font-display text-xl text-cream-soft sm:text-2xl"
+                  style="font-variation-settings: 'opsz' 48, 'SOFT' 50;"
+                >
+                  UnternehmerInnen &amp; Führungskräfte
+                </h3>
+                <p
+                  class="mt-2 text-sm leading-relaxed text-cream/60 text-pretty sm:text-base"
+                >
+                  Klarheit in Entscheidungen, Resilienz unter Druck und eine
+                  Führung, die aus innerer Stärke kommt statt aus Erschöpfung.
+                </p>
+              </div>
+            </li>
+            <li
+              class="group flex gap-5 border-b border-cream/10 py-6 sm:gap-8 sm:py-8"
+            >
+              <span
+                class="font-display text-2xl leading-none text-clay-soft/70 transition-colors group-hover:text-clay-soft sm:text-3xl"
+                style="font-variation-settings: 'opsz' 48;">02</span
+              >
+              <div
+                class="transition-transform duration-500 ease-out group-hover:translate-x-1"
+              >
+                <h3
+                  class="font-display text-xl text-cream-soft sm:text-2xl"
+                  style="font-variation-settings: 'opsz' 48, 'SOFT' 50;"
+                >
+                  Teams &amp; Firmen
+                </h3>
+                <p
+                  class="mt-2 text-sm leading-relaxed text-cream/60 text-pretty sm:text-base"
+                >
+                  Eine Kultur, die trägt: Zusammenarbeit, die auf echtem
+                  Vertrauen und einer gemeinsamen Ausrichtung wächst.
+                </p>
+              </div>
+            </li>
+            <li
+              class="group flex gap-5 border-b border-cream/10 py-6 sm:gap-8 sm:py-8"
+            >
+              <span
+                class="font-display text-2xl leading-none text-clay-soft/70 transition-colors group-hover:text-clay-soft sm:text-3xl"
+                style="font-variation-settings: 'opsz' 48;">03</span
+              >
+              <div
+                class="transition-transform duration-500 ease-out group-hover:translate-x-1"
+              >
+                <h3
+                  class="font-display text-xl text-cream-soft sm:text-2xl"
+                  style="font-variation-settings: 'opsz' 48, 'SOFT' 50;"
+                >
+                  Mitarbeiter-Coaching
+                </h3>
+                <p
+                  class="mt-2 text-sm leading-relaxed text-cream/60 text-pretty sm:text-base"
+                >
+                  Persönliche Begleitung für die Menschen, die den Unterschied
+                  machen, in Veränderung, Wachstum und neuen Rollen.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─────────────── CTA ─────────────── -->
   <section class="relative border-t border-line bg-cream-soft/60">
-    <div class="mx-auto max-w-4xl px-4 py-14 text-center sm:px-6 sm:py-20 lg:px-12 lg:py-28">
-      <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">Bereit?</p>
+    <div
+      class="mx-auto max-w-4xl px-4 py-14 text-center sm:px-6 sm:py-20 lg:px-12 lg:py-28"
+    >
+      <p
+        class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]"
+      >
+        Bereit?
+      </p>
       <h2
         class="mx-auto mt-4 max-w-3xl font-display text-3xl leading-[1.1] text-ink sm:mt-6 sm:text-4xl md:text-5xl text-balance"
         style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
       >
-        Wenn du fühlst, dass dein Moment <span class="italic text-forest">jetzt</span> ist, schreib mir.
+        Wenn du fühlst, dass dein Moment <span class="italic text-forest"
+          >jetzt</span
+        > ist, schreib mir.
       </h2>
-      <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
+      <div
+        class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4"
+      >
         <a
           href={whatsappUrl()}
           target="_blank"
@@ -156,7 +346,10 @@ import { site, contact, whatsappUrl } from '../config';
         >
           <Icon name="simple-icons:whatsapp" class="size-5" />
           <span>Auf WhatsApp schreiben</span>
-          <Icon name="lucide:arrow-right" class="size-4 transition-transform duration-500 sm:group-hover:translate-x-1" />
+          <Icon
+            name="lucide:arrow-right"
+            class="size-4 transition-transform duration-500 sm:group-hover:translate-x-1"
+          />
         </a>
         <a
           href={contact.calendly.url}
