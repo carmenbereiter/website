@@ -59,7 +59,7 @@ const waUrl = whatsappUrl(t.common.whatsappDefault);
         aria-expanded="false"
         aria-controls="lang-menu"
         aria-label={t.header.langLabel}
-        class="group inline-flex items-center gap-1.5 rounded-full border border-ink/15 bg-cream-soft px-3 py-2 text-ink transition-colors hover:border-forest"
+        class="group inline-flex items-center gap-1.5 rounded-full px-2.5 py-2 text-ink-soft transition-colors hover:bg-cream-soft hover:text-forest aria-expanded:bg-cream-soft"
       >
         <Icon name="lucide:globe" class="size-4 text-taupe transition-colors group-hover:text-forest" />
         <span class="text-[11px] font-medium uppercase tracking-[0.12em]">{lang}</span>
@@ -226,7 +226,7 @@ const waUrl = whatsappUrl(t.common.whatsappDefault);
     </nav>
 
     <!-- Footer in menu: E-Mail + Sprachauswahl ganz unten -->
-    <div class="flex items-center justify-between gap-4 border-t border-line px-5 py-5">
+    <div class="flex items-center justify-between gap-4 border-t border-line px-5 py-2.5">
       <a
         href={`mailto:${contact.email}`}
         class="truncate text-xs text-taupe transition-colors hover:text-forest"
@@ -244,7 +244,7 @@ const waUrl = whatsappUrl(t.common.whatsappDefault);
                 hreflang={l.lang}
                 aria-current={l.isCurrent ? 'true' : undefined}
                 class:list={[
-                  'rounded-md px-1.5 py-1 transition-colors',
+                  'inline-flex min-h-11 items-center rounded-lg px-3 transition-colors',
                   l.isCurrent
                     ? 'font-medium text-forest'
                     : 'text-taupe hover:text-forest',
