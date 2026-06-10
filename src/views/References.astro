@@ -1,0 +1,88 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '../layouts/Layout.astro';
+import Testimonial from '../components/Testimonial.astro';
+import { whatsappUrl, contact } from '../config';
+import { getLang, useTranslations, getTestimonials, type Lang } from '../i18n';
+import { referencesJsonLd } from '../lib/seo';
+
+interface Props {
+  lang?: Lang;
+}
+
+const lang = Astro.props.lang ?? getLang(Astro.currentLocale);
+const t = useTranslations(lang);
+const p = t.pages.references;
+const testimonials = getTestimonials(lang);
+const waUrl = whatsappUrl(t.common.whatsappDefault);
+---
+
+<Layout lang={lang} routeKey="references" title={p.metaTitle} description={p.metaDescription} jsonLd={referencesJsonLd(lang, Astro.site)}>
+  <!-- ─────────────── HERO ─────────────── -->
+  <section class="relative mx-auto max-w-5xl px-4 pb-12 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-12 lg:pb-20 lg:pt-20">
+    <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">{p.hero.eyebrow}</p>
+    <h1
+      class="mt-4 font-display text-[clamp(2.25rem,7.5vw,5rem)] font-normal leading-[1.05] text-ink text-balance sm:mt-6"
+      style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+      set:html={p.hero.titleHtml}
+    />
+    <p class="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft text-pretty sm:mt-6 sm:text-lg">
+      {p.hero.body}
+    </p>
+  </section>
+
+  <!-- ─────────────── ALLE STIMMEN, Mauerwerk-Layout ─────────────── -->
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-12 lg:pb-32">
+      <div class="columns-1 gap-5 sm:gap-6 md:columns-2 lg:columns-3">
+        {testimonials.map((tst) => (
+          <div class="mb-5 break-inside-avoid sm:mb-6">
+            <Testimonial testimonial={tst} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── CTA ─────────────── -->
+  <section class="relative overflow-hidden bg-forest text-cream-soft">
+    <div class="pointer-events-none absolute -right-24 -top-24 opacity-25 sm:-right-32 sm:-top-32" aria-hidden="true">
+      <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
+        <circle cx="250" cy="250" r="200" stroke="var(--color-clay-soft)" stroke-width="1" />
+        <circle cx="250" cy="250" r="140" stroke="var(--color-clay-soft)" stroke-width="0.8" />
+        <circle cx="250" cy="250" r="80" stroke="var(--color-clay-soft)" stroke-width="0.6" />
+      </svg>
+    </div>
+
+    <div class="relative mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-12 lg:py-32">
+      <p class="text-[11px] uppercase tracking-[0.24em] text-clay-soft sm:text-xs sm:tracking-[0.28em]">{p.finalCta.eyebrow}</p>
+      <h2
+        class="mx-auto mt-4 max-w-3xl font-display text-3xl leading-[1.1] sm:mt-6 sm:text-4xl md:text-5xl text-balance"
+        style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+        set:html={p.finalCta.titleHtml}
+      />
+      <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener"
+          class="group inline-flex items-center justify-center gap-2 rounded-full bg-clay px-6 py-4 text-ink transition-all duration-500 ease-out hover:bg-clay-soft sm:hover:gap-3"
+        >
+          <Icon name="simple-icons:whatsapp" class="size-5" />
+          <span>{p.finalCta.ctaPrimary}</span>
+          <Icon name="lucide:arrow-right" class="size-4 transition-transform duration-500 sm:group-hover:translate-x-1" />
+        </a>
+        <a
+          href={contact.telegram.url}
+          target="_blank"
+          rel="noopener"
+          class="group inline-flex items-center justify-center gap-2 rounded-full bg-clay px-6 py-4 text-ink transition-all duration-500 ease-out hover:bg-clay-soft sm:hover:gap-3"
+        >
+          <Icon name="simple-icons:telegram" class="size-5" />
+          <span>{p.finalCta.ctaSecondary}</span>
+          <Icon name="lucide:arrow-right" class="size-4 transition-transform duration-500 sm:group-hover:translate-x-1" />
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

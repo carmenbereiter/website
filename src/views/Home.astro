@@ -1,0 +1,347 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '../layouts/Layout.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import MassgeschneidertCTA from '../components/MassgeschneidertCTA.astro';
+import Testimonial from '../components/Testimonial.astro';
+import { site, contact, whatsappUrl } from '../config';
+import {
+  getLang,
+  useTranslations,
+  getPrograms,
+  getTestimonials,
+  getEndorsements,
+  localizedPath,
+  type Lang,
+} from '../i18n';
+import { homeJsonLd } from '../lib/seo';
+
+interface Props {
+  lang?: Lang;
+}
+
+const lang = Astro.props.lang ?? getLang(Astro.currentLocale);
+const t = useTranslations(lang);
+const p = t.pages.home;
+const programs = getPrograms(lang);
+const endorsements = getEndorsements(lang);
+const featuredTestimonials = getTestimonials(lang).slice(0, 3);
+const waUrl = whatsappUrl(t.common.whatsappDefault);
+const num = (i: number) => String(i + 1).padStart(2, '0');
+---
+
+<Layout
+  lang={lang}
+  routeKey="home"
+  title={p.metaTitle}
+  description={p.metaDescription}
+  jsonLd={homeJsonLd(lang, Astro.site)}
+>
+  <!-- ─────────────── HERO ─────────────── -->
+  <section class="relative mx-auto max-w-7xl px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-10 lg:px-12 lg:pb-32 lg:pt-20">
+    <div class="relative z-10 grid items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-7">
+        <p
+          class="rise mb-5 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-taupe sm:mb-7 sm:text-xs sm:tracking-[0.28em]"
+          style="animation-delay: 0.05s;"
+        >
+          <span class="h-px w-6 bg-clay sm:w-8"></span>
+          {p.hero.eyebrow}
+        </p>
+
+        <h1
+          class="rise font-display text-[clamp(2.25rem,8.5vw,5.5rem)] font-normal leading-[1.05] text-ink text-balance"
+          style="animation-delay: 0.15s; font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+          set:html={p.hero.titleHtml}
+        />
+
+        <p
+          class="rise mt-5 max-w-xl text-base leading-relaxed text-ink-soft text-pretty sm:mt-7 sm:text-lg md:text-xl"
+          style="animation-delay: 0.3s;"
+        >
+          {p.hero.body}
+        </p>
+
+        <div
+          class="rise mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4"
+          style="animation-delay: 0.45s;"
+        >
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener"
+            class="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-forest px-6 py-4 text-base text-cream-soft transition-all duration-500 ease-out hover:bg-forest-deep sm:w-auto sm:px-7 sm:hover:gap-5"
+          >
+            <Icon name="simple-icons:whatsapp" class="size-5 sm:size-[18px]" />
+            <span>{p.hero.ctaPrimary}</span>
+            <Icon name="lucide:arrow-right" class="size-[18px] transition-transform duration-500 sm:group-hover:translate-x-1" />
+          </a>
+          <a
+            href={contact.calendly.url}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-ink/15 bg-cream-soft px-6 py-4 text-ink transition-all duration-300 hover:border-forest sm:w-auto"
+          >
+            {p.hero.ctaSecondary}
+          </a>
+        </div>
+
+        <p
+          class="rise mt-5 text-sm text-taupe sm:mt-6"
+          style="animation-delay: 0.55s;"
+        >
+          {p.hero.note}
+        </p>
+      </div>
+
+      <!-- Portrait -->
+      <div
+        class="rise relative lg:col-span-5"
+        style="animation-delay: 0.4s;"
+      >
+        <div class="relative mx-auto max-w-sm sm:max-w-md">
+          <div class="relative overflow-hidden rounded-[1.5rem] bg-cream-deep shadow-[0_20px_50px_-20px_rgba(26,31,29,0.3)] sm:rounded-[2rem] sm:shadow-[0_30px_80px_-30px_rgba(26,31,29,0.35)]">
+            <img
+              src="/images/DSC_6300-14.13.23-scaled.webp"
+              alt={p.hero.portraitAlt}
+              class="aspect-[4/5] w-full object-cover"
+              fetchpriority="high"
+            />
+          </div>
+          <!-- Floating badge -->
+          <div class="absolute -bottom-4 right-2 max-w-[180px] rounded-2xl bg-forest p-3.5 text-cream-soft shadow-xl sm:-bottom-5 sm:-right-6 sm:max-w-[200px] sm:p-4">
+            <div class="text-[10px] uppercase tracking-[0.22em] text-clay-soft">{p.hero.badgeKicker}</div>
+            <div class="mt-1 font-display text-base leading-tight sm:text-lg" style="font-variation-settings: 'opsz' 48;">
+              {p.hero.badgeText}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── BRAND-AFFIRMATION ─────────────── -->
+  <section class="relative border-y border-line bg-cream-soft">
+    <div class="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-16 lg:py-20">
+      <p
+        class="font-display text-2xl text-ink sm:text-3xl"
+        style="font-variation-settings: 'opsz' 72;"
+      >
+        {site.name}
+      </p>
+      <p
+        class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-ink-soft text-pretty sm:mt-6 sm:text-lg"
+      >
+        {p.brand.tagline}
+      </p>
+
+      <div class="mx-auto mt-8 flex items-center justify-center gap-3 sm:mt-10">
+        <span class="h-px w-8 bg-clay"></span>
+        <span class="text-[10px] uppercase tracking-[0.28em] text-taupe sm:text-xs">{p.brand.trustLabel}</span>
+        <span class="h-px w-8 bg-clay"></span>
+      </div>
+      <p class="mx-auto mt-5 max-w-md text-sm leading-relaxed text-taupe sm:text-base">
+        {p.brand.trustText}
+      </p>
+
+      <!-- Brand-Logos -->
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:mt-12 sm:gap-x-14 lg:gap-x-20">
+        <div class="flex h-14 w-36 items-center justify-center sm:h-16 sm:w-44">
+          <img
+            src="/images/562e9b0c-3a08-4277-b037-7d1b16337b47.webp"
+            alt="WOMAN Magazin"
+            loading="lazy"
+            class="max-h-full max-w-full object-contain opacity-70 transition-opacity hover:opacity-100"
+          />
+        </div>
+        <div class="flex h-14 w-36 items-center justify-center sm:h-16 sm:w-44">
+          <img
+            src="/images/IMG_4950.webp"
+            alt="Santa Catalina, a Royal Hideaway Hotel"
+            loading="lazy"
+            class="max-h-full max-w-full object-contain opacity-70 transition-opacity hover:opacity-100"
+          />
+        </div>
+        <div class="flex h-14 w-36 items-center justify-center sm:h-16 sm:w-44">
+          <img
+            src="/images/IMG_4961.webp"
+            alt="Salobre Hotel Resort & Serenity"
+            loading="lazy"
+            class="max-h-full max-w-full object-contain opacity-70 transition-opacity hover:opacity-100"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── WAS ICH TUE ─────────────── -->
+  <section id="ansatz" class="relative">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-32">
+      <div class="grid gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-5">
+          <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">{p.approach.eyebrow}</p>
+          <h2
+            class="mt-4 font-display text-3xl leading-[1.1] text-ink sm:mt-6 sm:text-4xl md:text-6xl text-balance"
+            style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+            set:html={p.approach.titleHtml}
+          />
+          <p class="mt-5 max-w-md text-base leading-relaxed text-ink-soft sm:mt-6">
+            {p.approach.body}
+          </p>
+        </div>
+
+        <ol class="lg:col-span-7 divide-y divide-line">
+          {p.approach.steps.map((step, i) => (
+            <li class="group grid grid-cols-[auto_1fr] items-baseline gap-5 py-6 first:pt-0 sm:gap-8 sm:py-8">
+              <span class="font-display text-xl text-clay sm:text-2xl">{num(i)}</span>
+              <div>
+                <h3 class="font-display text-2xl text-ink sm:text-3xl md:text-4xl" style="font-variation-settings: 'opsz' 72;">
+                  {step.title}
+                </h3>
+                <p class="mt-2 max-w-xl text-base leading-relaxed text-ink-soft sm:mt-3">
+                  {step.body}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── PROGRAMME ─────────────── -->
+  <section id="programme" class="relative border-t border-line bg-cream-soft/60">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-32">
+      <div class="mb-12 max-w-2xl sm:mb-16 lg:mb-24">
+        <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">{p.programsSection.eyebrow}</p>
+        <h2
+          class="mt-4 font-display text-3xl leading-[1.1] text-ink sm:mt-6 sm:text-4xl md:text-6xl text-balance"
+          style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+          set:html={p.programsSection.titleHtml}
+        />
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-ink-soft text-pretty sm:mt-6 sm:text-lg">
+          {p.programsSection.body}
+        </p>
+      </div>
+
+      <div class="space-y-16 sm:space-y-20 lg:space-y-32">
+        {programs.map((program, i) => (
+          <ProgramCard program={program} index={i} />
+        ))}
+      </div>
+
+      <MassgeschneidertCTA bare class="mt-16 sm:mt-20 lg:mt-28" />
+    </div>
+  </section>
+
+  <!-- ─────────────── EMPFEHLUNGEN ─────────────── -->
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-32">
+      <div class="mb-10 max-w-2xl sm:mb-12">
+        <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">{p.endorsementsSection.eyebrow}</p>
+        <h2
+          class="mt-4 font-display text-3xl leading-[1.15] text-ink sm:mt-6 md:text-5xl text-balance"
+          style="font-variation-settings: 'opsz' 96, 'SOFT' 50;"
+          set:html={p.endorsementsSection.titleHtml}
+        />
+      </div>
+
+      <div class="grid gap-5 sm:gap-6 md:grid-cols-3">
+        {endorsements.map((e) => (
+          <figure class="group flex flex-col overflow-hidden rounded-[1.25rem] border border-line bg-cream-soft sm:rounded-[1.5rem]">
+            <div class="relative aspect-[4/5] overflow-hidden bg-cream-deep">
+              <img
+                src={e.image}
+                alt={e.name}
+                loading="lazy"
+                class="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+              />
+            </div>
+            <figcaption class="flex flex-1 flex-col p-6 sm:p-7">
+              <blockquote class="text-sm leading-relaxed text-ink-soft text-pretty">
+                „{e.quote}"
+              </blockquote>
+              <div class="mt-auto border-t border-line pt-5 sm:pt-6">
+                <div class="font-display text-lg text-ink" style="font-variation-settings: 'opsz' 48;">
+                  {e.name}
+                </div>
+                {e.role && <div class="text-xs uppercase tracking-[0.22em] text-taupe">{e.role}</div>}
+              </div>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── KUNDEN-STIMMEN ─────────────── -->
+  <section class="relative border-t border-line bg-cream-soft/40">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-32">
+      <div class="mb-10 flex flex-col items-baseline justify-between gap-5 sm:mb-12 sm:flex-row sm:gap-6">
+        <div class="max-w-xl">
+          <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">{p.voices.eyebrow}</p>
+          <h2
+            class="mt-4 font-display text-3xl leading-[1.15] text-ink sm:mt-6 md:text-5xl text-balance"
+            style="font-variation-settings: 'opsz' 96, 'SOFT' 50;"
+            set:html={p.voices.titleHtml}
+          />
+        </div>
+        <a
+          href={localizedPath('references', lang)}
+          class="group inline-flex items-center gap-2 text-sm text-ink underline decoration-line decoration-1 underline-offset-[6px] transition-all hover:decoration-clay"
+        >
+          {p.voices.allLink}
+          <Icon name="lucide:arrow-right" class="size-4 transition-transform group-hover:translate-x-1" />
+        </a>
+      </div>
+
+      <div class="grid gap-5 sm:gap-6 md:grid-cols-3">
+        {featuredTestimonials.map((tst) => (
+          <Testimonial testimonial={tst} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── SCHLUSS-CTA → /kontakt ─────────────── -->
+  <section class="relative overflow-hidden bg-forest text-cream-soft">
+    <div class="pointer-events-none absolute -right-24 -top-24 opacity-25 sm:-right-32 sm:-top-32" aria-hidden="true">
+      <svg width="560" height="560" viewBox="0 0 560 560" fill="none">
+        <circle cx="280" cy="280" r="240" stroke="var(--color-clay-soft)" stroke-width="1" />
+        <circle cx="280" cy="280" r="170" stroke="var(--color-clay-soft)" stroke-width="0.8" />
+        <circle cx="280" cy="280" r="100" stroke="var(--color-clay-soft)" stroke-width="0.6" />
+      </svg>
+    </div>
+
+    <div class="relative mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-12 lg:py-32">
+      <p class="text-[11px] uppercase tracking-[0.24em] text-clay-soft sm:text-xs sm:tracking-[0.28em]">{p.finalCta.eyebrow}</p>
+      <h2
+        class="mx-auto mt-4 max-w-3xl font-display text-3xl leading-[1.1] sm:mt-6 sm:text-4xl md:text-6xl text-balance"
+        style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+        set:html={p.finalCta.titleHtml}
+      />
+      <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-cream-soft/80 sm:mt-6 sm:text-lg">
+        {p.finalCta.body}
+      </p>
+
+      <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener"
+          class="group inline-flex items-center justify-center gap-2 rounded-full bg-clay px-7 py-4 text-ink transition-all duration-500 ease-out hover:bg-clay-soft sm:hover:gap-3"
+        >
+          <Icon name="simple-icons:whatsapp" class="size-5" />
+          <span>{t.pages.home.finalCta.ctaPrimary}</span>
+          <Icon name="lucide:arrow-right" class="size-4 transition-transform duration-500 sm:group-hover:translate-x-1" />
+        </a>
+        <a
+          href={localizedPath('contact', lang)}
+          class="inline-flex items-center justify-center gap-2 rounded-full border border-cream-soft/30 px-7 py-4 text-cream-soft transition-all duration-300 hover:border-cream-soft hover:bg-cream-soft/10"
+        >
+          {p.finalCta.ctaSecondary}
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

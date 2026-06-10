@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "@fontsource-variable/fraunces": "^5.2.9",
     "@fontsource/geist-sans": "^5.2.5",
     "@iconify-json/lucide": "^1.2.109",
@@ -20,5 +21,9 @@
     "astro": "^6.3.8",
     "astro-icon": "^1.1.5",
     "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^6.0.3"
   }
 }

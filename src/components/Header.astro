@@ -1,10 +1,26 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { site, contact, nav, whatsappUrl } from '../config';
+import { site, contact, whatsappUrl } from '../config';
+import {
+  getLang,
+  useTranslations,
+  getNav,
+  getLangSwitch,
+  matchRoute,
+  localizedPath,
+} from '../i18n';
+
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
+const nav = getNav(lang);
+const routeKey = matchRoute(Astro.url.pathname, lang);
+const langs = getLangSwitch(routeKey, lang);
+const homeHref = localizedPath('home', lang);
+const waUrl = whatsappUrl(t.common.whatsappDefault);
 ---
 
 <header class="relative z-30 mx-auto flex max-w-7xl items-center justify-between px-4 pt-4 sm:px-6 sm:pt-6 lg:px-12 lg:pt-8">
-  <a href="/" class="group flex items-center gap-2.5 sm:gap-3">
+  <a href={homeHref} class="group flex items-center gap-2.5 sm:gap-3">
     <img
       src="/images/Carmen_Taube-300x265.webp"
       alt=""
@@ -18,7 +34,7 @@ import { site, contact, nav, whatsappUrl } from '../config';
         {site.name}
       </div>
       <div class="hidden text-[10px] uppercase tracking-[0.24em] text-taupe sm:block">
-        {site.role}
+        {t.site.role}
       </div>
     </div>
   </a>
@@ -33,14 +49,32 @@ import { site, contact, nav, whatsappUrl } from '../config';
         {item.label}
       </a>
     ))}
+
+    <!-- Sprachumschalter -->
+    <div class="ml-1 flex items-center gap-1.5 text-[11px] uppercase tracking-[0.12em]">
+      {langs.map((l) => (
+        <a
+          href={l.href}
+          hreflang={l.lang}
+          aria-current={l.isCurrent ? 'true' : undefined}
+          class:list={[
+            'rounded-full px-2 py-1 transition-colors',
+            l.isCurrent ? 'text-ink' : 'text-taupe hover:text-forest',
+          ]}
+        >
+          {l.lang}
+        </a>
+      ))}
+    </div>
+
     <a
-      href={whatsappUrl()}
+      href={waUrl}
       target="_blank"
       rel="noopener"
       class="group inline-flex items-center gap-2 rounded-full border border-ink/15 bg-cream-soft px-4 py-2 text-sm text-ink transition-all duration-300 hover:border-forest hover:bg-forest hover:text-cream-soft"
     >
       <Icon name="simple-icons:whatsapp" class="size-4" />
-      <span>Schreib mir</span>
+      <span>{t.header.writeMe}</span>
     </a>
   </nav>
 
@@ -48,12 +82,12 @@ import { site, contact, nav, whatsappUrl } from '../config';
   <button
     id="nav-toggle"
     type="button"
-    aria-label="Menü öffnen"
+    aria-label={t.header.menuOpen}
     aria-expanded="false"
     aria-controls="mobile-nav"
     class="group relative -mr-1 inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 bg-cream-soft text-ink transition-colors hover:border-forest md:hidden"
   >
-    <span class="sr-only">Menü öffnen</span>
+    <span class="sr-only">{t.header.menuOpen}</span>
     <!-- Animated hamburger / X icon -->
     <span class="block h-4 w-5 relative" aria-hidden="true">
       <span class="absolute left-0 top-[3px] block h-[1.5px] w-5 bg-current transition-transform duration-300 ease-out group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"></span>
@@ -81,7 +115,7 @@ import { site, contact, nav, whatsappUrl } from '../config';
     id="nav-panel"
   >
     <div class="flex items-center justify-between px-5 pt-5">
-      <a href="/" class="flex items-center gap-2.5">
+      <a href={homeHref} class="flex items-center gap-2.5">
         <img
           src="/images/Carmen_Taube-300x265.webp"
           alt=""
@@ -93,14 +127,14 @@ import { site, contact, nav, whatsappUrl } from '../config';
             {site.name}
           </div>
           <div class="text-[10px] uppercase tracking-[0.24em] text-taupe">
-            {site.role}
+            {t.site.role}
           </div>
         </div>
       </a>
       <button
         id="nav-close"
         type="button"
-        aria-label="Menü schließen"
+        aria-label={t.header.menuClose}
         class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 bg-cream-soft text-ink transition-colors hover:border-forest"
       >
         <Icon name="lucide:x" class="size-5" />
@@ -124,14 +158,33 @@ import { site, contact, nav, whatsappUrl } from '../config';
         ))}
       </ul>
 
+      <!-- Sprachumschalter -->
+      <div class="mt-6 flex items-center gap-2 px-4 text-xs uppercase tracking-[0.18em]">
+        {langs.map((l) => (
+          <a
+            href={l.href}
+            hreflang={l.lang}
+            aria-current={l.isCurrent ? 'true' : undefined}
+            class:list={[
+              'rounded-full border px-3 py-1.5 transition-colors',
+              l.isCurrent
+                ? 'border-forest bg-forest text-cream-soft'
+                : 'border-line text-taupe hover:border-forest hover:text-forest',
+            ]}
+          >
+            {l.lang}
+          </a>
+        ))}
+      </div>
+
       <!-- Divider -->
       <div class="my-8 border-t border-line"></div>
 
       <!-- Direct contact -->
-      <p class="px-4 text-[11px] uppercase tracking-[0.24em] text-clay">Direkt erreichen</p>
+      <p class="px-4 text-[11px] uppercase tracking-[0.24em] text-clay">{t.header.directContact}</p>
       <div class="mt-4 space-y-2">
         <a
-          href={whatsappUrl()}
+          href={waUrl}
           target="_blank"
           rel="noopener"
           class="flex items-center gap-3 rounded-2xl bg-forest px-4 py-3.5 text-cream-soft transition-colors hover:bg-forest-deep"
@@ -141,7 +194,7 @@ import { site, contact, nav, whatsappUrl } from '../config';
           </span>
           <div class="min-w-0 flex-1">
             <div class="font-display text-base leading-tight" style="font-variation-settings: 'opsz' 48;">WhatsApp</div>
-            <div class="text-xs text-cream-soft/70">Direkt zu mir</div>
+            <div class="text-xs text-cream-soft/70">{t.header.whatsappSub}</div>
           </div>
           <Icon name="lucide:arrow-right" class="size-4 flex-shrink-0 text-cream-soft/60" />
         </a>
@@ -172,8 +225,8 @@ import { site, contact, nav, whatsappUrl } from '../config';
             <Icon name="lucide:calendar" class="size-5" />
           </span>
           <div class="min-w-0 flex-1">
-            <div class="font-display text-base leading-tight" style="font-variation-settings: 'opsz' 48;">Termin buchen</div>
-            <div class="text-xs text-taupe">Save your date</div>
+            <div class="font-display text-base leading-tight" style="font-variation-settings: 'opsz' 48;">{t.header.bookTitle}</div>
+            <div class="text-xs text-taupe">{t.header.bookSub}</div>
           </div>
           <Icon name="lucide:arrow-right" class="size-4 flex-shrink-0 text-taupe" />
         </a>

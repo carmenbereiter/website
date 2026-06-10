@@ -1,0 +1,328 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '../layouts/Layout.astro';
+import MassgeschneidertCTA from '../components/MassgeschneidertCTA.astro';
+import { whatsappUrl, contact } from '../config';
+import { getLang, useTranslations, type Lang } from '../i18n';
+import { aboutJsonLd } from '../lib/seo';
+
+interface Props {
+  lang?: Lang;
+}
+
+const lang = Astro.props.lang ?? getLang(Astro.currentLocale);
+const t = useTranslations(lang);
+const p = t.pages.about;
+const waUrl = whatsappUrl(t.common.whatsappDefault);
+const num = (i: number) => String(i + 1).padStart(2, '0');
+---
+
+<Layout lang={lang} routeKey="about" title={p.metaTitle} description={p.metaDescription} jsonLd={aboutJsonLd(lang, Astro.site)}>
+  <!-- ─────────────── HERO ─────────────── -->
+  <section
+    class="relative mx-auto max-w-7xl px-4 pb-12 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-12 lg:pb-24 lg:pt-20"
+  >
+    <div class="grid items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-7">
+        <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
+          {p.hero.eyebrow}
+        </p>
+        <h1
+          class="mt-4 font-display text-[clamp(2.25rem,7.5vw,4.6rem)] font-normal leading-[1.05] text-ink text-balance sm:mt-6"
+          style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+          set:html={p.hero.titleHtml}
+        />
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-ink-soft text-pretty sm:mt-8 sm:text-lg">
+          {p.hero.body}
+        </p>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="relative mx-auto max-w-sm sm:max-w-md">
+          <img
+            src="/images/Carmen_Taube-300x265.webp"
+            alt=""
+            class="pointer-events-none absolute -top-3 -right-3 z-0 h-20 w-auto opacity-90 sm:-top-4 sm:-right-4 sm:h-28"
+            aria-hidden="true"
+          />
+          <div
+            class="relative overflow-hidden rounded-[1.5rem] bg-cream-deep shadow-[0_20px_50px_-20px_rgba(26,31,29,0.3)] sm:rounded-[2rem] sm:shadow-[0_30px_80px_-30px_rgba(26,31,29,0.35)]"
+          >
+            <img
+              src="/images/One-to-One-cabecera-Carmen-Bereiter-Coach.webp"
+              alt={p.hero.portraitAlt}
+              class="aspect-[4/5] w-full object-cover"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── WERDEGANG & WURZELN ─────────────── -->
+  <section class="relative border-y border-line bg-cream-soft/50 bg-grain">
+    <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-32">
+      <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <!-- Intro column -->
+        <div class="lg:col-span-5">
+          <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
+            {p.werdegang.eyebrow}
+          </p>
+          <h2
+            class="mt-4 font-display text-3xl leading-[1.1] text-ink sm:mt-6 md:text-5xl text-balance"
+            style="font-variation-settings: 'opsz' 96, 'SOFT' 50;"
+            set:html={p.werdegang.titleHtml}
+          />
+          <div class="mt-6 space-y-5 text-base leading-relaxed text-ink-soft text-pretty sm:mt-8 sm:text-lg">
+            {p.werdegang.paras.map((para) => <p>{para}</p>)}
+          </div>
+        </div>
+
+        <!-- Timeline column -->
+        <div class="lg:col-span-7 lg:pt-3">
+          <ol class="relative ml-1 border-l border-line pl-8 sm:pl-10">
+            {p.werdegang.timeline.map((item, i) => (
+              <li class:list={['group relative sm:pb-12', i === p.werdegang.timeline.length - 1 ? 'pb-0' : 'pb-10 last:pb-0']}>
+                <span
+                  class="absolute -left-[calc(2rem+5px)] top-1.5 size-2.5 rounded-full bg-clay ring-4 ring-cream transition-transform duration-500 group-hover:scale-125 sm:-left-[calc(2.5rem+5px)]"
+                  aria-hidden="true"></span>
+                <div class="transition-transform duration-500 ease-out group-hover:translate-x-1">
+                  <p class="text-[11px] uppercase tracking-[0.22em] text-clay">
+                    {item.kicker}
+                  </p>
+                  <h3
+                    class="mt-2 font-display text-xl text-ink sm:text-2xl"
+                    style="font-variation-settings: 'opsz' 48, 'SOFT' 50;"
+                  >
+                    {item.title}
+                  </h3>
+                  <p class="mt-2 max-w-lg text-sm leading-relaxed text-ink-soft text-pretty sm:text-base">
+                    {item.body}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      <!-- Featured: Coaching-Qualifikation -->
+      <div class="mt-14 overflow-hidden rounded-[1.5rem] border border-forest/20 bg-forest-deep text-cream-soft sm:mt-16 sm:rounded-[2rem]">
+        <div class="relative flex flex-col gap-8 p-7 sm:p-10 lg:flex-row lg:items-center lg:gap-12 lg:p-12">
+          <div
+            class="pointer-events-none absolute -top-20 -right-16 h-56 w-56 rounded-full bg-forest/50 blur-3xl"
+            aria-hidden="true"
+          >
+          </div>
+
+          <!-- Stat -->
+          <div class="relative shrink-0 border-b border-cream/15 pb-6 lg:border-b-0 lg:border-r lg:pr-12 lg:pb-0">
+            <div
+              class="font-display text-6xl leading-none text-clay-soft sm:text-7xl"
+              style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+            >
+              {p.qualification.stat}
+            </div>
+            <p class="mt-2 text-[11px] uppercase tracking-[0.22em] text-cream/60">
+              {p.qualification.statLabel}
+            </p>
+          </div>
+
+          <!-- Statement -->
+          <div class="relative">
+            <p class="text-[11px] uppercase tracking-[0.24em] text-clay-soft sm:text-xs sm:tracking-[0.28em]">
+              {p.qualification.eyebrow}
+            </p>
+            <h3
+              class="mt-3 font-display text-2xl leading-[1.15] text-cream-soft text-balance sm:text-3xl md:text-4xl"
+              style="font-variation-settings: 'opsz' 96, 'SOFT' 50;"
+              set:html={p.qualification.titleHtml}
+            />
+            <p class="mt-4 max-w-xl text-sm leading-relaxed text-cream/70 text-pretty sm:text-base">
+              {p.qualification.body}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Supporting facts -->
+      <div class="mt-4 grid gap-4 sm:mt-6 sm:gap-6 lg:grid-cols-3">
+        <div class="rounded-2xl border border-line bg-cream-soft/70 p-5 sm:p-6">
+          <div class="text-[11px] uppercase tracking-[0.22em] text-clay">{p.facts.languagesLabel}</div>
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft sm:mt-3 sm:text-base">{p.facts.languagesValue}</p>
+        </div>
+        <div class="rounded-2xl border border-line bg-cream-soft/70 p-5 sm:p-6">
+          <div class="text-[11px] uppercase tracking-[0.22em] text-clay">{p.facts.experienceLabel}</div>
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft sm:mt-3 sm:text-base">{p.facts.experienceValue}</p>
+        </div>
+        <div class="rounded-2xl border border-line bg-cream-soft/70 p-5 sm:p-6">
+          <div class="text-[11px] uppercase tracking-[0.22em] text-clay">{p.facts.qualificationLabel}</div>
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft sm:mt-3 sm:text-base">{p.facts.qualificationValue}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── FÜR UNTERNEHMEN ─────────────── -->
+  <section class="relative overflow-hidden bg-forest-deep text-cream-soft">
+    <div
+      class="pointer-events-none absolute -top-28 -right-24 h-72 w-72 rounded-full bg-forest/50 blur-3xl"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute -bottom-32 -left-24 h-80 w-80 rounded-full bg-clay/15 blur-3xl"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-12 lg:py-32">
+      <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-5">
+          <p class="text-[11px] uppercase tracking-[0.24em] text-clay-soft sm:text-xs sm:tracking-[0.28em]">
+            {p.business.eyebrow}
+          </p>
+          <h2
+            class="mt-4 font-display text-3xl leading-[1.1] text-cream-soft sm:mt-6 md:text-5xl text-balance"
+            style="font-variation-settings: 'opsz' 96, 'SOFT' 50;"
+            set:html={p.business.titleHtml}
+          />
+          <p class="mt-6 max-w-md text-base leading-relaxed text-cream/70 text-pretty sm:mt-8 sm:text-lg">
+            {p.business.body}
+          </p>
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener"
+            class="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-cream-soft transition-colors hover:text-clay-soft sm:mt-10"
+          >
+            <span class="border-b border-cream/30 pb-0.5 transition-colors group-hover:border-clay-soft">{p.business.cta}</span>
+            <Icon
+              name="lucide:arrow-up-right"
+              class="size-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </a>
+        </div>
+
+        <div class="lg:col-span-7 lg:pt-2">
+          <ol class="border-t border-cream/10">
+            {p.business.items.map((item, i) => (
+              <li class="group flex gap-5 border-b border-cream/10 py-6 sm:gap-8 sm:py-8">
+                <span
+                  class="font-display text-2xl leading-none text-clay-soft/70 transition-colors group-hover:text-clay-soft sm:text-3xl"
+                  style="font-variation-settings: 'opsz' 48;">{num(i)}</span>
+                <div class="transition-transform duration-500 ease-out group-hover:translate-x-1">
+                  <h3
+                    class="font-display text-xl text-cream-soft sm:text-2xl"
+                    style="font-variation-settings: 'opsz' 48, 'SOFT' 50;"
+                  >
+                    {item.title}
+                  </h3>
+                  <p class="mt-2 text-sm leading-relaxed text-cream/60 text-pretty sm:text-base">
+                    {item.body}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── WAS MICH LEITET ─────────────── -->
+  <section class="relative border-y border-line bg-cream-soft/40">
+    <div class="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20 lg:px-12 lg:py-28">
+      <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
+        {p.guiding.eyebrow}
+      </p>
+      <h2
+        class="mt-4 font-display text-2xl leading-[1.2] text-ink sm:mt-6 sm:text-3xl md:text-5xl text-balance"
+        style="font-variation-settings: 'opsz' 96, 'SOFT' 50;"
+        set:html={p.guiding.titleHtml}
+      />
+      <div class="mt-7 space-y-5 text-base leading-relaxed text-ink-soft text-pretty sm:mt-10 sm:space-y-6 sm:text-lg">
+        {p.guiding.paras.map((para) => <p>{para}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── MASSGESCHNEIDERTE BERATUNG ─────────────── -->
+  <MassgeschneidertCTA class="py-16 sm:py-20 lg:py-28" />
+
+  <!-- ─────────────── MEINE GESCHICHTE ─────────────── -->
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-32">
+      <div class="grid gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-5">
+          <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
+            {p.story.eyebrow}
+          </p>
+          <h2
+            class="mt-4 font-display text-3xl leading-[1.1] text-ink sm:mt-6 md:text-5xl text-balance"
+            style="font-variation-settings: 'opsz' 96, 'SOFT' 50;"
+            set:html={p.story.titleHtml}
+          />
+          <div class="mt-6 overflow-hidden rounded-[1.5rem] bg-cream-deep sm:mt-8 sm:rounded-[2rem]">
+            <img
+              src="/images/DSC_6130-2-14.13.23-scaled.webp"
+              alt={p.story.imgAlt}
+              loading="lazy"
+              class="aspect-[4/5] w-full object-cover"
+            />
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 lg:pt-6">
+          <div class="space-y-5 text-base leading-relaxed text-ink-soft text-pretty sm:space-y-6 sm:text-lg">
+            {p.story.paras.map((para) => <p>{para}</p>)}
+          </div>
+
+          <div class="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-3 sm:gap-6">
+            {p.story.cards.map((card) => (
+              <div class="rounded-2xl border border-line bg-cream-soft/60 p-5 sm:p-6">
+                <div class="text-[11px] uppercase tracking-[0.22em] text-clay">{card.label}</div>
+                <p class="mt-2 text-sm leading-relaxed text-ink-soft sm:mt-3">{card.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── CTA ─────────────── -->
+  <section class="relative border-t border-line bg-cream-soft/60">
+    <div class="mx-auto max-w-4xl px-4 py-14 text-center sm:px-6 sm:py-20 lg:px-12 lg:py-28">
+      <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
+        {p.finalCta.eyebrow}
+      </p>
+      <h2
+        class="mx-auto mt-4 max-w-3xl font-display text-3xl leading-[1.1] text-ink sm:mt-6 sm:text-4xl md:text-5xl text-balance"
+        style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+        set:html={p.finalCta.titleHtml}
+      />
+      <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener"
+          class="group inline-flex items-center justify-center gap-2 rounded-full bg-forest px-6 py-4 text-cream-soft transition-all duration-500 ease-out hover:bg-forest-deep sm:hover:gap-3"
+        >
+          <Icon name="simple-icons:whatsapp" class="size-5" />
+          <span>{p.finalCta.ctaPrimary}</span>
+          <Icon name="lucide:arrow-right" class="size-4 transition-transform duration-500 sm:group-hover:translate-x-1" />
+        </a>
+        <a
+          href={contact.calendly.url}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center gap-2 rounded-full border border-ink/15 bg-cream-soft px-6 py-4 text-ink transition-all duration-300 hover:border-forest"
+        >
+          {p.finalCta.ctaSecondary}
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

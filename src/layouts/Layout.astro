@@ -4,20 +4,47 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactFAB from '../components/ContactFAB.astro';
 import { site } from '../config';
+import {
+  getLang,
+  useTranslations,
+  getAlternates,
+  type Lang,
+  type RouteKey,
+} from '../i18n';
 
 interface Props {
+  /** Sprache der Seite. Default: aus der URL (Astro.currentLocale). */
+  lang?: Lang;
+  /** Route-Key (z.B. "about") für hreflang-Alternates. Weglassen → keine Alternates. */
+  routeKey?: RouteKey;
   title?: string;
   description?: string;
+  /** JSON-LD strukturierte Daten (Objekt oder Array von Objekten). */
+  jsonLd?: object | object[];
 }
 
+const lang = Astro.props.lang ?? getLang(Astro.currentLocale);
+const t = useTranslations(lang);
+
 const {
-  title = `${site.name}, ${site.role}`,
-  description = site.description,
+  routeKey,
+  title = `${site.name}, ${t.site.role}`,
+  description = t.site.description,
+  jsonLd,
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL('/og-image.jpg', Astro.site).href;
+const alternates = routeKey
+  ? getAlternates(routeKey).map((a) => ({
+      hreflang: a.hreflang,
+      href: new URL(a.path, Astro.site).href,
+    }))
+  : [];
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={t.meta.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -28,20 +55,34 @@ const {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#F4EEE2" />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((a) => (
+      <link rel="alternate" hreflang={a.hreflang} href={a.href} />
+    ))}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={new URL('/og-image.jpg', Astro.site).href} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={t.meta.ogLocale} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`${site.name}, ${site.role}`} />
+    <meta property="og:image:alt" content={`${site.name}, ${t.site.role}`} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.site).href} />
+    <meta name="twitter:image" content={ogImage} />
     <title>{title}</title>
+    {jsonLd && (
+      <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify(jsonLd)}
+      />
+    )}
     {import.meta.env.PROD && (
       <script
+        is:inline
         defer
         src="https://analytics.pulpo.cloud/script.js"
         data-website-id="a9ff2541-b307-4e33-953e-c9a2f799c27a"

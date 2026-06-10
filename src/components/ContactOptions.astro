@@ -5,6 +5,7 @@
  */
 import { Icon } from 'astro-icon/components';
 import { contact, whatsappUrl } from '../config';
+import { getLang, useTranslations } from '../i18n';
 
 interface Props {
   /** Hintergrund-Variante der Kacheln */
@@ -12,6 +13,9 @@ interface Props {
 }
 
 const { variant = 'on-forest' } = Astro.props;
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
+const waUrl = whatsappUrl(t.common.whatsappDefault);
 
 const tileClasses =
   variant === 'on-forest'
@@ -21,7 +25,7 @@ const tileClasses =
 
 <div class="space-y-3">
   <a
-    href={whatsappUrl()}
+    href={waUrl}
     target="_blank"
     rel="noopener"
     class={tileClasses}
@@ -31,8 +35,8 @@ const tileClasses =
         <Icon name="simple-icons:whatsapp" class="size-[22px]" />
       </span>
       <div class="min-w-0">
-        <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">WhatsApp</div>
-        <div class="text-xs text-taupe sm:text-sm">Persönlich. Schnell. Direkt zu mir.</div>
+        <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">{t.contactTiles.whatsappTitle}</div>
+        <div class="text-xs text-taupe sm:text-sm">{t.contactTiles.whatsappSub}</div>
       </div>
     </div>
     <Icon name="lucide:arrow-right" class="size-5 flex-shrink-0 transition-transform group-hover:translate-x-1 sm:size-6" />
@@ -49,7 +53,7 @@ const tileClasses =
         <Icon name="simple-icons:telegram" class="size-[22px]" />
       </span>
       <div class="min-w-0">
-        <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">Telegram</div>
+        <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">{t.contactTiles.telegramTitle}</div>
         <div class="truncate text-xs text-taupe sm:text-sm">@{contact.telegram.handle}</div>
       </div>
     </div>
@@ -67,8 +71,8 @@ const tileClasses =
         <Icon name="lucide:calendar" class="size-[22px]" />
       </span>
       <div class="min-w-0">
-        <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">Erstgespräch buchen</div>
-        <div class="text-xs text-taupe sm:text-sm">online</div>
+        <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">{t.contactTiles.bookTitle}</div>
+        <div class="text-xs text-taupe sm:text-sm">{t.contactTiles.bookSub}</div>
       </div>
     </div>
     <Icon name="lucide:arrow-right" class="size-5 flex-shrink-0 transition-transform group-hover:translate-x-1 sm:size-6" />
