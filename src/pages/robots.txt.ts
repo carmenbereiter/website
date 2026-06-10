@@ -5,7 +5,7 @@ import type { APIRoute } from 'astro';
  * (astro.config.mjs), nicht hartkodiert.
  */
 export const GET: APIRoute = ({ site }) => {
-  const sitemap = new URL('sitemap-index.xml', site).href;
+  const sitemap = new URL('sitemap.xml', site).href;
   const body = `User-agent: *
 Allow: /
 

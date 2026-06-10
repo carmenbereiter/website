@@ -44,7 +44,9 @@ Headlines with inline emphasis are stored as `*Html` keys in the dictionaries an
 
 ### SEO
 
-`Layout.astro` emits canonical, `hreflang` alternates (+ `x-default`), localized `<html lang>` and `og:locale`, and per-page title/description from the dictionary. Structured data (JSON-LD) is built in **`src/lib/seo.ts`** (`ProfessionalService` + `Person` + `WebSite`, `Service`/`Offer` per program, `Review` per testimonial) and passed to `Layout` via the `jsonLd` prop. Reviews intentionally carry **no `aggregateRating`/star ratings** — there's no genuine rating source yet (see the note in `seo.ts`). `@astrojs/sitemap` (i18n-aware) generates `sitemap-index.xml`; `public/robots.txt` points to it.
+`Layout.astro` emits canonical, `hreflang` alternates (+ `x-default`), localized `<html lang>` and `og:locale`, and per-page title/description from the dictionary. Structured data (JSON-LD) is built in **`src/lib/seo.ts`** (`ProfessionalService` + `Person` + `WebSite`, `Service`/`Offer` per program, `Review` per testimonial) and passed to `Layout` via the `jsonLd` prop. Reviews intentionally carry **no `aggregateRating`/star ratings** — there's no genuine rating source yet (see the note in `seo.ts`).
+
+`sitemap.xml` and `robots.txt` are **own endpoints** (`src/pages/sitemap.xml.ts`, `src/pages/robots.txt.ts`) — *not* `@astrojs/sitemap`, whose i18n linking assumes identical slugs across languages (it can't handle our localized slugs). The sitemap builds correct per-page `hreflang` alternates from the `routes` map. All absolute URLs (canonical, hreflang, JSON-LD, sitemap, robots) derive from a single source: `site` in `astro.config.mjs` (`Astro.site`).
 
 The legal pages (`aviso-legal`, `politica-de-privacidad`) are **Spanish-only by design** — legally required for a business based in Spain. They live only at the root, are linked non-localized from the footer, and emit no hreflang alternates.
 

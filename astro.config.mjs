@@ -2,9 +2,11 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
-import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
+// Sitemap & robots werden als eigene Endpoints erzeugt
+// (src/pages/sitemap.xml.ts, src/pages/robots.txt.ts) — sie kennen die
+// lokalisierten Slugs, was @astrojs/sitemap nicht abbilden kann.
 export default defineConfig({
   site: 'https://carmen-bereiter.pages.dev',
   i18n: {
@@ -14,19 +16,7 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [
-    icon(),
-    sitemap({
-      i18n: {
-        defaultLocale: 'de',
-        locales: {
-          de: 'de',
-          en: 'en',
-          es: 'es',
-        },
-      },
-    }),
-  ],
+  integrations: [icon()],
   vite: {
     plugins: [tailwindcss()],
   },
