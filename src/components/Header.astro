@@ -171,13 +171,13 @@ const waUrl = whatsappUrl(t.common.whatsappDefault);
     </div>
 
     <!-- Nav links -->
-    <nav class="flex-1 overflow-y-auto px-5 pt-10">
-      <ul class="space-y-1">
+    <nav class="flex-1 overflow-y-auto px-5 pt-6">
+      <ul class="space-y-0.5">
         {nav.map((item) => (
           <li>
             <a
               href={item.href}
-              class="nav-link group flex items-center justify-between gap-4 rounded-2xl px-4 py-4 font-display text-2xl text-ink transition-colors hover:bg-cream-soft"
+              class="nav-link group flex items-center justify-between gap-4 rounded-2xl px-4 py-2.5 font-display text-xl text-ink transition-colors hover:bg-cream-soft"
               style="font-variation-settings: 'opsz' 72;"
             >
               <span>{item.label}</span>
@@ -187,90 +187,75 @@ const waUrl = whatsappUrl(t.common.whatsappDefault);
         ))}
       </ul>
 
-      <!-- Sprachumschalter -->
-      <div class="mt-6 px-4">
-        <p class="flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] text-clay">
-          <Icon name="lucide:globe" class="size-3.5" />
-          {t.header.langLabel}
-        </p>
-        <div class="mt-3 flex flex-wrap gap-2">
-          {langs.map((l) => (
-            <a
-              href={l.href}
-              hreflang={l.lang}
-              aria-current={l.isCurrent ? 'true' : undefined}
-              class:list={[
-                'rounded-full border px-4 py-2 text-sm transition-colors',
-                l.isCurrent
-                  ? 'border-forest bg-forest text-cream-soft'
-                  : 'border-line text-ink-soft hover:border-forest hover:text-forest',
-              ]}
-            >
-              {l.label}
-            </a>
-          ))}
-        </div>
-      </div>
-
       <!-- Divider -->
-      <div class="my-8 border-t border-line"></div>
+      <div class="my-5 border-t border-line"></div>
 
-      <!-- Direct contact -->
+      <!-- Direct contact: kompakte Dreierreihe -->
       <p class="px-4 text-[11px] uppercase tracking-[0.24em] text-clay">{t.header.directContact}</p>
-      <div class="mt-4 space-y-2">
+      <div class="mt-3 grid grid-cols-3 gap-2">
         <a
           href={waUrl}
           target="_blank"
           rel="noopener"
-          class="flex items-center gap-3 rounded-2xl bg-forest px-4 py-3.5 text-cream-soft transition-colors hover:bg-forest-deep"
+          class="flex flex-col items-center justify-center gap-2 rounded-2xl bg-forest px-2 py-4 text-center text-cream-soft transition-colors hover:bg-forest-deep"
         >
-          <span class="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full" style="background: #25D366;">
-            <Icon name="simple-icons:whatsapp" class="size-5" />
-          </span>
-          <div class="min-w-0 flex-1">
-            <div class="font-display text-base leading-tight" style="font-variation-settings: 'opsz' 48;">WhatsApp</div>
-            <div class="text-xs text-cream-soft/70">{t.header.whatsappSub}</div>
-          </div>
-          <Icon name="lucide:arrow-right" class="size-4 flex-shrink-0 text-cream-soft/60" />
+          <Icon name="simple-icons:whatsapp" class="size-6" />
+          <span class="text-xs leading-tight">WhatsApp</span>
         </a>
 
         <a
           href={contact.telegram.url}
           target="_blank"
           rel="noopener"
-          class="flex items-center gap-3 rounded-2xl border border-line bg-cream-soft px-4 py-3.5 text-ink transition-colors hover:border-forest"
+          class="flex flex-col items-center justify-center gap-2 rounded-2xl border border-line bg-cream-soft px-2 py-4 text-center text-ink transition-colors hover:border-forest hover:text-forest"
         >
-          <span class="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full" style="background: #229ED9; color: white;">
-            <Icon name="simple-icons:telegram" class="size-5" />
-          </span>
-          <div class="min-w-0 flex-1">
-            <div class="font-display text-base leading-tight" style="font-variation-settings: 'opsz' 48;">Telegram</div>
-            <div class="truncate text-xs text-taupe">@{contact.telegram.handle}</div>
-          </div>
-          <Icon name="lucide:arrow-right" class="size-4 flex-shrink-0 text-taupe" />
+          <Icon name="simple-icons:telegram" class="size-6" />
+          <span class="text-xs leading-tight">Telegram</span>
         </a>
 
         <a
           href={contact.calendly.url}
           target="_blank"
           rel="noopener"
-          class="flex items-center gap-3 rounded-2xl border border-line bg-cream-soft px-4 py-3.5 text-ink transition-colors hover:border-forest"
+          class="flex flex-col items-center justify-center gap-2 rounded-2xl border border-line bg-cream-soft px-2 py-4 text-center text-ink transition-colors hover:border-forest hover:text-forest"
         >
-          <span class="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-forest text-cream-soft">
-            <Icon name="lucide:calendar" class="size-5" />
-          </span>
-          <div class="min-w-0 flex-1">
-            <div class="font-display text-base leading-tight" style="font-variation-settings: 'opsz' 48;">{t.header.bookTitle}</div>
-            <div class="text-xs text-taupe">{t.header.bookSub}</div>
-          </div>
-          <Icon name="lucide:arrow-right" class="size-4 flex-shrink-0 text-taupe" />
+          <Icon name="lucide:calendar" class="size-6" />
+          <span class="text-xs leading-tight">{t.header.bookTitle}</span>
         </a>
       </div>
     </nav>
 
-    <!-- Footer in menu -->
-    <div class="border-t border-line px-5 py-5 text-xs text-taupe">
-      <a href={`mailto:${contact.email}`} class="hover:text-forest">{contact.email}</a>
+    <!-- Footer in menu: E-Mail + Sprachauswahl ganz unten -->
+    <div class="flex items-center justify-between gap-4 border-t border-line px-5 py-5">
+      <a
+        href={`mailto:${contact.email}`}
+        class="truncate text-xs text-taupe transition-colors hover:text-forest"
+      >
+        {contact.email}
+      </a>
+      <div class="flex flex-shrink-0 items-center gap-2">
+        <Icon name="lucide:globe" class="size-4 text-taupe" aria-label={t.header.langLabel} />
+        <div class="flex items-center gap-1 text-sm uppercase tracking-[0.14em]">
+          {langs.map((l, i) => (
+            <Fragment>
+              {i > 0 && <span aria-hidden="true" class="text-line">·</span>}
+              <a
+                href={l.href}
+                hreflang={l.lang}
+                aria-current={l.isCurrent ? 'true' : undefined}
+                class:list={[
+                  'rounded-md px-1.5 py-1 transition-colors',
+                  l.isCurrent
+                    ? 'font-medium text-forest'
+                    : 'text-taupe hover:text-forest',
+                ]}
+              >
+                {l.lang}
+              </a>
+            </Fragment>
+          ))}
+        </div>
+      </div>
     </div>
   </aside>
 </div>
