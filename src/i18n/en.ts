@@ -31,6 +31,7 @@ export const en: Dictionary = {
 
   header: {
     writeMe: 'Message me',
+    langLabel: 'Choose language',
     menuOpen: 'Open menu',
     menuClose: 'Close menu',
     directContact: 'Reach me directly',

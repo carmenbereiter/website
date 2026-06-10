@@ -50,21 +50,50 @@ const waUrl = whatsappUrl(t.common.whatsappDefault);
       </a>
     ))}
 
-    <!-- Sprachumschalter -->
-    <div class="ml-1 flex items-center gap-1.5 text-[11px] uppercase tracking-[0.12em]">
-      {langs.map((l) => (
-        <a
-          href={l.href}
-          hreflang={l.lang}
-          aria-current={l.isCurrent ? 'true' : undefined}
-          class:list={[
-            'rounded-full px-2 py-1 transition-colors',
-            l.isCurrent ? 'text-ink' : 'text-taupe hover:text-forest',
-          ]}
-        >
-          {l.lang}
-        </a>
-      ))}
+    <!-- Sprachumschalter (Globus-Dropdown) -->
+    <div class="relative ml-1">
+      <button
+        id="lang-toggle"
+        type="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-controls="lang-menu"
+        aria-label={t.header.langLabel}
+        class="group inline-flex items-center gap-1.5 rounded-full border border-ink/15 bg-cream-soft px-3 py-2 text-ink transition-colors hover:border-forest"
+      >
+        <Icon name="lucide:globe" class="size-4 text-taupe transition-colors group-hover:text-forest" />
+        <span class="text-[11px] font-medium uppercase tracking-[0.12em]">{lang}</span>
+        <Icon name="lucide:chevron-down" class="size-3.5 text-taupe transition-transform duration-300 group-aria-expanded:rotate-180" />
+      </button>
+
+      <div
+        id="lang-menu"
+        role="menu"
+        aria-label={t.header.langLabel}
+        class="absolute right-0 top-full z-40 mt-2 hidden min-w-[10rem] rounded-2xl border border-line bg-cream-soft p-1.5 shadow-[0_16px_44px_-16px_rgba(26,31,29,0.32)]"
+      >
+        {langs.map((l) => (
+          <a
+            href={l.href}
+            hreflang={l.lang}
+            role="menuitem"
+            aria-current={l.isCurrent ? 'true' : undefined}
+            class:list={[
+              'flex items-center justify-between gap-4 rounded-xl px-3 py-2 text-sm transition-colors',
+              l.isCurrent
+                ? 'bg-cream-deep font-medium text-forest'
+                : 'text-ink-soft hover:bg-cream-deep hover:text-forest',
+            ]}
+          >
+            <span>{l.label}</span>
+            {l.isCurrent ? (
+              <Icon name="lucide:check" class="size-4 text-clay" />
+            ) : (
+              <span class="text-[10px] uppercase tracking-[0.12em] text-taupe">{l.lang}</span>
+            )}
+          </a>
+        ))}
+      </div>
     </div>
 
     <a
@@ -159,22 +188,28 @@ const waUrl = whatsappUrl(t.common.whatsappDefault);
       </ul>
 
       <!-- Sprachumschalter -->
-      <div class="mt-6 flex items-center gap-2 px-4 text-xs uppercase tracking-[0.18em]">
-        {langs.map((l) => (
-          <a
-            href={l.href}
-            hreflang={l.lang}
-            aria-current={l.isCurrent ? 'true' : undefined}
-            class:list={[
-              'rounded-full border px-3 py-1.5 transition-colors',
-              l.isCurrent
-                ? 'border-forest bg-forest text-cream-soft'
-                : 'border-line text-taupe hover:border-forest hover:text-forest',
-            ]}
-          >
-            {l.lang}
-          </a>
-        ))}
+      <div class="mt-6 px-4">
+        <p class="flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] text-clay">
+          <Icon name="lucide:globe" class="size-3.5" />
+          {t.header.langLabel}
+        </p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          {langs.map((l) => (
+            <a
+              href={l.href}
+              hreflang={l.lang}
+              aria-current={l.isCurrent ? 'true' : undefined}
+              class:list={[
+                'rounded-full border px-4 py-2 text-sm transition-colors',
+                l.isCurrent
+                  ? 'border-forest bg-forest text-cream-soft'
+                  : 'border-line text-ink-soft hover:border-forest hover:text-forest',
+              ]}
+            >
+              {l.label}
+            </a>
+          ))}
+        </div>
       </div>
 
       <!-- Divider -->
@@ -294,6 +329,38 @@ const waUrl = whatsappUrl(t.common.whatsappDefault);
     // Schließen wenn ein Nav-Link geklickt wird (Anchor-Navigation auf gleicher Seite)
     panel.querySelectorAll('.nav-link').forEach((link) => {
       link.addEventListener('click', close);
+    });
+  }
+
+  // Sprach-Dropdown (Desktop)
+  const langToggle = document.getElementById('lang-toggle');
+  const langMenu = document.getElementById('lang-menu');
+
+  if (langToggle && langMenu) {
+    const closeLang = () => {
+      langToggle.setAttribute('aria-expanded', 'false');
+      langMenu.classList.add('hidden');
+    };
+    const openLang = () => {
+      langToggle.setAttribute('aria-expanded', 'true');
+      langMenu.classList.remove('hidden');
+    };
+
+    langToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langToggle.getAttribute('aria-expanded') === 'true' ? closeLang() : openLang();
+    });
+
+    // Klick außerhalb schließt
+    document.addEventListener('click', (e) => {
+      if (!langMenu.contains(e.target as Node) && !langToggle.contains(e.target as Node)) {
+        closeLang();
+      }
+    });
+
+    // ESC schließt
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLang();
     });
   }
 </script>

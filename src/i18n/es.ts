@@ -30,6 +30,7 @@ export const es: Dictionary = {
 
   header: {
     writeMe: 'Escríbeme',
+    langLabel: 'Elegir idioma',
     menuOpen: 'Abrir menú',
     menuClose: 'Cerrar menú',
     directContact: 'Contacto directo',

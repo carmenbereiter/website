@@ -36,6 +36,7 @@ export const de = {
 
   header: {
     writeMe: 'Schreib mir',
+    langLabel: 'Sprache wählen',
     menuOpen: 'Menü öffnen',
     menuClose: 'Menü schließen',
     directContact: 'Direkt erreichen',
