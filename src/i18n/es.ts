@@ -150,9 +150,9 @@ export const es: Dictionary = {
         'El coaching de 7 semanas no solo me trajo claridad, sino también el valor para ponerme en marcha de verdad. Dejé atrás viejos bloqueos, reordené mis prioridades y en poco tiempo di grandes pasos, en lo profesional y en lo personal.',
     },
     {
-      highlight: 'Mi vida ha dado un giro de 180 grados',
+      highlight: 'Mi vida dio un giro de 180 grados',
       quote:
-        'Nunca había conocido a una mentora que diera tan en el clavo como Carmen. He reservado muchas cosas, pero lo que vivo con Carmen es la plenitud absoluta. Su claridad, su presencia, su forma tan abierta. Mi vida ha dado un giro de 180 grados.',
+        'Nunca había conocido a una mentora que diera tan en el clavo como Carmen. Reservé muchas cosas, pero lo que vivo con Carmen es la plenitud absoluta. Su claridad, su presencia, su forma tan abierta. Mi vida dio un giro de 180 grados.',
     },
     {
       highlight: 'Mis expectativas se superaron con creces',
@@ -174,11 +174,11 @@ export const es: Dictionary = {
     },
     {
       quote:
-        'Me fascina una y otra vez con cuánta pasión acompañas a las personas. Es increíble cómo lo sientes y lo percibes todo. Tenía sueños enormes y todavía no puedo creer cuántos se han hecho realidad tan rápido.',
+        'Me fascina una y otra vez con cuánta pasión acompañas a las personas. Es increíble cómo lo sientes y lo percibes todo. Tenía sueños enormes y todavía no puedo creer cuántos se hicieron realidad tan rápido.',
     },
     {
       quote:
-        'La forma de Carmen de acompañar a las personas supera todo lo que jamás imaginé. Es increíble que Carmen me sienta más de lo que yo me siento a mí misma. Los últimos tres meses han cambiado mi vida por completo.',
+        'La forma de Carmen de acompañar a las personas supera todo lo que jamás imaginé. Es increíble que Carmen me sienta más de lo que yo me siento a mí misma. Los últimos tres meses cambiaron mi vida por completo.',
     },
     {
       quote:
@@ -186,11 +186,11 @@ export const es: Dictionary = {
     },
     {
       quote:
-        'Encuentro el trabajo con Carmen muy claro, directo al punto. Tengo aún más clientes sin perder la visión de conjunto ni sentir más estrés. Mi confianza en mí misma ha crecido notablemente. Toda mujer debería poder vivir un viaje así.',
+        'Encuentro el trabajo con Carmen muy claro, directo al punto. Tengo aún más clientes sin perder la visión de conjunto ni sentir más estrés. Mi confianza en mí misma creció notablemente. Toda mujer debería poder vivir un viaje así.',
     },
     {
       quote:
-        '¡Gracias Carmen Bereiter por todo lo que haces posible para mí! Lo que haces supera cualquier idea que jamás tuve sobre un mentoring. ¡Esto es realmente especial e incomparable con todo lo demás que he vivido! Para mí, lo mejor que existe.',
+        '¡Gracias Carmen Bereiter por todo lo que haces posible para mí! Lo que haces supera cualquier idea que jamás tuve sobre un mentoring. ¡Esto es realmente especial e incomparable con todo lo demás que viví! Para mí, lo mejor que existe.',
     },
     {
       quote:
@@ -277,7 +277,7 @@ export const es: Dictionary = {
       voices: {
         eyebrow: 'Voces de clientes',
         titleHtml:
-          'Lo que <span class="italic text-forest">viven</span> las personas que han recorrido este camino.',
+          'Lo que <span class="italic text-forest">viven</span> las personas que recorrieron este camino.',
         allLink: 'Ver todas las referencias',
       },
       finalCta: {
@@ -333,7 +333,7 @@ export const es: Dictionary = {
         eyebrow: 'Coaching y Mentoring',
         titleHtml:
           'Coach y <span class="italic text-clay-soft">mentora</span> certificada.',
-        body: 'Durante más de una década me he formado y especializado en esta disciplina, certificada varias veces y profundizando de forma continua. Esa base es el fundamento de un acompañamiento que de verdad sostiene.',
+        body: 'Durante más de una década me formé y especialicé en esta disciplina, con varias certificaciones y profundizando de forma continua. Esa base es el fundamento de un acompañamiento que de verdad sostiene.',
       },
       facts: {
         languagesLabel: 'Idiomas',
@@ -376,7 +376,7 @@ export const es: Dictionary = {
       story: {
         eyebrow: 'Mi historia',
         titleHtml:
-          'Lo que de <span class="italic text-forest">verdad</span> me ha marcado.',
+          'Lo que de <span class="italic text-forest">verdad</span> me marcó.',
         imgAlt: 'Carmen Bereiter',
         paras: [
           'Muchos me ven como una mujer con carisma, con una fina sensibilidad para los momentos de bienestar y con un éxito visible. Pero detrás de lo visible hay un camino que pocas veces se ve desde fuera.',
@@ -448,17 +448,17 @@ export const es: Dictionary = {
     references: {
       metaTitle: 'Referencias · Carmen Bereiter',
       metaDescription:
-        'Palabras de personas que han recorrido este camino, de los países de habla alemana, Portugal y Suiza. Voces reales sobre el coaching y mentoring con Carmen Bereiter.',
+        'Palabras de personas que recorrieron este camino, de los países de habla alemana, Portugal y Suiza. Voces reales sobre el coaching y mentoring con Carmen Bereiter.',
       hero: {
         eyebrow: 'Referencias',
         titleHtml:
           'Para mí, el éxito es tocar corazones y ver cómo las personas <span class="italic text-forest" style="font-variation-settings: \'opsz\' 144, \'SOFT\' 100;">florecen</span> a una nueva vida.',
-        body: 'Palabras de personas que han recorrido este camino, de los países de habla alemana, Portugal y Suiza.',
+        body: 'Palabras de personas que recorrieron este camino, de los países de habla alemana, Portugal y Suiza.',
       },
       finalCta: {
         eyebrow: 'Tu capítulo',
         titleHtml:
-          'Si lo que has leído <span class="italic text-clay-soft">remueve</span> algo en ti, hablemos.',
+          'Si lo que leíste <span class="italic text-clay-soft">remueve</span> algo en ti, hablemos.',
         ctaPrimary: 'Escríbeme por WhatsApp',
         ctaSecondary: 'Escríbeme por Telegram',
       },
