@@ -449,12 +449,12 @@ export const en: Dictionary = {
     references: {
       metaTitle: 'Testimonials · Carmen Bereiter',
       metaDescription:
-        'Words from people who have walked this path — from the German-speaking region, Portugal and Switzerland. Real voices on coaching & mentoring with Carmen Bereiter.',
+        'Words from people who have walked this path. Real voices on coaching & mentoring with Carmen Bereiter.',
       hero: {
         eyebrow: 'Testimonials',
         titleHtml:
           'For me, success means touching hearts and seeing people <span class="italic text-forest" style="font-variation-settings: \'opsz\' 144, \'SOFT\' 100;">blossom</span> into new life.',
-        body: 'Words from people who have walked this path, from the German-speaking region, Portugal and Switzerland.',
+        body: 'Words from people who have walked this path.',
       },
       finalCta: {
         eyebrow: 'Your chapter',

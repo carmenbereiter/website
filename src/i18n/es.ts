@@ -448,12 +448,12 @@ export const es: Dictionary = {
     references: {
       metaTitle: 'Referencias · Carmen Bereiter',
       metaDescription:
-        'Palabras de personas que recorrieron este camino, de los países de habla alemana, Portugal y Suiza. Voces reales sobre el coaching y mentoring con Carmen Bereiter.',
+        'Palabras de personas que recorrieron este camino. Voces reales sobre el coaching y mentoring con Carmen Bereiter.',
       hero: {
         eyebrow: 'Referencias',
         titleHtml:
           'Para mí, el éxito es tocar corazones y ver cómo las personas <span class="italic text-forest" style="font-variation-settings: \'opsz\' 144, \'SOFT\' 100;">florecen</span> a una nueva vida.',
-        body: 'Palabras de personas que recorrieron este camino, de los países de habla alemana, Portugal y Suiza.',
+        body: 'Palabras de personas que recorrieron este camino.',
       },
       finalCta: {
         eyebrow: 'Tu capítulo',

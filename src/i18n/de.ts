@@ -457,12 +457,12 @@ export const de = {
     references: {
       metaTitle: 'Referenzen · Carmen Bereiter',
       metaDescription:
-        'Worte von Menschen, die diesen Weg gegangen sind — aus dem DACH-Raum, Portugal und der Schweiz. Echte Stimmen über Coaching & Mentoring mit Carmen Bereiter.',
+        'Worte von Menschen, die diesen Weg gegangen sind. Echte Stimmen über Coaching & Mentoring mit Carmen Bereiter.',
       hero: {
         eyebrow: 'Referenzen',
         titleHtml:
           'Erfolg bedeutet für mich, Herzen zu berühren und zu sehen, wie Menschen zu neuem Leben <span class="italic text-forest" style="font-variation-settings: \'opsz\' 144, \'SOFT\' 100;">erblühen</span>.',
-        body: 'Worte von Menschen, die diesen Weg gegangen sind, aus dem DACH-Raum, Portugal und der Schweiz.',
+        body: 'Worte von Menschen, die diesen Weg gegangen sind.',
       },
       finalCta: {
         eyebrow: 'Dein Kapitel',
