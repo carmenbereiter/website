@@ -116,15 +116,15 @@ export type EndorsementMeta = {
 export const endorsementMeta: EndorsementMeta[] = [
   {
     name: 'Dr. Biyon Kattilathu',
-    image: '/images/Dr-Biyon-Kattilathu-763x1024-1.webp',
+    image: '/images/persons/biyon.webp',
   },
   {
     name: 'Kirsten Bühne',
-    image: '/images/CEObabe-12-Kopie.webp',
+    image: '/images/persons/kirsten.webp',
   },
   {
     name: 'Torben Platzer',
-    image: '/images/Torben-Platzer-836x1024-1.webp',
+    image: '/images/persons/torben.webp',
   },
 ];
 
