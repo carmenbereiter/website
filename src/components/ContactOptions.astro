@@ -1,6 +1,6 @@
 ---
 /**
- * Drei Kontakt-Kacheln: WhatsApp · Telegram · Calendly.
+ * Zwei Kontakt-Kacheln: WhatsApp · Calendly.
  * Wiederverwendet auf der /kontakt-Seite und am Ende der Startseite.
  */
 import { Icon } from 'astro-icon/components';
@@ -37,24 +37,6 @@ const tileClasses =
       <div class="min-w-0">
         <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">{t.contactTiles.whatsappTitle}</div>
         <div class="text-xs text-taupe sm:text-sm">{t.contactTiles.whatsappSub}</div>
-      </div>
-    </div>
-    <Icon name="lucide:arrow-right" class="size-5 flex-shrink-0 transition-transform group-hover:translate-x-1 sm:size-6" />
-  </a>
-
-  <a
-    href={contact.telegram.url}
-    target="_blank"
-    rel="noopener"
-    class={tileClasses}
-  >
-    <div class="flex items-center gap-3 sm:gap-4">
-      <span class="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full" style="background: #229ED9; color: white;">
-        <Icon name="simple-icons:telegram" class="size-[22px]" />
-      </span>
-      <div class="min-w-0">
-        <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">{t.contactTiles.telegramTitle}</div>
-        <div class="truncate text-xs text-taupe sm:text-sm">@{contact.telegram.handle}</div>
       </div>
     </div>
     <Icon name="lucide:arrow-right" class="size-5 flex-shrink-0 transition-transform group-hover:translate-x-1 sm:size-6" />

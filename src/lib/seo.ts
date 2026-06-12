@@ -86,7 +86,6 @@ function builders(origin: URL | undefined) {
         postalCode: '35009',
         addressCountry: 'ES',
       },
-      sameAs: [contact.telegram.url],
       founder: { '@id': PERSON_ID },
       ...(opts.withOffers ? { makesOffer: offerNodes(lang) } : {}),
       ...(opts.withReviews ? { review: reviewNodes(lang) } : {}),

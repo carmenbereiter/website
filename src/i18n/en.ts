@@ -43,8 +43,6 @@ export const en: Dictionary = {
   fab: {
     bookAria: 'Book a free call (Calendly)',
     bookTip: 'Book a call',
-    telegramAria: 'Message on Telegram',
-    telegramTip: 'Telegram',
     whatsappAria: 'Message on WhatsApp',
     whatsappTip: 'WhatsApp',
   },
@@ -52,7 +50,6 @@ export const en: Dictionary = {
   contactTiles: {
     whatsappTitle: 'WhatsApp',
     whatsappSub: 'Personal. Fast. Straight to me.',
-    telegramTitle: 'Telegram',
     bookTitle: 'Book a free call',
     bookSub: 'online',
   },
@@ -69,7 +66,6 @@ export const en: Dictionary = {
     format: 'Format:',
     invest: 'Invest:',
     askWhatsapp: 'Ask via WhatsApp',
-    writeTelegram: 'Message on Telegram',
   },
 
   customCta: {
@@ -205,17 +201,17 @@ export const en: Dictionary = {
 
   endorsements: [
     {
-      role: 'Motivational speaker & entertainer',
+      role: 'Motivational speaker & multiple Spiegel bestselling author',
       quote:
         'Carmen is one of the most empathetic and honest people I know. Her great gift of helping others to a happier and more successful life makes her truly special.',
     },
     {
-      role: 'CEO',
+      role: 'CEO & brand expert',
       quote:
         "Carmen's aura is so warm, kind and natural that everyone feels safe and understood with her. With great ease she connects her clients with their true essence.",
     },
     {
-      role: 'Entrepreneur & bestselling author',
+      role: 'Entrepreneur & Spiegel bestselling author',
       quote:
         'The first time Carmen sat at my Round Table, she captivated everyone with her presence and energy. I highly recommend her mentoring.',
     },
@@ -410,7 +406,7 @@ export const en: Dictionary = {
     contact: {
       metaTitle: 'Contact · Carmen Bereiter',
       metaDescription:
-        "Tell me briefly what's on your mind — via WhatsApp, Telegram or email. I reply personally, usually the same day. Sessions online via Zoom or in person on Gran Canaria.",
+        "Tell me briefly what's on your mind — via WhatsApp or email. I reply personally, usually the same day. Sessions online via Zoom or in person on Gran Canaria.",
       hero: {
         eyebrow: "Let's talk",
         titleHtml:
@@ -461,7 +457,7 @@ export const en: Dictionary = {
         titleHtml:
           "If what you've read <span class=\"italic text-clay-soft\">touches</span> something in you, let's talk.",
         ctaPrimary: 'Message me on WhatsApp',
-        ctaSecondary: 'Message me on Telegram',
+        ctaSecondary: 'Book a free call',
       },
     },
   },

@@ -192,7 +192,7 @@ const waUrl = whatsappUrl(t.common.whatsappDefault);
 
       <!-- Direct contact: kompakte Dreierreihe -->
       <p class="px-4 text-[11px] uppercase tracking-[0.24em] text-clay">{t.header.directContact}</p>
-      <div class="mt-3 grid grid-cols-3 gap-2">
+      <div class="mt-3 grid grid-cols-2 gap-2">
         <a
           href={waUrl}
           target="_blank"
@@ -201,16 +201,6 @@ const waUrl = whatsappUrl(t.common.whatsappDefault);
         >
           <Icon name="simple-icons:whatsapp" class="size-6" />
           <span class="text-xs leading-tight">WhatsApp</span>
-        </a>
-
-        <a
-          href={contact.telegram.url}
-          target="_blank"
-          rel="noopener"
-          class="flex flex-col items-center justify-center gap-2 rounded-2xl border border-line bg-cream-soft px-2 py-4 text-center text-ink transition-colors hover:border-forest hover:text-forest"
-        >
-          <Icon name="simple-icons:telegram" class="size-6" />
-          <span class="text-xs leading-tight">Telegram</span>
         </a>
 
         <a

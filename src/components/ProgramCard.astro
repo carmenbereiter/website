@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { whatsappUrl, telegramUrl } from '../config';
+import { whatsappUrl } from '../config';
 import { getLang, useTranslations, type Program } from '../i18n';
 
 interface Props {
@@ -79,15 +79,6 @@ const t = useTranslations(lang);
         <Icon name="simple-icons:whatsapp" class="size-4" />
         <span>{t.programCard.askWhatsapp}</span>
         <Icon name="lucide:arrow-right" class="size-4 transition-transform duration-500 group-hover/btn:translate-x-0.5" />
-      </a>
-      <a
-        href={telegramUrl()}
-        target="_blank"
-        rel="noopener"
-        class="group/tg inline-flex w-full items-center justify-center gap-2 rounded-full border border-ink/15 bg-cream-soft px-6 py-3.5 text-sm text-ink transition-all duration-300 hover:border-[#229ED9] hover:text-[#229ED9] sm:w-auto"
-      >
-        <Icon name="simple-icons:telegram" class="size-4" />
-        <span>{t.programCard.writeTelegram}</span>
       </a>
     </div>
   </div>

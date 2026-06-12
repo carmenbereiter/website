@@ -48,8 +48,6 @@ export const de = {
   fab: {
     bookAria: 'Erstgespräch buchen (Calendly)',
     bookTip: 'Termin buchen',
-    telegramAria: 'Auf Telegram schreiben',
-    telegramTip: 'Telegram',
     whatsappAria: 'Auf WhatsApp schreiben',
     whatsappTip: 'WhatsApp',
   },
@@ -57,7 +55,6 @@ export const de = {
   contactTiles: {
     whatsappTitle: 'WhatsApp',
     whatsappSub: 'Persönlich. Schnell. Direkt zu mir.',
-    telegramTitle: 'Telegram',
     bookTitle: 'Erstgespräch buchen',
     bookSub: 'online',
   },
@@ -74,7 +71,6 @@ export const de = {
     format: 'Format:',
     invest: 'Invest:',
     askWhatsapp: 'Per WhatsApp anfragen',
-    writeTelegram: 'Auf Telegram schreiben',
   },
 
   customCta: {
@@ -213,17 +209,17 @@ export const de = {
   /** Reihenfolge identisch zu endorsementMeta in config.ts */
   endorsements: [
     {
-      role: 'Motivationstrainer & Entertainer',
+      role: 'Motivationstrainer & Mehrfacher Spiegel-Bestsellerautor',
       quote:
         'Carmen ist einer der empathischsten und ehrlichsten Menschen, die ich kenne. Ihre große Gabe, anderen Menschen zu einem glücklicheren und erfolgreichen Leben zu verhelfen, macht sie ganz besonders.',
     },
     {
-      role: 'CEO',
+      role: 'CEO & Markenexpertin',
       quote:
         'Carmens Aura ist so herzlich, warm und natürlich, sodass sich jeder bei ihr sicher und verstanden fühlt. Mit großer Leichtigkeit verbindet sie ihre Kunden mit ihrer wahren Essenz.',
     },
     {
-      role: 'Unternehmer & Bestsellerautor',
+      role: 'Unternehmer & Spiegel-Bestsellerautor',
       quote:
         'Als Carmen das erste Mal bei mir beim Round Table saß, hat sie mit ihrer Ausstrahlung und Energie jeden in ihren Bann gezogen. Ich kann ihr Mentoring sehr empfehlen.',
     },
@@ -418,7 +414,7 @@ export const de = {
     contact: {
       metaTitle: 'Kontakt · Carmen Bereiter',
       metaDescription:
-        'Schreib mir kurz, was dich beschäftigt — per WhatsApp, Telegram oder E-Mail. Ich antworte persönlich, meist noch am selben Tag. Sitzungen online via Zoom oder vor Ort auf Gran Canaria.',
+        'Schreib mir kurz, was dich beschäftigt — per WhatsApp oder E-Mail. Ich antworte persönlich, meist noch am selben Tag. Sitzungen online via Zoom oder vor Ort auf Gran Canaria.',
       hero: {
         eyebrow: 'Lass uns reden',
         titleHtml:
@@ -469,7 +465,7 @@ export const de = {
         titleHtml:
           'Wenn das, was du gelesen hast, etwas in dir <span class="italic text-clay-soft">berührt</span>, lass uns reden.',
         ctaPrimary: 'Auf WhatsApp schreiben',
-        ctaSecondary: 'Auf Telegram schreiben',
+        ctaSecondary: 'Erstgespräch sichern',
       },
     },
   },

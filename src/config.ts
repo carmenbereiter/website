@@ -28,10 +28,6 @@ export const contact = {
     /** Telefonnummer ohne +, Leerzeichen oder Bindestriche. */
     number: '34627631257',
   },
-  telegram: {
-    handle: 'Carmen_Bereiter',
-    url: 'https://t.me/Carmen_Bereiter',
-  },
   calendly: {
     url: 'https://calendly.com/deinticketzudeinerklarheit/mentorincarmenbereiter',
   },
@@ -41,12 +37,6 @@ export const contact = {
 /** WhatsApp-Deeplink, optional mit vorausgefülltem Text. */
 export const whatsappUrl = (message?: string) => {
   const base = `https://wa.me/${contact.whatsapp.number}`;
-  if (!message) return base;
-  return `${base}?text=${encodeURIComponent(message)}`;
-};
-
-export const telegramUrl = (message?: string) => {
-  const base = contact.telegram.url;
   if (!message) return base;
   return `${base}?text=${encodeURIComponent(message)}`;
 };

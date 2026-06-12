@@ -42,8 +42,6 @@ export const es: Dictionary = {
   fab: {
     bookAria: 'Reservar una sesión inicial (Calendly)',
     bookTip: 'Reservar cita',
-    telegramAria: 'Escribir por Telegram',
-    telegramTip: 'Telegram',
     whatsappAria: 'Escribir por WhatsApp',
     whatsappTip: 'WhatsApp',
   },
@@ -51,7 +49,6 @@ export const es: Dictionary = {
   contactTiles: {
     whatsappTitle: 'WhatsApp',
     whatsappSub: 'Personal. Rápido. Directo conmigo.',
-    telegramTitle: 'Telegram',
     bookTitle: 'Reservar sesión inicial',
     bookSub: 'online',
   },
@@ -68,7 +65,6 @@ export const es: Dictionary = {
     format: 'Formato:',
     invest: 'Inversión:',
     askWhatsapp: 'Consultar por WhatsApp',
-    writeTelegram: 'Escribir por Telegram',
   },
 
   customCta: {
@@ -204,17 +200,17 @@ export const es: Dictionary = {
 
   endorsements: [
     {
-      role: 'Conferenciante motivacional y showman',
+      role: 'Conferenciante motivacional y autor best seller del Spiegel en varias ocasiones',
       quote:
         'Carmen es una de las personas más empáticas y honestas que conozco. Su gran don de ayudar a otras personas a una vida más feliz y exitosa la hace muy especial.',
     },
     {
-      role: 'CEO',
+      role: 'CEO y experta en marcas',
       quote:
         'El aura de Carmen es tan cálida, cercana y natural que todo el mundo se siente seguro y comprendido a su lado. Con gran ligereza conecta a sus clientes con su verdadera esencia.',
     },
     {
-      role: 'Empresario y autor best seller',
+      role: 'Empresario y autor best seller del Spiegel',
       quote:
         'La primera vez que Carmen se sentó en mi Round Table, cautivó a todos con su presencia y su energía. Recomiendo su mentoring de todo corazón.',
     },
@@ -409,7 +405,7 @@ export const es: Dictionary = {
     contact: {
       metaTitle: 'Contacto · Carmen Bereiter',
       metaDescription:
-        'Cuéntame brevemente qué te preocupa, por WhatsApp, Telegram o email. Te respondo personalmente, casi siempre el mismo día. Sesiones online por Zoom o presenciales en Gran Canaria.',
+        'Cuéntame brevemente qué te preocupa, por WhatsApp o email. Te respondo personalmente, casi siempre el mismo día. Sesiones online por Zoom o presenciales en Gran Canaria.',
       hero: {
         eyebrow: 'Hablemos',
         titleHtml:
@@ -460,7 +456,7 @@ export const es: Dictionary = {
         titleHtml:
           'Si lo que leíste <span class="italic text-clay-soft">remueve</span> algo en ti, hablemos.',
         ctaPrimary: 'Escríbeme por WhatsApp',
-        ctaSecondary: 'Escríbeme por Telegram',
+        ctaSecondary: 'Reservar sesión inicial',
       },
     },
   },
