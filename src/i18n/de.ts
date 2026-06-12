@@ -414,7 +414,7 @@ export const de = {
     contact: {
       metaTitle: 'Kontakt · Carmen Bereiter',
       metaDescription:
-        'Schreib mir kurz, was dich beschäftigt — per WhatsApp oder E-Mail. Ich antworte persönlich, meist noch am selben Tag. Sitzungen online via Zoom oder vor Ort auf Gran Canaria.',
+        'Schreib mir kurz, was dich beschäftigt — per WhatsApp oder E-Mail. Ich antworte persönlich, meist noch am selben Tag. Sitzungen online oder vor Ort auf Gran Canaria.',
       hero: {
         eyebrow: 'Lass uns reden',
         titleHtml:
@@ -446,7 +446,7 @@ export const de = {
       },
       where: {
         eyebrow: 'Wo wir uns treffen',
-        body: 'Sitzungen finden online via Zoom statt, oder vor Ort auf Gran Canaria, bei einem Live-Event.',
+        body: 'Sitzungen finden online statt oder vor Ort auf Gran Canaria. Auf Anfrage fliege ich auch zu dir.',
       },
     },
 

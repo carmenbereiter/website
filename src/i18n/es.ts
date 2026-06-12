@@ -405,7 +405,7 @@ export const es: Dictionary = {
     contact: {
       metaTitle: 'Contacto · Carmen Bereiter',
       metaDescription:
-        'Cuéntame brevemente qué te preocupa, por WhatsApp o email. Te respondo personalmente, casi siempre el mismo día. Sesiones online por Zoom o presenciales en Gran Canaria.',
+        'Cuéntame brevemente qué te preocupa, por WhatsApp o email. Te respondo personalmente, casi siempre el mismo día. Sesiones online o presenciales en Gran Canaria.',
       hero: {
         eyebrow: 'Hablemos',
         titleHtml:
@@ -437,7 +437,7 @@ export const es: Dictionary = {
       },
       where: {
         eyebrow: 'Dónde nos encontramos',
-        body: 'Las sesiones se realizan online por Zoom, o presenciales en Gran Canaria, en un evento en vivo.',
+        body: 'Las sesiones se realizan online o presenciales en Gran Canaria. Si lo deseas, también vuelo hasta ti.',
       },
     },
 

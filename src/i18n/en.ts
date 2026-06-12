@@ -406,7 +406,7 @@ export const en: Dictionary = {
     contact: {
       metaTitle: 'Contact · Carmen Bereiter',
       metaDescription:
-        "Tell me briefly what's on your mind — via WhatsApp or email. I reply personally, usually the same day. Sessions online via Zoom or in person on Gran Canaria.",
+        "Tell me briefly what's on your mind — via WhatsApp or email. I reply personally, usually the same day. Sessions online or in person on Gran Canaria.",
       hero: {
         eyebrow: "Let's talk",
         titleHtml:
@@ -438,7 +438,7 @@ export const en: Dictionary = {
       },
       where: {
         eyebrow: 'Where we meet',
-        body: 'Sessions take place online via Zoom, or in person on Gran Canaria, at a live event.',
+        body: 'Sessions take place online or in person on Gran Canaria. On request, I’ll also fly out to you.',
       },
     },
 
