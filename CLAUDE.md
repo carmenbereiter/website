@@ -10,18 +10,18 @@ Static marketing website for Carmen Bereiter (Coach & Mentorin, Gran Canaria & O
 
 Package manager is **pnpm** (Node >= 22.12). Run from repo root:
 
-| Command        | Action                                       |
-| -------------- | -------------------------------------------- |
-| `pnpm dev`     | Dev server at `localhost:4321`               |
-| `pnpm build`   | Production build to `./dist/`                |
-| `pnpm preview` | Preview the build locally before deploying   |
-| `pnpm astro check` | Type-check `.astro` files                |
+| Command            | Action                                     |
+| ------------------ | ------------------------------------------ |
+| `pnpm dev`         | Dev server at `localhost:4321`             |
+| `pnpm build`       | Production build to `./dist/`              |
+| `pnpm preview`     | Preview the build locally before deploying |
+| `pnpm astro check` | Type-check `.astro` files                  |
 
 There is no test suite and no separate lint step. `astro check` is the closest thing to type validation.
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds and deploys to **Cloudflare Pages** (project `carmen-bereiter`, live at `carmen-bereiter.pages.dev`). Deploys are automatic — no manual step.
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds and deploys to **GitHub Pages** (custom domain `carmenbereiter.com`, set via `public/CNAME`). Deploys are automatic — no manual step. The workflow uses the official `actions/upload-pages-artifact` + `actions/deploy-pages` flow; GitHub Pages must be set to **Source: GitHub Actions** in the repo settings.
 
 ## Architecture
 
@@ -46,7 +46,7 @@ Headlines with inline emphasis are stored as `*Html` keys in the dictionaries an
 
 `Layout.astro` emits canonical, `hreflang` alternates (+ `x-default`), localized `<html lang>` and `og:locale`, and per-page title/description from the dictionary. Structured data (JSON-LD) is built in **`src/lib/seo.ts`** (`ProfessionalService` + `Person` + `WebSite`, `Service`/`Offer` per program, `Review` per testimonial) and passed to `Layout` via the `jsonLd` prop. Reviews intentionally carry **no `aggregateRating`/star ratings** — there's no genuine rating source yet (see the note in `seo.ts`).
 
-`sitemap.xml` and `robots.txt` are **own endpoints** (`src/pages/sitemap.xml.ts`, `src/pages/robots.txt.ts`) — *not* `@astrojs/sitemap`, whose i18n linking assumes identical slugs across languages (it can't handle our localized slugs). The sitemap builds correct per-page `hreflang` alternates from the `routes` map. All absolute URLs (canonical, hreflang, JSON-LD, sitemap, robots) derive from a single source: `site` in `astro.config.mjs` (`Astro.site`).
+`sitemap.xml` and `robots.txt` are **own endpoints** (`src/pages/sitemap.xml.ts`, `src/pages/robots.txt.ts`) — _not_ `@astrojs/sitemap`, whose i18n linking assumes identical slugs across languages (it can't handle our localized slugs). The sitemap builds correct per-page `hreflang` alternates from the `routes` map. All absolute URLs (canonical, hreflang, JSON-LD, sitemap, robots) derive from a single source: `site` in `astro.config.mjs` (`Astro.site`).
 
 The legal pages (`aviso-legal`, `politica-de-privacidad`) are **Spanish-only by design** — legally required for a business based in Spain. They live only at the root, are linked non-localized from the footer, and emit no hreflang alternates.
 

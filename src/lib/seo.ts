@@ -20,7 +20,7 @@ import {
 } from '../i18n';
 
 /** Fallback, falls Astro.site (wider Erwarten) nicht gesetzt ist. */
-const FALLBACK_ORIGIN = 'https://carmen-bereiter.pages.dev';
+const FALLBACK_ORIGIN = 'https://carmenbereiter.com';
 
 /**
  * Erzeugt die sprachabhängigen JSON-LD-Helfer für eine konkrete Origin.

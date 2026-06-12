@@ -1,4 +1,4 @@
-# Deploy zu Cloudflare Pages
+# Deploy zu GitHub Pages
 
 name: Deploy
 
@@ -8,16 +8,23 @@ on:
   workflow_dispatch:
 
 env:
-  PROJECT_NAME: carmen-bereiter
   NODE_VERSION: '22'
   PNPM_VERSION: '10'
 
+# Berechtigungen für das GitHub-Pages-Deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Nur ein Deployment gleichzeitig; laufende werden nicht abgebrochen
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,9 +46,18 @@ jobs:
       - name: Build site
         run: pnpm build
 
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=${{ env.PROJECT_NAME }} --branch=${{ github.ref_name }}
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

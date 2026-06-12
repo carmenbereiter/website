@@ -8,7 +8,7 @@ import icon from 'astro-icon';
 // (src/pages/sitemap.xml.ts, src/pages/robots.txt.ts) — sie kennen die
 // lokalisierten Slugs, was @astrojs/sitemap nicht abbilden kann.
 export default defineConfig({
-  site: 'https://carmen-bereiter.pages.dev',
+  site: 'https://carmenbereiter.com',
   i18n: {
     locales: ['de', 'en', 'es'],
     defaultLocale: 'de',
