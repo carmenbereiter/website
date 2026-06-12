@@ -1,0 +1,271 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { site, legal } from '../../config';
+---
+
+<Layout
+  lang="en"
+  title={`Privacy Policy · ${site.name}`}
+  description="Privacy and Cookie Policy under the GDPR (EU 2016/679) and the Spanish LOPDGDD (Organic Law 3/2018)."
+>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-24">
+    <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
+      Data protection
+    </p>
+    <h1
+      class="mt-4 font-display text-3xl leading-[1.1] text-ink sm:mt-6 sm:text-4xl md:text-5xl text-balance"
+      style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+    >
+      Privacy and Cookie Policy
+    </h1>
+    <p class="mt-4 text-sm text-taupe sm:text-base">
+      In compliance with Regulation (EU) 2016/679 (GDPR) and the Spanish
+      Organic Law 3/2018 of 5 December on the Protection of Personal Data and
+      the guarantee of digital rights (LOPDGDD).
+    </p>
+
+    <div class="prose-legal mt-10 space-y-10 sm:mt-12 sm:space-y-12">
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          1. Data controller
+        </h2>
+        <dl class="mt-5 divide-y divide-line border-y border-line">
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Identity</dt>
+            <dd class="text-base text-ink-soft">{legal.titular}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">NIE / NIF</dt>
+            <dd class="text-base text-ink-soft">{legal.nif}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Postal address</dt>
+            <dd class="text-base text-ink-soft">{legal.direccion}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Contact email</dt>
+            <dd class="text-base text-ink-soft">
+              <a href={`mailto:${legal.email}`} class="underline decoration-line underline-offset-4 hover:decoration-clay">
+                {legal.email}
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          2. Purposes of processing
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          The personal data that the User provides through the contact channels
+          available on the Website (WhatsApp, email or booking via Calendly)
+          will be processed for the following purposes:
+        </p>
+        <ul class="mt-4 space-y-2 text-base text-ink-soft">
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Handling enquiries, requests and session bookings.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Managing the professional relationship between {legal.titular} and the User.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Complying with applicable legal, accounting and tax obligations.</span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          3. Legal basis for processing
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          The legal basis that legitimises the processing of the User's personal
+          data is:
+        </p>
+        <ul class="mt-4 space-y-2 text-base text-ink-soft">
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>
+              <strong class="text-ink">The consent</strong> of the data subject
+              when voluntarily making contact through the available channels
+              (Art. 6.1.a GDPR).
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>
+              <strong class="text-ink">The performance of a contract</strong> or
+              pre-contractual measures in the case of the provision of services
+              (Art. 6.1.b GDPR).
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>
+              <strong class="text-ink">Compliance with legal obligations</strong> (Art. 6.1.c GDPR).
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          4. Retention period
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Personal data will be kept for as long as necessary to fulfil the
+          purpose for which it was collected and to determine any liabilities
+          that may arise from that purpose and from the processing of the data.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Data related to accounting and tax obligations will be kept for the
+          legally established periods (a minimum of six years, according to the
+          Spanish Commercial Code).
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          5. Recipients and international transfers
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          No data will be transferred to third parties, except by legal
+          obligation. However, when the User uses third-party services to make
+          contact (WhatsApp, Calendly), their data will be processed by the
+          providers of those platforms in accordance with their respective
+          privacy policies:
+        </p>
+        <ul class="mt-4 space-y-2 text-base text-ink-soft">
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>
+              <strong class="text-ink">WhatsApp / Meta Platforms Ireland Ltd.</strong>{' '}
+              <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener" class="underline decoration-line underline-offset-4 hover:decoration-clay">
+                Privacy policy
+              </a>
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>
+              <strong class="text-ink">Calendly LLC (USA).</strong>{' '}
+              <a href="https://calendly.com/privacy" target="_blank" rel="noopener" class="underline decoration-line underline-offset-4 hover:decoration-clay">
+                Privacy policy
+              </a>{' '}
+              — international transfer covered by the EU-US Data Privacy
+              Framework.
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          6. Rights of the data subject
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          The User may exercise the following rights at any time:
+        </p>
+        <ul class="mt-4 space-y-2 text-base text-ink-soft">
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Access to their personal data.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Rectification of inaccurate data.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Erasure ("right to be forgotten").</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Restriction of processing.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Data portability.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Objection to processing.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Withdrawal of consent at any time.</span>
+          </li>
+        </ul>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          To exercise these rights, the User may write to {legal.titular}, at
+          the address {legal.direccion}, or to the email address{' '}
+          <a href={`mailto:${legal.email}`} class="underline decoration-line underline-offset-4 hover:decoration-clay">
+            {legal.email}
+          </a>
+          , indicating "Data Protection" as the subject and proving their
+          identity.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          The User also has the right to lodge a complaint with the competent
+          supervisory authority: the{' '}
+          <a href="https://www.aepd.es" target="_blank" rel="noopener" class="underline decoration-line underline-offset-4 hover:decoration-clay">
+            Spanish Data Protection Agency (AEPD)
+          </a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          7. Cookie Policy
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          This Website <strong class="text-ink">does not use its own or
+          third-party cookies</strong> for analytical, advertising or tracking
+          purposes. Nor are any tools used to analyse User behaviour (such as
+          Google Analytics, Meta Pixel, etc.).
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          The typefaces (Fraunces and Geist Sans) are served locally from the
+          server itself, without connecting to external CDNs.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          If the User decides to visit an external link (WhatsApp, Calendly),
+          those platforms may use their own cookies in accordance with their
+          respective policies.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          8. Security measures
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          {legal.titular} has adopted the technical and organisational measures
+          necessary to ensure the security of personal data and prevent its
+          alteration, loss, unauthorised processing or access, in line with the
+          state of technology and the nature of the data processed.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          9. Changes to the privacy policy
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          {legal.titular} reserves the right to modify this policy to adapt it
+          to legislative or case-law developments. In such cases, any changes
+          introduced will be announced on the Website with reasonable notice
+          before they take effect.
+        </p>
+      </section>
+    </div>
+
+    <p class="mt-12 text-xs text-taupe">
+      Last updated: {legal.fechaActualizacion}
+    </p>
+  </article>
+</Layout>

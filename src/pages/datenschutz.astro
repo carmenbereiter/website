@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, legal } from '../config';
+---
+
+<Layout
+  lang="de"
+  title={`Datenschutzerklärung · ${site.name}`}
+  description="Datenschutz- und Cookie-Erklärung gemäß DSGVO (EU 2016/679) und dem spanischen LOPDGDD (Ley Orgánica 3/2018)."
+>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-24">
+    <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
+      Datenschutz
+    </p>
+    <h1
+      class="mt-4 font-display text-3xl leading-[1.1] text-ink sm:mt-6 sm:text-4xl md:text-5xl text-balance"
+      style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+    >
+      Datenschutz- und Cookie-Erklärung
+    </h1>
+    <p class="mt-4 text-sm text-taupe sm:text-base">
+      In Erfüllung der Verordnung (EU) 2016/679 (DSGVO) und des spanischen
+      Gesetzes Ley Orgánica 3/2018 vom 5. Dezember über den Schutz
+      personenbezogener Daten und die Gewährleistung der digitalen Rechte
+      (LOPDGDD).
+    </p>
+
+    <div class="prose-legal mt-10 space-y-10 sm:mt-12 sm:space-y-12">
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          1. Verantwortlicher für die Verarbeitung
+        </h2>
+        <dl class="mt-5 divide-y divide-line border-y border-line">
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Identität</dt>
+            <dd class="text-base text-ink-soft">{legal.titular}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">NIE / NIF</dt>
+            <dd class="text-base text-ink-soft">{legal.nif}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Postanschrift</dt>
+            <dd class="text-base text-ink-soft">{legal.direccion}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Kontakt-E-Mail</dt>
+            <dd class="text-base text-ink-soft">
+              <a href={`mailto:${legal.email}`} class="underline decoration-line underline-offset-4 hover:decoration-clay">
+                {legal.email}
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          2. Zwecke der Verarbeitung
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Die personenbezogenen Daten, die der Nutzer über die auf der Website
+          verfügbaren Kontaktkanäle (WhatsApp, E-Mail oder Terminbuchung über
+          Calendly) übermittelt, werden zu folgenden Zwecken verarbeitet:
+        </p>
+        <ul class="mt-4 space-y-2 text-base text-ink-soft">
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Bearbeitung von Anfragen, Anliegen und Sitzungsbuchungen.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Verwaltung der beruflichen Beziehung zwischen {legal.titular} und dem Nutzer.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Erfüllung der geltenden gesetzlichen, buchhalterischen und steuerlichen Pflichten.</span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          3. Rechtsgrundlage der Verarbeitung
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Die Rechtsgrundlage, die die Verarbeitung der personenbezogenen Daten
+          des Nutzers legitimiert, ist:
+        </p>
+        <ul class="mt-4 space-y-2 text-base text-ink-soft">
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>
+              <strong class="text-ink">Die Einwilligung</strong> der betroffenen
+              Person durch die freiwillige Kontaktaufnahme über die verfügbaren
+              Kanäle (Art. 6 Abs. 1 lit. a DSGVO).
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>
+              <strong class="text-ink">Die Erfüllung eines Vertrags</strong> oder
+              vorvertraglicher Maßnahmen im Fall der Erbringung von Leistungen
+              (Art. 6 Abs. 1 lit. b DSGVO).
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>
+              <strong class="text-ink">Die Erfüllung rechtlicher Verpflichtungen</strong> (Art. 6 Abs. 1 lit. c DSGVO).
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          4. Speicherdauer
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Die personenbezogenen Daten werden so lange gespeichert, wie es zur
+          Erfüllung des Zwecks, zu dem sie erhoben wurden, erforderlich ist und
+          um etwaige Verantwortlichkeiten zu bestimmen, die sich aus diesem
+          Zweck und aus der Verarbeitung der Daten ergeben könnten.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Daten im Zusammenhang mit buchhalterischen und steuerlichen Pflichten
+          werden für die gesetzlich vorgeschriebenen Fristen aufbewahrt
+          (mindestens sechs Jahre gemäß dem spanischen Handelsgesetzbuch).
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          5. Empfänger und internationale Datenübermittlungen
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Es werden keine Daten an Dritte weitergegeben, außer aufgrund einer
+          gesetzlichen Verpflichtung. Nutzt der Nutzer jedoch Dienste Dritter
+          zur Kontaktaufnahme (WhatsApp, Calendly), werden seine Daten von den
+          Anbietern dieser Plattformen gemäß deren jeweiligen
+          Datenschutzrichtlinien verarbeitet:
+        </p>
+        <ul class="mt-4 space-y-2 text-base text-ink-soft">
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>
+              <strong class="text-ink">WhatsApp / Meta Platforms Ireland Ltd.</strong>{' '}
+              <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener" class="underline decoration-line underline-offset-4 hover:decoration-clay">
+                Datenschutzrichtlinie
+              </a>
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>
+              <strong class="text-ink">Calendly LLC (USA).</strong>{' '}
+              <a href="https://calendly.com/privacy" target="_blank" rel="noopener" class="underline decoration-line underline-offset-4 hover:decoration-clay">
+                Datenschutzrichtlinie
+              </a>{' '}
+              — internationale Übermittlung gestützt auf den
+              EU-US-Datenschutzrahmen (Data Privacy Framework).
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          6. Rechte der betroffenen Person
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Der Nutzer kann jederzeit die folgenden Rechte ausüben:
+        </p>
+        <ul class="mt-4 space-y-2 text-base text-ink-soft">
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Auskunft über seine personenbezogenen Daten.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Berichtigung unrichtiger Daten.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Löschung („Recht auf Vergessenwerden“).</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Einschränkung der Verarbeitung.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Datenübertragbarkeit.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Widerspruch gegen die Verarbeitung.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"></span>
+            <span>Widerruf der Einwilligung jederzeit.</span>
+          </li>
+        </ul>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Zur Ausübung dieser Rechte kann sich der Nutzer schriftlich an
+          {' '}{legal.titular} unter der Anschrift {legal.direccion} oder per
+          E-Mail an{' '}
+          <a href={`mailto:${legal.email}`} class="underline decoration-line underline-offset-4 hover:decoration-clay">
+            {legal.email}
+          </a>
+          {' '}wenden, unter Angabe des Betreffs „Datenschutz“ und unter Nachweis
+          seiner Identität.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Der Nutzer hat zudem das Recht, eine Beschwerde bei der zuständigen
+          Aufsichtsbehörde einzureichen: der{' '}
+          <a href="https://www.aepd.es" target="_blank" rel="noopener" class="underline decoration-line underline-offset-4 hover:decoration-clay">
+            spanischen Datenschutzbehörde (AEPD)
+          </a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          7. Cookie-Richtlinie
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Diese Website <strong class="text-ink">verwendet weder eigene noch
+          Cookies von Dritten</strong> zu Analyse-, Werbe- oder
+          Tracking-Zwecken. Es werden auch keine Werkzeuge zur Analyse des
+          Nutzerverhaltens eingesetzt (wie Google Analytics, Meta Pixel usw.).
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Die Schriftarten (Fraunces und Geist Sans) werden lokal vom eigenen
+          Server bereitgestellt, ohne Verbindung zu externen CDNs.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Entscheidet sich der Nutzer, einem externen Link zu folgen (WhatsApp,
+          Calendly), können diese Plattformen ihre eigenen Cookies gemäß ihren
+          jeweiligen Richtlinien verwenden.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          8. Sicherheitsmaßnahmen
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          {legal.titular} hat die erforderlichen technischen und
+          organisatorischen Maßnahmen ergriffen, um die Sicherheit der
+          personenbezogenen Daten zu gewährleisten und deren Veränderung,
+          Verlust, unbefugte Verarbeitung oder unbefugten Zugriff zu verhindern,
+          entsprechend dem Stand der Technik und der Art der verarbeiteten
+          Daten.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          9. Änderungen der Datenschutzerklärung
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          {legal.titular} behält sich das Recht vor, diese Erklärung zu ändern,
+          um sie an gesetzliche oder rechtsprechungsbezogene Neuerungen
+          anzupassen. In solchen Fällen werden die vorgenommenen Änderungen mit
+          angemessener Frist vor ihrem Inkrafttreten auf der Website
+          bekanntgegeben.
+        </p>
+      </section>
+    </div>
+
+    <p class="mt-12 text-xs text-taupe">
+      Zuletzt aktualisiert: {legal.fechaActualizacion}
+    </p>
+  </article>
+</Layout>

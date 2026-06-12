@@ -6,7 +6,9 @@ import {
   useTranslations,
   getNav,
   getLangSwitch,
+  getLegalSwitch,
   matchRoute,
+  matchLegal,
   localizedPath,
 } from '../i18n';
 
@@ -14,7 +16,12 @@ const lang = getLang(Astro.currentLocale);
 const t = useTranslations(lang);
 const nav = getNav(lang);
 const routeKey = matchRoute(Astro.url.pathname, lang);
-const langs = getLangSwitch(routeKey, lang);
+// Auf Rechtstext-Seiten zwischen den lokalisierten Fassungen umschalten,
+// sonst über die normalen Routen.
+const legalKey = matchLegal(Astro.url.pathname);
+const langs = legalKey
+  ? getLegalSwitch(legalKey, lang)
+  : getLangSwitch(routeKey, lang);
 const homeHref = localizedPath('home', lang);
 const waUrl = whatsappUrl(t.common.whatsappDefault);
 ---

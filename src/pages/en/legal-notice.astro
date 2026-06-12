@@ -1,0 +1,162 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { site, legal } from '../../config';
+
+const siteUrl = Astro.site?.origin ?? '';
+---
+
+<Layout
+  lang="en"
+  title={`Legal Notice · ${site.name}`}
+  description="Legal Notice under the Spanish LSSI-CE (Law 34/2002) — identifying details of the website operator."
+>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-24">
+    <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
+      Legal information
+    </p>
+    <h1
+      class="mt-4 font-display text-3xl leading-[1.1] text-ink sm:mt-6 sm:text-4xl md:text-5xl text-balance"
+      style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+    >
+      Legal Notice
+    </h1>
+    <p class="mt-4 text-sm text-taupe sm:text-base">
+      In compliance with Article 10 of Spanish Law 34/2002 of 11 July, on
+      Information Society Services and Electronic Commerce (LSSI-CE), the
+      following identifying details are provided.
+    </p>
+
+    <div class="prose-legal mt-10 space-y-10 sm:mt-12 sm:space-y-12">
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          1. Operator details
+        </h2>
+        <dl class="mt-5 divide-y divide-line border-y border-line">
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Owner</dt>
+            <dd class="text-base text-ink-soft">{legal.titular}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Activity</dt>
+            <dd class="text-base text-ink-soft">Coach & Mentor (self-employed)</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">NIE / NIF</dt>
+            <dd class="text-base text-ink-soft">{legal.nif}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Address</dt>
+            <dd class="text-base text-ink-soft">{legal.direccion}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Email</dt>
+            <dd class="text-base text-ink-soft">
+              <a href={`mailto:${legal.email}`} class="underline decoration-line underline-offset-4 hover:decoration-clay">
+                {legal.email}
+              </a>
+            </dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Phone</dt>
+            <dd class="text-base text-ink-soft">{legal.telefono}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Website</dt>
+            <dd class="text-base text-ink-soft">{siteUrl}</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          2. Purpose and scope
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          This Legal Notice governs the use of the website {siteUrl}
+          (hereinafter, "the Website"), owned by {legal.titular}. Browsing the
+          Website confers the status of User and implies full and unreserved
+          acceptance of all the provisions set out in this Legal Notice.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          The User undertakes to make correct use of the Website in accordance
+          with the law, this Legal Notice, morality, good customs and public
+          order.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          3. Intellectual and industrial property
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          All the contents of the Website (texts, photographs, graphics,
+          images, icons, technology, software, as well as its graphic design
+          and source code) constitute a work whose ownership belongs to
+          {' '}{legal.titular}. No exploitation rights over them are assigned to
+          the User beyond what is strictly necessary for the correct use of the
+          Website.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          The trademarks, trade names or distinctive signs are owned by
+          {' '}{legal.titular} or third parties, and access to the Website may
+          not be understood to grant any right over them.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          4. Exclusion of warranties and liability
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          {legal.titular} shall not be liable, in any case, for damages of any
+          nature that may be caused, by way of example: errors or omissions in
+          the contents, lack of availability of the Website, or the
+          transmission of viruses or malicious or harmful programs in the
+          contents, despite having adopted all the technological measures
+          necessary to prevent it.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          5. Third-party links
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          The Website may contain links to third-party websites (among others,
+          WhatsApp and Calendly). {legal.titular} exercises no control
+          whatsoever over those sites and contents and shall under no
+          circumstances assume any responsibility for the contents of any link
+          belonging to a third-party website.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          6. Applicable law and jurisdiction
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          The relationship between {legal.titular} and the User shall be
+          governed by current Spanish law. For the resolution of any dispute,
+          the parties submit to the Courts and Tribunals of the owner's domicile,
+          unless the applicable law provides otherwise.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          7. Modifications
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          {legal.titular} reserves the right to make, without prior notice, any
+          modifications deemed appropriate to the Website, and may change,
+          remove or add both the contents and services provided and the way in
+          which they are presented or located.
+        </p>
+      </section>
+    </div>
+
+    <p class="mt-12 text-xs text-taupe">
+      Last updated: {legal.fechaActualizacion}
+    </p>
+  </article>
+</Layout>

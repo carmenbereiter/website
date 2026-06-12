@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, legal } from '../config';
+
+const siteUrl = Astro.site?.origin ?? '';
+---
+
+<Layout
+  lang="de"
+  title={`Impressum · ${site.name}`}
+  description="Impressum und Anbieterkennzeichnung gemäß der spanischen LSSI-CE (Ley 34/2002) — Angaben zum Betreiber dieser Website."
+>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-24">
+    <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
+      Rechtliche Hinweise
+    </p>
+    <h1
+      class="mt-4 font-display text-3xl leading-[1.1] text-ink sm:mt-6 sm:text-4xl md:text-5xl text-balance"
+      style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
+    >
+      Impressum
+    </h1>
+    <p class="mt-4 text-sm text-taupe sm:text-base">
+      In Erfüllung von Artikel 10 des spanischen Gesetzes 34/2002 vom 11. Juli
+      über Dienste der Informationsgesellschaft und den elektronischen
+      Geschäftsverkehr (LSSI-CE) werden folgende Anbieterangaben
+      bereitgestellt.
+    </p>
+
+    <div class="prose-legal mt-10 space-y-10 sm:mt-12 sm:space-y-12">
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          1. Angaben zum Anbieter
+        </h2>
+        <dl class="mt-5 divide-y divide-line border-y border-line">
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Inhaberin</dt>
+            <dd class="text-base text-ink-soft">{legal.titular}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Tätigkeit</dt>
+            <dd class="text-base text-ink-soft">Coach & Mentorin (Selbstständig)</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">NIE / NIF</dt>
+            <dd class="text-base text-ink-soft">{legal.nif}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Anschrift</dt>
+            <dd class="text-base text-ink-soft">{legal.direccion}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">E-Mail</dt>
+            <dd class="text-base text-ink-soft">
+              <a href={`mailto:${legal.email}`} class="underline decoration-line underline-offset-4 hover:decoration-clay">
+                {legal.email}
+              </a>
+            </dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Telefon</dt>
+            <dd class="text-base text-ink-soft">{legal.telefono}</dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs uppercase tracking-[0.18em] text-taupe">Website</dt>
+            <dd class="text-base text-ink-soft">{siteUrl}</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          2. Gegenstand und Geltungsbereich
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Dieses Impressum regelt die Nutzung der Website {siteUrl} (nachfolgend
+          „die Website“), deren Inhaberin {legal.titular} ist. Das Navigieren
+          auf der Website begründet die Eigenschaft als Nutzer und bedeutet die
+          vollständige und vorbehaltlose Annahme aller in diesem Impressum
+          enthaltenen Bestimmungen.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Der Nutzer verpflichtet sich, die Website ordnungsgemäß und im
+          Einklang mit dem Gesetz, diesem Impressum, der guten Sitte und der
+          öffentlichen Ordnung zu nutzen.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          3. Geistiges und gewerbliches Eigentum
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Sämtliche Inhalte der Website (Texte, Fotografien, Grafiken, Bilder,
+          Symbole, Technologie, Software sowie das grafische Design und der
+          Quellcode) sind ein Werk, dessen Eigentum {legal.titular} zusteht.
+          Dem Nutzer werden keine Verwertungsrechte daran eingeräumt, die über
+          das für die ordnungsgemäße Nutzung der Website unbedingt Notwendige
+          hinausgehen.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Die Marken, Handelsnamen oder Unterscheidungszeichen stehen im
+          Eigentum von {legal.titular} oder Dritten; der Zugang zur Website
+          begründet keinerlei Rechte an diesen.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          4. Haftungs- und Gewährleistungsausschluss
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          {legal.titular} haftet in keinem Fall für Schäden jedweder Art, die
+          beispielhaft entstehen könnten durch: Fehler oder Auslassungen in den
+          Inhalten, mangelnde Verfügbarkeit der Website oder die Übertragung von
+          Viren bzw. schädlichen oder beeinträchtigenden Programmen in den
+          Inhalten, trotz Ergreifung aller hierfür erforderlichen technischen
+          Maßnahmen.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          5. Links zu Dritten
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Die Website kann Links zu Websites Dritter enthalten (unter anderem
+          WhatsApp und Calendly). {legal.titular} übt keinerlei Kontrolle über
+          diese Websites und deren Inhalte aus und übernimmt in keinem Fall eine
+          Verantwortung für die Inhalte eines Links, der zu einer fremden
+          Website gehört.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          6. Anwendbares Recht und Gerichtsstand
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          Das Verhältnis zwischen {legal.titular} und dem Nutzer unterliegt der
+          geltenden spanischen Gesetzgebung. Für die Beilegung jeglicher
+          Streitigkeiten unterwerfen sich die Parteien den Gerichten am
+          Wohnsitz der Inhaberin, sofern das anwendbare Recht nichts anderes
+          bestimmt.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl text-ink sm:text-3xl" style="font-variation-settings: 'opsz' 72;">
+          7. Änderungen
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          {legal.titular} behält sich das Recht vor, ohne vorherige Ankündigung
+          die für angemessen erachteten Änderungen an der Website vorzunehmen
+          und sowohl die bereitgestellten Inhalte und Dienste als auch deren
+          Darstellung oder Anordnung zu ändern, zu entfernen oder zu ergänzen.
+        </p>
+      </section>
+    </div>
+
+    <p class="mt-12 text-xs text-taupe">
+      Zuletzt aktualisiert: {legal.fechaActualizacion}
+    </p>
+  </article>
+</Layout>

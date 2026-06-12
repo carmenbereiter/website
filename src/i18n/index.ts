@@ -49,6 +49,42 @@ export const routes = {
 
 export type RouteKey = keyof typeof routes;
 
+/**
+ * Rechtstext-Seiten: pro Key der vollständige Pfad je Sprache.
+ * Die spanische Fassung ist rechtlich maßgeblich (Sitz in Spanien) und liegt
+ * an der Wurzel; DE/EN sind Übersetzungen. Bewusst NICHT Teil von `routes`
+ * (keine Navigation, keine hreflang-Alternates, nicht in der Sitemap).
+ */
+export const legalRoutes = {
+  notice: { de: '/impressum', en: '/en/legal-notice', es: '/aviso-legal' },
+  privacy: {
+    de: '/datenschutz',
+    en: '/en/privacy-policy',
+    es: '/politica-de-privacidad',
+  },
+} as const;
+
+export type LegalKey = keyof typeof legalRoutes;
+
+/** Aus einer URL den passenden Rechtstext-Key ermitteln (oder null). */
+export function matchLegal(pathname: string): LegalKey | null {
+  const p = pathname.length > 1 ? pathname.replace(/\/$/, '') : pathname;
+  const keys = Object.keys(legalRoutes) as LegalKey[];
+  return (
+    keys.find((k) => langCodes.some((l) => legalRoutes[k][l] === p)) ?? null
+  );
+}
+
+/** Sprachumschalter-Links für eine Rechtstext-Seite. */
+export function getLegalSwitch(key: LegalKey, current: Lang) {
+  return langCodes.map((lang) => ({
+    lang,
+    label: languages[lang],
+    href: legalRoutes[key][lang],
+    isCurrent: lang === current,
+  }));
+}
+
 /** Reihenfolge + Label-Key der Hauptnavigation. */
 const navOrder: { route: RouteKey; labelKey: keyof Dictionary['nav'] }[] = [
   { route: 'home', labelKey: 'start' },
