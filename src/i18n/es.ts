@@ -80,7 +80,7 @@ export const es: Dictionary = {
 
   programs: [
     {
-      eyebrow: 'GRANDIOS',
+      eyebrow: 'Zurück zu dir',
       title: 'Tu nuevo comienzo en 7 semanas',
       subtitle: 'Coaching de 7 semanas · Online',
       short:
@@ -95,7 +95,7 @@ export const es: Dictionary = {
       format: 'Online · 1 vez por semana',
       price: 'Bajo consulta',
       contactMessage:
-        'Hola Carmen, me interesa GRANDIOS, el coaching de 7 semanas.',
+        'Hola Carmen, me interesa Zurück zu dir, el coaching de 7 semanas.',
     },
     {
       eyebrow: 'UNIQUE MENTORING',

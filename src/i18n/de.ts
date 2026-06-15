@@ -87,7 +87,7 @@ export const de = {
   /** Reihenfolge identisch zu programMeta in config.ts */
   programs: [
     {
-      eyebrow: 'GRANDIOS',
+      eyebrow: 'Zurück zu dir',
       title: 'Dein Neustart in 7 Wochen',
       subtitle: '7-Wochen-Coaching · Online',
       short:
@@ -102,7 +102,7 @@ export const de = {
       format: 'Online · 1× pro Woche',
       price: 'Auf Anfrage',
       contactMessage:
-        'Hallo Carmen, ich interessiere mich für GRANDIOS, das 7-Wochen-Coaching.',
+        'Hallo Carmen, ich interessiere mich für Zurück zu dir, das 7-Wochen-Coaching.',
     },
     {
       eyebrow: 'UNIQUE MENTORING',
