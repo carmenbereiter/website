@@ -81,7 +81,7 @@ export const en: Dictionary = {
 
   programs: [
     {
-      eyebrow: 'Vuelve a ti mismo',
+      eyebrow: 'Back to you',
       title: 'Your fresh start in 7 weeks',
       subtitle: '7-week coaching · Online',
       short:
