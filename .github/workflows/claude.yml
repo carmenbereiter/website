@@ -1,0 +1,40 @@
+# KI-Assistent: setzt Änderungswünsche aus Issues/Kommentaren um und öffnet einen PR
+
+name: Claude
+
+on:
+  issues:
+    types: [opened]
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+
+jobs:
+  claude:
+    # Nur laufen, wenn "@claude" im Issue-/Kommentartext steht
+    if: |
+      (github.event_name == 'issues' && contains(github.event.issue.body, '@claude')) ||
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --model claude-sonnet-4-6
+            --max-turns 25
+            --append-system-prompt "Du setzt Änderungswünsche der Kundin Carmen an dieser statischen Astro-Website um. Befolge strikt CLAUDE.md, insbesondere die i18n-Regel: bei jeder Textänderung ALLE drei Sprachdateien (de/en/es) aktualisieren. Pushe niemals direkt auf main – arbeite immer auf einem Branch und öffne einen Pull Request gegen main. Wenn ein Wunsch unklar oder mehrdeutig ist, setze ihn NICHT auf Verdacht um, sondern stelle eine kurze Rückfrage als Kommentar. Antworte immer auf Deutsch, ohne Fachjargon, und erkläre kurz, was du geändert hast. Weise am Ende darauf hin, dass im Pull Request eine Vorschau-URL erscheint und dass weitere Wünsche als Kommentar mit @claude geschrieben werden können."

@@ -1,0 +1,93 @@
+# Branch-Preview auf Netlify (kein Live-Deploy)
+
+name: Deploy Netlify Preview
+
+on:
+  pull_request:
+    branches: [main]
+
+env:
+  NODE_VERSION: '22'
+  PNPM_VERSION: '10'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+# Pro Branch nur ein laufender Preview-Build; ältere werden abgebrochen
+concurrency:
+  group: netlify-preview-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build site
+        run: pnpm build
+
+      - name: Deploy preview to Netlify
+        id: deploy
+        run: |
+          # Branch-Namen als stabilen Alias verwenden (nur erlaubte Zeichen)
+          ALIAS=$(echo "${{ github.head_ref }}" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | cut -c1-37)
+          pnpm netlify deploy --dir=dist --alias="$ALIAS" --message="Preview ${{ github.sha }}" --json > deploy.json
+          echo "url=$(node -p "require('./deploy.json').deploy_url")" >> "$GITHUB_OUTPUT"
+          echo "deploy_id=$(node -p "require('./deploy.json').deploy_id")" >> "$GITHUB_OUTPUT"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - name: Comment preview URL on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const url = '${{ steps.deploy.outputs.url }}';
+            const deployId = '${{ steps.deploy.outputs.deploy_id }}';
+            const marker = '<!-- netlify-preview -->';
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const existing = comments.find((c) => c.body.includes(marker));
+            // Bereits getrackte Deploy-IDs aus dem vorhandenen Kommentar einlesen und ergänzen
+            let ids = [];
+            if (existing) {
+              const m = existing.body.match(/<!-- deploy-ids: (.*?) -->/);
+              if (m) { try { ids = JSON.parse(m[1]); } catch (e) {} }
+            }
+            if (deployId && !ids.includes(deployId)) ids.push(deployId);
+            const body = `${marker}\n🔍 **Netlify Preview** bereit: ${url}\n\n_Commit ${context.sha.slice(0, 7)} — Kunde kann diesen Link sehen, ohne dass die Live-Seite betroffen ist._\n<!-- deploy-ids: ${JSON.stringify(ids)} -->`;
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

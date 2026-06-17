@@ -1,0 +1,2 @@
+# Leere Issues deaktivieren, damit immer das geführte Template genutzt wird
+blank_issues_enabled: false
