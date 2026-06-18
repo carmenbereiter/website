@@ -21,7 +21,14 @@ There is no test suite and no separate lint step. `astro check` is the closest t
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds and deploys to **GitHub Pages** (custom domain `carmenbereiter.com`, set via `public/CNAME`). Deploys are automatic — no manual step. The workflow uses the official `actions/upload-pages-artifact` + `actions/deploy-pages` flow; GitHub Pages must be set to **Source: GitHub Actions** in the repo settings.
+The site is hosted on **Netlify** and deployed via GitHub Actions (the build runs in CI, the `netlify-cli` dev dependency uploads `./dist`). There are four workflows in `.github/workflows/`:
+
+- **`deploy-netlify.yml`** — production deploy. Pushing to `main` builds and deploys to the live Netlify site (`--prod`). Automatic, no manual step.
+- **`deploy-netlify-preview.yml`** — branch preview. Each PR against `main` builds and deploys a non-prod preview (`netlify deploy --alias=<branch>`, stable per-branch URL). The preview URL is posted as a comment **both on the PR and on the linked issue** (parsed from `Closes #N` in the PR body). The comment also carries a hidden `<!-- deploy-ids: [...] -->` list used for cleanup.
+- **`cleanup-netlify-preview.yml`** — on PR close/merge, deletes that PR's preview deploys via the Netlify API (reads the deploy IDs from the preview comment). Netlify protects the published prod deploy from deletion.
+- **`claude.yml`** — the **AI change assistant**. A new issue or an `@claude` comment triggers Claude Code (`anthropics/claude-code-action@v1`), which implements the requested change on a branch and opens a PR (`gh pr create`). Because the official Claude GitHub App authors the PR, it triggers the preview workflow above. The customer flow: issue → Claude opens PR → preview URL appears in the issue → customer approves → maintainer merges → prod deploy.
+
+**Required repo secrets:** `ANTHROPIC_API_KEY`, `NETLIFY_AUTH_TOKEN`, `NETLIFY_SITE_ID`. The custom domain `carmenbereiter.com` is configured in Netlify (not via a CNAME file — `public/CNAME` is a leftover from the previous GitHub Pages setup and is ignored by Netlify).
 
 ## Architecture
 
