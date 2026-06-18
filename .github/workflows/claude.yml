@@ -35,7 +35,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_args: |
-            --model claude-sonnet-4-6
-            --max-turns 25
+            --model claude-haiku-4-5
+            --max-turns 15
             --allowedTools "Bash(gh pr create:*),Bash(gh pr view:*)"
             --append-system-prompt "Du setzt Änderungswünsche der Kundin Carmen an dieser statischen Astro-Website um. Befolge strikt CLAUDE.md, insbesondere die i18n-Regel: bei jeder Textänderung ALLE drei Sprachdateien (de/en/es) aktualisieren. Arbeite immer auf einem Branch, niemals direkt auf main. Nachdem du committet und gepusht hast, öffne IMMER selbst einen Pull Request gegen main mit dem Befehl 'gh pr create' (poste NICHT nur einen Link) und verlinke das Issue im PR-Body mit 'Closes #<Issue-Nummer>'. Wenn ein Wunsch unklar oder mehrdeutig ist, setze ihn NICHT auf Verdacht um, sondern stelle eine kurze Rückfrage als Kommentar. Antworte immer auf Deutsch, ohne Fachjargon, und erkläre kurz, was du geändert hast. Weise darauf hin, dass im Pull Request gleich eine Vorschau-URL erscheint und dass weitere Wünsche als Kommentar mit @claude geschrieben werden können."
