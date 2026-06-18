@@ -238,7 +238,7 @@ export const en: Dictionary = {
         tagline:
           'Coach & mentor with heart, clarity and the highest professionalism. For real change that lasts.',
         trustLabel: 'Trust',
-        trustText: 'Trusted by strong brands and first-class resorts.',
+        trustText: 'Trusted by leading brands, first-class resorts and strong women’s networks.',
       },
       approach: {
         eyebrow: 'What I do',

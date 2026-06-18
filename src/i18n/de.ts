@@ -246,7 +246,7 @@ export const de = {
         tagline:
           'Coach & Mentorin mit Herz, Klarheit und höchster Professionalität. Für echte Veränderung, die bleibt.',
         trustLabel: 'Vertrauen',
-        trustText: 'Vertrauen von starken Marken und erstklassigen Resorts.',
+        trustText: 'Vertrauen von führenden Marken, erstklassigen Resorts und starken Frauen-Netzwerken.',
       },
       approach: {
         eyebrow: 'Was ich tue',

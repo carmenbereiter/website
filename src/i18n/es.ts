@@ -237,7 +237,7 @@ export const es: Dictionary = {
         tagline:
           'Coach y mentora con corazón, claridad y la máxima profesionalidad. Para un cambio real que permanece.',
         trustLabel: 'Confianza',
-        trustText: 'Con la confianza de marcas fuertes y resorts de primera.',
+        trustText: 'Con la confianza de marcas líderes, resorts de primera y sólidas redes de mujeres.',
       },
       approach: {
         eyebrow: 'Lo que hago',
