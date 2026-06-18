@@ -20,6 +20,9 @@ concurrency:
 
 jobs:
   deploy:
+    # Netlify-Prod-Deploy nur im Account "tobiasbenkner". Der Account "carmenbereiter"
+    # nutzt stattdessen GitHub Pages — siehe deploy-github.yml.
+    if: github.repository_owner == 'tobiasbenkner'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

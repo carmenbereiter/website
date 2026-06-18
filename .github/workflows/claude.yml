@@ -18,11 +18,13 @@ permissions:
 
 jobs:
   claude:
-    # Nur laufen, wenn "@claude" im Issue-/Kommentartext steht
+    # Nur im Account "tobiasbenkner" und nur, wenn "@claude" im Issue-/Kommentartext steht.
     if: |
-      (github.event_name == 'issues' && contains(github.event.issue.body, '@claude')) ||
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude'))
+      github.repository_owner == 'tobiasbenkner' && (
+        (github.event_name == 'issues' && contains(github.event.issue.body, '@claude')) ||
+        (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude'))
+      )
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

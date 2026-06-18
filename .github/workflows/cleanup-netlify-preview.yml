@@ -12,6 +12,8 @@ permissions:
 
 jobs:
   cleanup:
+    # Netlify-Preview-Cleanup nur im Account "tobiasbenkner".
+    if: github.repository_owner == 'tobiasbenkner'
     runs-on: ubuntu-latest
     steps:
       - name: Delete preview deploys

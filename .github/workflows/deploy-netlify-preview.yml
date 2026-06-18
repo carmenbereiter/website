@@ -22,6 +22,8 @@ concurrency:
 
 jobs:
   preview:
+    # Netlify-Previews nur im Account "tobiasbenkner".
+    if: github.repository_owner == 'tobiasbenkner'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

@@ -24,9 +24,9 @@ concurrency:
 
 jobs:
   build:
-    # Nur im Zweit-Repo deployen; im Account "tobiasbenkner" wird der Lauf übersprungen,
-    # damit nicht zwei Repos um die Custom Domain carmenbereiter.com konkurrieren.
-    if: github.repository_owner != 'tobiasbenkner'
+    # GitHub Pages nur im Account "carmenbereiter" deployen (dort liegt die Custom Domain).
+    # Im Account "tobiasbenkner" läuft stattdessen Netlify — siehe deploy-netlify.yml.
+    if: github.repository_owner == 'carmenbereiter'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -56,7 +56,7 @@ jobs:
 
   deploy:
     needs: build
-    if: github.repository_owner != 'tobiasbenkner'
+    if: github.repository_owner == 'carmenbereiter'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
