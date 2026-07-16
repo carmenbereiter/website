@@ -41,7 +41,7 @@ export const en: Dictionary = {
   },
 
   fab: {
-    bookAria: 'Book a free call (Calendly)',
+    bookAria: 'Book an initial call (Calendly)',
     bookTip: 'Book a call',
     whatsappAria: 'Message on WhatsApp',
     whatsappTip: 'WhatsApp',
@@ -50,7 +50,7 @@ export const en: Dictionary = {
   contactTiles: {
     whatsappTitle: 'WhatsApp',
     whatsappSub: 'Personal. Fast. Straight to me.',
-    bookTitle: 'Book a free call',
+    bookTitle: 'Book an initial call',
     bookSub: 'online',
   },
 
@@ -74,7 +74,7 @@ export const en: Dictionary = {
       "Nothing quite right? Let's <span class=\"italic text-clay-soft\">tailor it</span>.",
     body: "Every journey is individual. If none of the formats fits you exactly, we'll design a process together that follows your situation, your pace and your goals.",
     ctaPrimary: 'Request bespoke coaching',
-    ctaSecondary: 'Secure a free call',
+    ctaSecondary: 'Secure an initial call',
     requestMessage:
       "Hi Carmen, I'd love bespoke coaching tailored to my situation. Could we talk about it?",
   },
@@ -228,7 +228,7 @@ export const en: Dictionary = {
           'Clarity, courage and a <span class="italic text-forest" style="font-variation-settings: \'opsz\' 144, \'SOFT\' 100;">real</span> new beginning.',
         body: 'I guide you personally, honestly, clearly and with heart as you walk your path. Online, 1:1, or at a live event.',
         ctaPrimary: 'Message me on WhatsApp',
-        ctaSecondary: 'Secure a free call',
+        ctaSecondary: 'Secure an initial call',
         note: 'I reply personally, usually the same day.',
         portraitAlt: 'Portrait of Carmen Bereiter',
         badgeKicker: 'Since 2018',
@@ -399,7 +399,7 @@ export const en: Dictionary = {
         titleHtml:
           'If you feel that your moment is <span class="italic text-forest">now</span>, message me.',
         ctaPrimary: 'Message me on WhatsApp',
-        ctaSecondary: 'Secure a free call',
+        ctaSecondary: 'Secure an initial call',
       },
     },
 
@@ -457,7 +457,7 @@ export const en: Dictionary = {
         titleHtml:
           "If what you've read <span class=\"italic text-clay-soft\">touches</span> something in you, let's talk.",
         ctaPrimary: 'Message me on WhatsApp',
-        ctaSecondary: 'Book a free call',
+        ctaSecondary: 'Secure an initial call',
       },
     },
   },
