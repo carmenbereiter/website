@@ -1,7 +1,7 @@
 ---
 /**
- * Zwei Kontakt-Kacheln: WhatsApp · Calendly.
- * Wiederverwendet auf der /kontakt-Seite und am Ende der Startseite.
+ * Kontakt-Kacheln: WhatsApp · Calendly · Vortragsanfrage · E-Mail.
+ * Eingesetzt auf der /kontakt-Seite.
  */
 import { Icon } from 'astro-icon/components';
 import { contact, whatsappUrl } from '../config';
@@ -16,6 +16,8 @@ const { variant = 'on-forest' } = Astro.props;
 const lang = getLang(Astro.currentLocale);
 const t = useTranslations(lang);
 const waUrl = whatsappUrl(t.common.whatsappDefault);
+// Gleiche vorbelegte Nachricht wie im Vortrags-Block auf der Startseite
+const talkUrl = whatsappUrl(t.pages.home.speaking.requestMessage);
 
 const tileClasses =
   variant === 'on-forest'
@@ -23,40 +25,85 @@ const tileClasses =
     : 'group flex items-center justify-between gap-3 rounded-2xl border border-line bg-cream-soft px-5 py-4 text-ink transition-all hover:border-forest hover:bg-cream-deep sm:gap-4 sm:px-6 sm:py-5';
 ---
 
-<div class="space-y-3">
-  <a
-    href={waUrl}
-    target="_blank"
-    rel="noopener"
-    class={tileClasses}
-  >
-    <div class="flex items-center gap-3 sm:gap-4">
-      <span class="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full" style="background: #25D366; color: white;">
-        <Icon name="simple-icons:whatsapp" class="size-[22px]" />
-      </span>
-      <div class="min-w-0">
-        <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">{t.contactTiles.whatsappTitle}</div>
-        <div class="text-xs text-taupe sm:text-sm">{t.contactTiles.whatsappSub}</div>
+<div>
+  <!-- Persönliche Kanäle: gleiches Publikum, gleiche Reihenfolge wie überall sonst auf der Seite -->
+  <div class="space-y-3">
+    <a
+      href={waUrl}
+      target="_blank"
+      rel="noopener"
+      class={tileClasses}
+    >
+      <div class="flex items-center gap-3 sm:gap-4">
+        <span class="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full" style="background: #25D366; color: white;">
+          <Icon name="simple-icons:whatsapp" class="size-[22px]" />
+        </span>
+        <div class="min-w-0">
+          <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">{t.contactTiles.whatsappTitle}</div>
+          <div class="text-xs text-taupe sm:text-sm">{t.contactTiles.whatsappSub}</div>
+        </div>
       </div>
-    </div>
-    <Icon name="lucide:arrow-right" class="size-5 flex-shrink-0 transition-transform group-hover:translate-x-1 sm:size-6" />
-  </a>
+      <Icon name="lucide:arrow-right" class="size-5 flex-shrink-0 transition-transform group-hover:translate-x-1 sm:size-6" />
+    </a>
 
-  <a
-    href={contact.calendly.url}
-    target="_blank"
-    rel="noopener"
-    class={tileClasses}
-  >
-    <div class="flex items-center gap-3 sm:gap-4">
-      <span class="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-forest text-cream-soft">
-        <Icon name="lucide:calendar" class="size-[22px]" />
-      </span>
-      <div class="min-w-0">
-        <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">{t.contactTiles.bookTitle}</div>
-        <div class="text-xs text-taupe sm:text-sm">{t.contactTiles.bookSub}</div>
+    <a
+      href={contact.calendly.url}
+      target="_blank"
+      rel="noopener"
+      class={tileClasses}
+    >
+      <div class="flex items-center gap-3 sm:gap-4">
+        <span class="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-forest text-cream-soft">
+          <Icon name="lucide:calendar" class="size-[22px]" />
+        </span>
+        <div class="min-w-0">
+          <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">{t.contactTiles.bookTitle}</div>
+          <div class="text-xs text-taupe sm:text-sm">{t.contactTiles.bookSub}</div>
+        </div>
       </div>
-    </div>
-    <Icon name="lucide:arrow-right" class="size-5 flex-shrink-0 transition-transform group-hover:translate-x-1 sm:size-6" />
-  </a>
+      <Icon name="lucide:arrow-right" class="size-5 flex-shrink-0 transition-transform group-hover:translate-x-1 sm:size-6" />
+    </a>
+
+    <a href={`mailto:${contact.email}`} class={tileClasses}>
+      <div class="flex items-center gap-3 sm:gap-4">
+        <span class="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-ink text-cream-soft">
+          <Icon name="lucide:mail" class="size-[22px]" />
+        </span>
+        <div class="min-w-0">
+          <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">{t.contactTiles.mailTitle}</div>
+          <!-- Adresse als Untertitel: bleibt sichtbar und kopierbar -->
+          <div class="truncate text-xs text-taupe sm:text-sm">{contact.email}</div>
+        </div>
+      </div>
+      <Icon name="lucide:arrow-right" class="size-5 flex-shrink-0 transition-transform group-hover:translate-x-1 sm:size-6" />
+    </a>
+  </div>
+
+  <!--
+    Anderes Publikum (Veranstalter statt Coaching-Suchende) → bewusst abgesetzt,
+    damit die Kachel als eigenes Angebot gelesen wird und den Pfad oben nicht unterbricht.
+  -->
+  <div class="mt-8 border-t border-line pt-6 sm:mt-10 sm:pt-7">
+    <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
+      {t.contactTiles.talkHeading}
+    </p>
+
+    <a
+      href={talkUrl}
+      target="_blank"
+      rel="noopener"
+      class:list={['mt-3 sm:mt-4', tileClasses]}
+    >
+      <div class="flex items-center gap-3 sm:gap-4">
+        <span class="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-clay text-ink">
+          <Icon name="lucide:presentation" class="size-[22px]" />
+        </span>
+        <div class="min-w-0">
+          <div class="font-display text-lg leading-tight sm:text-xl" style="font-variation-settings: 'opsz' 72;">{t.contactTiles.talkTitle}</div>
+          <div class="text-xs text-taupe sm:text-sm">{t.contactTiles.talkSub}</div>
+        </div>
+      </div>
+      <Icon name="lucide:arrow-right" class="size-5 flex-shrink-0 transition-transform group-hover:translate-x-1 sm:size-6" />
+    </a>
+  </div>
 </div>

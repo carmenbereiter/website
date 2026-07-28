@@ -1,7 +1,13 @@
 ---
 /**
- * Floatender Kontakt-Stack, immer rechts unten sichtbar.
- * Jeder Button öffnet den Kanal direkt (kein Formular).
+ * Floatender Kontakt-Button (Speed Dial), immer rechts unten sichtbar.
+ * Ein Trigger klappt die Kanäle auf; jeder Kanal öffnet direkt (kein Formular).
+ *
+ * Barrierefreiheit:
+ *  - Trigger ist ein echter <button> mit aria-expanded/aria-controls.
+ *  - Zugeklappt ist die Liste `visibility: hidden` + `inert` → nicht fokussierbar.
+ *  - Labels sind sichtbarer Text (nicht nur Hover-Tooltip) → auch auf Touch lesbar.
+ *  - Schließt per ESC, Klick außerhalb und nach Auswahl eines Kanals.
  */
 import { Icon } from 'astro-icon/components';
 import { contact, whatsappUrl } from '../config';
@@ -10,36 +16,99 @@ import { getLang, useTranslations } from '../i18n';
 const lang = getLang(Astro.currentLocale);
 const t = useTranslations(lang);
 const waUrl = whatsappUrl(t.common.whatsappDefault);
+// Gleiche vorbelegte Nachricht wie im Vortrags-Block auf der Startseite
+const talkUrl = whatsappUrl(t.pages.home.speaking.requestMessage);
 ---
 
-<div class="fab fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2.5 sm:bottom-7 sm:right-7 sm:gap-3">
-  <a
-    href={contact.calendly.url}
-    target="_blank"
-    rel="noopener"
-    aria-label={t.fab.bookAria}
-    class="fab-btn group order-3"
-    style="background: var(--color-forest); color: var(--color-cream-soft);"
+<div
+  id="fab"
+  class="fab fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2.5 sm:bottom-7 sm:right-7 sm:gap-3"
+>
+  <!--
+    DOM-Reihenfolge = Reihenfolge von oben nach unten.
+    Unten (am Trigger, am schnellsten erreichbar) der meistgenutzte Kanal, nach oben abnehmend.
+    Vortragsanfrage ganz oben: anderes Publikum, seltenstes Anliegen.
+  -->
+  <div
+    id="fab-actions"
+    class="fab-actions flex flex-col items-end gap-2.5 sm:gap-3"
+    role="group"
+    aria-label={t.fab.menuLabel}
   >
-    <span class="fab-tip">{t.fab.bookTip}</span>
-    <Icon name="lucide:calendar" class="size-5" />
-  </a>
+    <a
+      href={talkUrl}
+      target="_blank"
+      rel="noopener"
+      aria-label={t.fab.talkAria}
+      class="fab-action"
+      style="--fab-delay: 150ms;"
+    >
+      <span class="fab-label">{t.fab.talkTip}</span>
+      <span class="fab-dot" style="background: var(--color-clay); color: var(--color-ink);">
+        <Icon name="lucide:presentation" class="size-5" aria-hidden="true" />
+      </span>
+    </a>
 
-  <a
-    href={waUrl}
-    target="_blank"
-    rel="noopener"
-    aria-label={t.fab.whatsappAria}
-    class="fab-btn group order-1 fab-pulse"
-    style="background: #25D366; color: white;"
+    <a
+      href={`mailto:${contact.email}`}
+      aria-label={t.fab.mailAria}
+      class="fab-action"
+      style="--fab-delay: 100ms;"
+    >
+      <span class="fab-label">{t.fab.mailTip}</span>
+      <span class="fab-dot" style="background: var(--color-ink); color: var(--color-cream-soft);">
+        <Icon name="lucide:mail" class="size-5" aria-hidden="true" />
+      </span>
+    </a>
+
+    <a
+      href={contact.calendly.url}
+      target="_blank"
+      rel="noopener"
+      aria-label={t.fab.bookAria}
+      class="fab-action"
+      style="--fab-delay: 50ms;"
+    >
+      <span class="fab-label">{t.fab.bookTip}</span>
+      <span class="fab-dot" style="background: var(--color-forest); color: var(--color-cream-soft);">
+        <Icon name="lucide:calendar" class="size-5" aria-hidden="true" />
+      </span>
+    </a>
+
+    <a
+      href={waUrl}
+      target="_blank"
+      rel="noopener"
+      aria-label={t.fab.whatsappAria}
+      class="fab-action"
+      style="--fab-delay: 0ms;"
+    >
+      <span class="fab-label">{t.fab.whatsappTip}</span>
+      <span class="fab-dot" style="background: #25d366; color: white;">
+        <Icon name="simple-icons:whatsapp" class="size-6" aria-hidden="true" />
+      </span>
+    </a>
+  </div>
+
+  <button
+    id="fab-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="fab-actions"
+    aria-label={t.fab.openAria}
+    data-label-open={t.fab.openAria}
+    data-label-close={t.fab.closeAria}
+    class="fab-trigger fab-pulse"
   >
-    <span class="fab-tip">{t.fab.whatsappTip}</span>
-    <Icon name="simple-icons:whatsapp" class="size-6" />
-  </a>
+    <Icon name="lucide:message-circle" class="fab-icon fab-icon-open size-6" aria-hidden="true" />
+    <Icon name="lucide:x" class="fab-icon fab-icon-close size-6" aria-hidden="true" />
+  </button>
 </div>
 
 <style>
-  .fab-btn {
+  /* ── Gemeinsame Kreis-Optik ── */
+  .fab-trigger,
+  .fab-dot {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -49,60 +118,180 @@ const waUrl = whatsappUrl(t.common.whatsappDefault);
     box-shadow:
       0 10px 30px -6px rgba(26, 31, 29, 0.28),
       0 4px 10px -2px rgba(26, 31, 29, 0.12);
-    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1);
-    position: relative;
+    flex-shrink: 0;
   }
 
   @media (min-width: 640px) {
-    .fab-btn { width: 52px; height: 52px; }
+    .fab-trigger,
+    .fab-dot {
+      width: 52px;
+      height: 52px;
+    }
   }
 
-  .fab-btn:hover {
+  /* ── Trigger ── */
+  .fab-trigger {
+    position: relative;
+    background: var(--color-forest);
+    color: var(--color-cream-soft);
+    transition:
+      transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .fab-trigger:hover {
     transform: translateY(-3px) scale(1.04);
     box-shadow:
       0 14px 38px -6px rgba(26, 31, 29, 0.36),
       0 6px 14px -2px rgba(26, 31, 29, 0.18);
   }
 
-  /* Tooltips nur auf Geräten mit echtem Hover (Desktop) anzeigen */
-  .fab-tip {
-    display: none;
+  /* Icons übereinander legen und beim Öffnen kreuzen */
+  .fab-icon {
+    position: absolute;
+    transition:
+      transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 250ms ease;
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    .fab-tip {
-      display: block;
-      position: absolute;
-      right: calc(100% + 12px);
-      top: 50%;
-      transform: translateY(-50%) translateX(6px);
-      background: var(--color-ink);
-      color: var(--color-cream-soft);
-      padding: 6px 12px;
-      border-radius: 9999px;
-      font-size: 12px;
-      font-weight: 500;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 300ms cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .fab-btn:hover .fab-tip {
-      opacity: 1;
-      transform: translateY(-50%) translateX(0);
-    }
+  .fab-icon-close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
   }
 
-  /* Sanfter Puls auf dem primären (WhatsApp) Button */
+  .fab.is-open .fab-icon-open {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
+  }
+
+  .fab.is-open .fab-icon-close {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── Aufklappbare Kanäle ── */
+  .fab-actions {
+    visibility: hidden;
+    transition: visibility 0s linear 320ms;
+  }
+
+  .fab.is-open .fab-actions {
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .fab-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(10px) scale(0.85);
+    transition:
+      opacity 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: 0ms;
+  }
+
+  /* Gestaffeltes Aufklappen: der untere (primäre) Kanal zuerst */
+  .fab.is-open .fab-action {
+    opacity: 1;
+    transform: none;
+    transition-delay: var(--fab-delay, 0ms);
+  }
+
+  .fab-action:hover .fab-dot {
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  .fab-dot {
+    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Label als Pille – bewusst immer sichtbar (auch auf Touch), nicht nur bei Hover */
+  .fab-label {
+    background: var(--color-ink);
+    color: var(--color-cream-soft);
+    padding: 6px 12px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: 0 8px 22px -8px rgba(26, 31, 29, 0.4);
+  }
+
+  /* ── Sanfter Puls am Trigger, solange zugeklappt ── */
   @keyframes fab-pulse-ring {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
-    70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    0% {
+      box-shadow: 0 0 0 0 rgba(45, 74, 67,0.45);
+    }
+    70% {
+      box-shadow: 0 0 0 14px rgba(45, 74, 67,0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(45, 74, 67,0);
+    }
   }
 
   .fab-pulse {
     animation: fab-pulse-ring 2.4s ease-out infinite;
   }
+
+  .fab.is-open .fab-pulse {
+    animation: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fab-trigger,
+    .fab-dot,
+    .fab-icon,
+    .fab-action {
+      transition-duration: 1ms;
+    }
+
+    .fab-pulse {
+      animation: none;
+    }
+  }
 </style>
+
+<script>
+  const fab = document.getElementById('fab');
+  const toggle = document.getElementById('fab-toggle');
+  const actions = document.getElementById('fab-actions');
+
+  if (fab && toggle && actions) {
+    const labelOpen = toggle.dataset.labelOpen ?? '';
+    const labelClose = toggle.dataset.labelClose ?? '';
+
+    const setOpen = (open: boolean) => {
+      fab.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? labelClose : labelOpen);
+      // Zugeklappt aus Fokus-Reihenfolge und Screenreader nehmen
+      actions.toggleAttribute('inert', !open);
+    };
+
+    setOpen(false);
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    // Nach Kanalwahl zuklappen (der Link öffnet in einem neuen Tab)
+    actions.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!fab.contains(e.target as Node)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>

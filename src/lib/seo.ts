@@ -42,19 +42,39 @@ function builders(origin: URL | undefined) {
       ...(t.highlight ? { name: t.highlight } : {}),
     }));
 
-  const offerNodes = (lang: Lang) => {
-    const t = useTranslations(lang);
-    return getPrograms(lang).map((p) => ({
+  /** Vorträge/Keynotes — eigenes Angebot neben den Coaching-Programmen. */
+  const speakingOfferNode = (lang: Lang) => {
+    const s = useTranslations(lang).pages.home.speaking;
+    return {
       '@type': 'Offer',
       itemOffered: {
         '@type': 'Service',
-        name: `${p.eyebrow} — ${p.title}`,
-        serviceType: t.site.role,
-        description: p.short,
+        name: s.eyebrow,
+        serviceType: 'Speaking',
+        description: s.body,
         provider: { '@id': BUSINESS_ID },
-        areaServed: ['Online', 'Gran Canaria'],
+        // Vorträge finden vor Ort in D-A-CH statt (nicht online)
+        areaServed: ['Deutschland', 'Österreich', 'Schweiz'],
       },
-    }));
+    };
+  };
+
+  const offerNodes = (lang: Lang) => {
+    const t = useTranslations(lang);
+    return [
+      ...getPrograms(lang).map((p) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: `${p.eyebrow} — ${p.title}`,
+          serviceType: t.site.role,
+          description: p.short,
+          provider: { '@id': BUSINESS_ID },
+          areaServed: ['Online', 'Gran Canaria'],
+        },
+      })),
+      speakingOfferNode(lang),
+    ];
   };
 
   type BusinessOpts = { withOffers?: boolean; withReviews?: boolean };

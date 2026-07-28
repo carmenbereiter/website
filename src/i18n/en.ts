@@ -45,6 +45,13 @@ export const en: Dictionary = {
     bookTip: 'Book a call',
     whatsappAria: 'Message on WhatsApp',
     whatsappTip: 'WhatsApp',
+    talkAria: 'Request a talk or keynote (WhatsApp)',
+    talkTip: 'Request a talk',
+    mailAria: 'Write an email',
+    mailTip: 'Write an email',
+    openAria: 'Show contact options',
+    closeAria: 'Close contact options',
+    menuLabel: 'Direct contact',
   },
 
   contactTiles: {
@@ -52,6 +59,10 @@ export const en: Dictionary = {
     whatsappSub: 'Personal. Fast. Straight to me.',
     bookTitle: 'Book an initial call',
     bookSub: 'online',
+    talkHeading: 'For event organisers & companies',
+    talkTitle: 'Request a talk',
+    talkSub: 'Keynote or impulse talk',
+    mailTitle: 'Write an email',
   },
 
   footer: {
@@ -266,6 +277,23 @@ export const en: Dictionary = {
           'Three paths. One <span class="italic text-forest">goal</span>: you, fully yourself again.',
         body: 'Choose what fits your moment. Not sure which one? Just ask me, one message is enough.',
       },
+      speaking: {
+        eyebrow: 'Keynotes & Talks',
+        titleHtml:
+          'Powerful impulses. Unique <span class="italic text-forest">transformation</span>.',
+        body: 'As a speaker I bring exclusive, moving impulses to the stages of companies, events and network gatherings in Germany, Austria and Switzerland. My talks don’t just inform – they touch, inspire and set lasting change in motion. Every appearance is tailored precisely to the occasion, the audience and the exclusive time frame.',
+        bullets: [
+          'Premium keynotes for company and client events',
+          'Inspiring impulse talks for networks, associations and women’s communities',
+          'On site across Germany, Austria and Switzerland',
+        ],
+        note: 'Topic, length and the exclusive setting are agreed individually beforehand, in a personal conversation.',
+        ctaPrimary: 'Request a talk',
+        ctaSecondary: 'Check availability',
+        requestMessage:
+          'Hello Carmen, we are planning an event and would love to book you as a speaker. Could we talk about it?',
+        imageAlt: 'Portrait of Carmen Bereiter',
+      },
       endorsementsSection: {
         eyebrow: 'Heartfelt recommendations',
         titleHtml:
@@ -412,10 +440,6 @@ export const en: Dictionary = {
         titleHtml:
           'Your next step is just one <span class="italic text-forest" style="font-variation-settings: \'opsz\' 144, \'SOFT\' 100;">message</span> away.',
         body: "Tell me briefly what's on your mind. Together we'll see if it's a fit, professionally and personally. No obligation, and honest.",
-      },
-      email: {
-        label: 'Prefer email?',
-        text: 'Of course, write to me at',
       },
       expect: {
         eyebrow: 'What to expect',

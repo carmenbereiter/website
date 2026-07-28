@@ -50,6 +50,13 @@ export const de = {
     bookTip: 'Termin buchen',
     whatsappAria: 'Auf WhatsApp schreiben',
     whatsappTip: 'WhatsApp',
+    talkAria: 'Vortrag oder Keynote anfragen (WhatsApp)',
+    talkTip: 'Vortrag anfragen',
+    mailAria: 'E-Mail schreiben',
+    mailTip: 'E-Mail schreiben',
+    openAria: 'Kontaktmöglichkeiten anzeigen',
+    closeAria: 'Kontaktmöglichkeiten schließen',
+    menuLabel: 'Direkter Kontakt',
   },
 
   contactTiles: {
@@ -57,6 +64,10 @@ export const de = {
     whatsappSub: 'Persönlich. Schnell. Direkt zu mir.',
     bookTitle: 'Erstgespräch buchen',
     bookSub: 'online',
+    talkHeading: 'Für Veranstalter & Unternehmen',
+    talkTitle: 'Vortrag anfragen',
+    talkSub: 'Keynote oder Impulsvortrag',
+    mailTitle: 'E-Mail schreiben',
   },
 
   footer: {
@@ -274,6 +285,23 @@ export const de = {
           'Drei Wege. Ein <span class="italic text-forest">Ziel</span>: du, wieder ganz bei dir.',
         body: 'Such dir, was zu deinem Moment passt. Nicht sicher welches? Frag mich einfach kurz, eine Nachricht reicht.',
       },
+      speaking: {
+        eyebrow: 'Keynotes & Vorträge',
+        titleHtml:
+          'Starke Impulse. Einzigartige <span class="italic text-forest">Transformation</span>.',
+        body: 'Als Rednerin bringe ich exklusive, bewegende Impulse auf die Bühnen von Unternehmen, Events und Netzwerktreffen in Deutschland, Österreich und der Schweiz. Meine Vorträge informieren nicht nur – sie berühren, inspirieren und setzen langanhaltende Veränderungen in Gang. Jeder Auftritt wird präzise auf den jeweiligen Anlass, das Publikum und den exklusiven Zeitrahmen zugeschnitten.',
+        bullets: [
+          'Premium Keynotes für Firmen- und Kundenevents',
+          'Inspirierende Impulsvorträge für Netzwerke, Verbände und Frauen-Communities',
+          'Vor Ort in D-A-CH',
+        ],
+        note: 'Thema, Länge und der exklusive Rahmen werden vorab im persönlichen Dialog individuell abgestimmt.',
+        ctaPrimary: 'Vortrag anfragen',
+        ctaSecondary: 'Verfügbarkeit besprechen',
+        requestMessage:
+          'Hallo Carmen, wir planen eine Veranstaltung und würden dich gerne als Rednerin buchen. Können wir dazu sprechen?',
+        imageAlt: 'Portrait von Carmen Bereiter',
+      },
       endorsementsSection: {
         eyebrow: 'Herzensempfehlungen',
         titleHtml:
@@ -420,10 +448,6 @@ export const de = {
         titleHtml:
           'Dein nächster Schritt ist nur eine <span class="italic text-forest" style="font-variation-settings: \'opsz\' 144, \'SOFT\' 100;">Nachricht</span> entfernt.',
         body: 'Schreib mir kurz, was dich beschäftigt. Wir schauen gemeinsam, ob es passt, fachlich und menschlich. Unverbindlich und ehrlich.',
-      },
-      email: {
-        label: 'Lieber per E-Mail?',
-        text: 'Klar, schreib mir an',
       },
       expect: {
         eyebrow: 'Was dich erwartet',

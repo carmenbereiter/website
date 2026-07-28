@@ -21,14 +21,14 @@ There is no test suite and no separate lint step. `astro check` is the closest t
 
 ## Deployment
 
-The site is hosted on **Netlify** and deployed via GitHub Actions (the build runs in CI, the `netlify-cli` dev dependency uploads `./dist`). There are four workflows in `.github/workflows/`:
+The site is hosted on **GitHub Pages** and deployed via GitHub Actions. There are two workflows in `.github/workflows/`:
 
-- **`deploy-netlify.yml`** — production deploy. Pushing to `main` builds and deploys to the live Netlify site (`--prod`). Automatic, no manual step.
-- **`deploy-netlify-preview.yml`** — branch preview. Each PR against `main` builds and deploys a non-prod preview (`netlify deploy --alias=<branch>`, stable per-branch URL). The preview URL is posted as a comment **both on the PR and on the linked issue** (parsed from `Closes #N` in the PR body). The comment also carries a hidden `<!-- deploy-ids: [...] -->` list used for cleanup.
-- **`cleanup-netlify-preview.yml`** — on PR close/merge, deletes that PR's preview deploys via the Netlify API (reads the deploy IDs from the preview comment). Netlify protects the published prod deploy from deletion.
-- **`claude.yml`** — the **AI change assistant**. A new issue or an `@claude` comment triggers Claude Code (`anthropics/claude-code-action@v1`), which implements the requested change on a branch and opens a PR (`gh pr create`). Because the official Claude GitHub App authors the PR, it triggers the preview workflow above. The customer flow: issue → Claude opens PR → preview URL appears in the issue → customer approves → maintainer merges → prod deploy.
+- **`deploy-github.yml`** — production deploy. Pushing to `main` builds the site and uploads `./dist` as a Pages artifact (`actions/deploy-pages@v4`). Automatic, no manual step. Both jobs are guarded by `if: github.repository_owner == 'carmenbereiter'`, because the custom domain lives in that account — in a fork nothing deploys.
+- **`claude.yml`** — the **AI change assistant**. A new issue or an `@claude` comment triggers Claude Code (`anthropics/claude-code-action@v1`), which implements the requested change on a branch and opens a PR (`gh pr create`). The customer flow: issue → Claude opens PR → maintainer reviews → merge → prod deploy.
 
-**Required repo secrets:** `ANTHROPIC_API_KEY`, `NETLIFY_AUTH_TOKEN`, `NETLIFY_SITE_ID`. The custom domain `carmenbereiter.com` is configured in Netlify (not via a CNAME file — `public/CNAME` is a leftover from the previous GitHub Pages setup and is ignored by Netlify).
+There are currently **no per-PR previews** — the Netlify preview/cleanup workflows were removed along with Netlify. Changes are reviewed from the diff or locally via `pnpm preview`.
+
+**Required repo secret:** `ANTHROPIC_API_KEY`. The custom domain `carmenbereiter.com` is served from `public/CNAME` (GitHub Pages reads it from the deployed artifact).
 
 ## Architecture
 

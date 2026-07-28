@@ -24,8 +24,7 @@ concurrency:
 
 jobs:
   build:
-    # GitHub Pages nur im Account "carmenbereiter" deployen (dort liegt die Custom Domain).
-    # Im Account "tobiasbenkner" läuft stattdessen Netlify — siehe deploy-netlify.yml.
+    # Nur im Account "carmenbereiter" deployen (dort liegt die Custom Domain).
     if: github.repository_owner == 'carmenbereiter'
     runs-on: ubuntu-latest
     steps:

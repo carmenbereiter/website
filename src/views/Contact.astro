@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContactOptions from '../components/ContactOptions.astro';
-import { contact } from '../config';
 import { getLang, useTranslations, type Lang } from '../i18n';
 import { contactJsonLd } from '../lib/seo';
 
@@ -36,23 +35,6 @@ const p = t.pages.contact;
   <section class="relative">
     <div class="mx-auto max-w-3xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-12 lg:pb-24">
       <ContactOptions variant="on-cream" />
-
-      <!-- E-Mail als zusätzlicher Kanal -->
-      <div class="mt-10 border-t border-line pt-8 sm:mt-12 sm:pt-10">
-        <p class="text-[11px] uppercase tracking-[0.24em] text-clay sm:text-xs sm:tracking-[0.28em]">
-          {p.email.label}
-        </p>
-        <p class="mt-3 text-base leading-relaxed text-ink-soft sm:text-lg">
-          {p.email.text}{' '}
-          <a
-            href={`mailto:${contact.email}`}
-            class="font-display text-ink underline decoration-line decoration-1 underline-offset-[6px] transition-all hover:decoration-clay hover:underline-offset-[8px]"
-            style="font-variation-settings: 'opsz' 48;"
-          >
-            {contact.email}
-          </a>
-        </p>
-      </div>
     </div>
   </section>
 

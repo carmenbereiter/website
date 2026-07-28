@@ -44,6 +44,13 @@ export const es: Dictionary = {
     bookTip: 'Reservar cita',
     whatsappAria: 'Escribir por WhatsApp',
     whatsappTip: 'WhatsApp',
+    talkAria: 'Solicitar una charla o keynote (WhatsApp)',
+    talkTip: 'Solicitar charla',
+    mailAria: 'Escribir un correo',
+    mailTip: 'Escribir un correo',
+    openAria: 'Mostrar opciones de contacto',
+    closeAria: 'Cerrar opciones de contacto',
+    menuLabel: 'Contacto directo',
   },
 
   contactTiles: {
@@ -51,6 +58,10 @@ export const es: Dictionary = {
     whatsappSub: 'Personal. Rápido. Directo conmigo.',
     bookTitle: 'Reservar sesión inicial',
     bookSub: 'online',
+    talkHeading: 'Para organizadores y empresas',
+    talkTitle: 'Solicitar una charla',
+    talkSub: 'Keynote o charla inspiradora',
+    mailTitle: 'Escribir un correo',
   },
 
   footer: {
@@ -265,6 +276,23 @@ export const es: Dictionary = {
           'Tres caminos. Una <span class="italic text-forest">meta</span>: tú, de nuevo plenamente contigo.',
         body: 'Elige lo que encaje con tu momento. ¿No sabes cuál? Solo pregúntame, un mensaje basta.',
       },
+      speaking: {
+        eyebrow: 'Keynotes & Conferencias',
+        titleHtml:
+          'Impulsos potentes. Transformación <span class="italic text-forest">única</span>.',
+        body: 'Como ponente llevo impulsos exclusivos y conmovedores a los escenarios de empresas, eventos y encuentros de networking en Alemania, Austria y Suiza. Mis charlas no solo informan: emocionan, inspiran y ponen en marcha cambios duraderos. Cada intervención se adapta con precisión a la ocasión, al público y al marco de tiempo exclusivo.',
+        bullets: [
+          'Keynotes premium para eventos de empresa y de clientes',
+          'Charlas inspiradoras para redes, asociaciones y comunidades de mujeres',
+          'Presencial en Alemania, Austria y Suiza',
+        ],
+        note: 'El tema, la duración y el marco exclusivo se acuerdan individualmente de antemano, en una conversación personal.',
+        ctaPrimary: 'Solicitar una charla',
+        ctaSecondary: 'Consultar disponibilidad',
+        requestMessage:
+          'Hola Carmen, estamos organizando un evento y nos encantaría contar contigo como ponente. ¿Podemos hablarlo?',
+        imageAlt: 'Retrato de Carmen Bereiter',
+      },
       endorsementsSection: {
         eyebrow: 'Recomendaciones de corazón',
         titleHtml:
@@ -411,10 +439,6 @@ export const es: Dictionary = {
         titleHtml:
           'Tu siguiente paso está a solo un <span class="italic text-forest" style="font-variation-settings: \'opsz\' 144, \'SOFT\' 100;">mensaje</span> de distancia.',
         body: 'Cuéntame brevemente qué te preocupa. Vemos juntos si encaja, en lo profesional y en lo humano. Sin compromiso y con honestidad.',
-      },
-      email: {
-        label: '¿Prefieres el email?',
-        text: 'Claro, escríbeme a',
       },
       expect: {
         eyebrow: 'Lo que te espera',
