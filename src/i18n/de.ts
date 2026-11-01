@@ -134,7 +134,7 @@ export const de = {
         'Hallo Carmen, ich interessiere mich für die exklusive 1:1 Begleitung (Unique Mentoring).',
     },
     {
-      eyebrow: 'RENACER',
+      eyebrow: 'Live-Erlebnis',
       title: 'Live-Events',
       subtitle: 'Exklusives Live-Erlebnis · Kleine Gruppe',
       short:

@@ -127,7 +127,7 @@ export const es: Dictionary = {
         'Hola Carmen, me interesa el acompañamiento 1:1 exclusivo (Unique Mentoring).',
     },
     {
-      eyebrow: 'RENACER',
+      eyebrow: 'Experiencia en vivo',
       title: 'Eventos en vivo',
       subtitle: 'Experiencia exclusiva en vivo · Grupo reducido',
       short:
