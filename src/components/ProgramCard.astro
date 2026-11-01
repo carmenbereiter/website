@@ -64,7 +64,9 @@ const t = useTranslations(lang);
     </ul>
 
     <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-taupe sm:mt-8 sm:gap-x-8">
-      <span><span class="text-ink-soft">{t.programCard.duration}</span> {program.duration}</span>
+      {program.duration && (
+        <span><span class="text-ink-soft">{t.programCard.duration}</span> {program.duration}</span>
+      )}
       <span><span class="text-ink-soft">{t.programCard.format}</span> {program.format}</span>
       {program.price && (
         <span><span class="text-ink-soft">{t.programCard.invest}</span> {program.price}</span>

@@ -139,7 +139,7 @@ export const en: Dictionary = {
         'Strategies for confident decisions and next steps',
         'Inner calm, energy and focus, tools for everyday life',
       ],
-      duration: '2 - 4 days',
+      duration: '',
       format: 'In person',
       price: '',
       contactMessage: "Hi Carmen, I'm interested in the Live Event.",

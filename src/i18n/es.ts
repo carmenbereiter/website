@@ -138,7 +138,7 @@ export const es: Dictionary = {
         'Estrategias para decisiones seguras y próximos pasos',
         'Calma interior, energía y enfoque, herramientas para el día a día',
       ],
-      duration: '2 - 4 días',
+      duration: '',
       format: 'Presencial',
       price: '',
       contactMessage: 'Hola Carmen, me interesa el evento en vivo.',
