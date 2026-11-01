@@ -99,8 +99,8 @@ export const de = {
   programs: [
     {
       eyebrow: 'Gruppenprogramm',
-      title: 'Gemeinsam zu echten Ergebnissen',
-      subtitle: 'Vom Denken zu Resultaten · Online',
+      title: 'Vom Denken zu Resultaten',
+      subtitle: 'Gemeinsam zu echten Ergebnissen · Online',
       short:
         'Deine Transformation im Kreis Gleichgesinnter. Dieses 12-wöchige Gruppenprogramm schließt die Lücke zwischen deinem Wissen und deinem Handeln, getragen von der Energie einer starken Gemeinschaft.',
       bullets: [
@@ -113,7 +113,7 @@ export const de = {
       format: 'Online · 1× pro Woche interaktiver Live-Gruppen-Call',
       price: '',
       contactMessage:
-        'Hallo Carmen, ich interessiere mich für das 12-wöchige Gruppenprogramm „Gemeinsam zu echten Ergebnissen“.',
+        'Hallo Carmen, ich interessiere mich für das 12-wöchige Online-Gruppenprogramm „Vom Denken zu Resultaten“.',
     },
     {
       eyebrow: 'UNIQUE MENTORING',
@@ -148,7 +148,7 @@ export const de = {
       duration: '',
       format: 'vor Ort',
       price: '',
-      contactMessage: 'Hallo Carmen, ich interessiere mich für das Live-Event.',
+      contactMessage: 'Hallo Carmen, ich interessiere mich für das exklusive Live-Erlebnis auf Gran Canaria (Live-Events).',
     },
   ],
 

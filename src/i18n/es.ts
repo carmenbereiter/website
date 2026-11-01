@@ -92,8 +92,8 @@ export const es: Dictionary = {
   programs: [
     {
       eyebrow: 'Programa grupal',
-      title: 'Juntos hacia resultados reales',
-      subtitle: 'Del pensamiento a los resultados · Online',
+      title: 'Del pensamiento a los resultados',
+      subtitle: 'Juntos hacia resultados reales · Online',
       short:
         'Tu transformación rodeada de personas afines. Este programa grupal de 12 semanas cierra la brecha entre lo que sabes y lo que haces, impulsado por la energía de una comunidad fuerte.',
       bullets: [
@@ -106,7 +106,7 @@ export const es: Dictionary = {
       format: 'Online · 1 llamada grupal interactiva en directo por semana',
       price: '',
       contactMessage:
-        'Hola Carmen, me interesa el programa grupal de 12 semanas «Juntos hacia resultados reales».',
+        'Hola Carmen, me interesa el programa grupal online de 12 semanas «Del pensamiento a los resultados».',
     },
     {
       eyebrow: 'UNIQUE MENTORING',
@@ -141,7 +141,7 @@ export const es: Dictionary = {
       duration: '',
       format: 'Presencial',
       price: '',
-      contactMessage: 'Hola Carmen, me interesa el evento en vivo.',
+      contactMessage: 'Hola Carmen, me interesa la experiencia exclusiva en vivo en Gran Canaria (Eventos en vivo).',
     },
   ],
 

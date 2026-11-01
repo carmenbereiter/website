@@ -93,8 +93,8 @@ export const en: Dictionary = {
   programs: [
     {
       eyebrow: 'Group programme',
-      title: 'Real results, together',
-      subtitle: 'From thinking to results · Online',
+      title: 'From thinking to results',
+      subtitle: 'Real results, together · Online',
       short:
         'Your transformation among like-minded people. This 12-week group programme closes the gap between what you know and what you do, carried by the energy of a strong community.',
       bullets: [
@@ -107,7 +107,7 @@ export const en: Dictionary = {
       format: 'Online · weekly interactive live group call',
       price: '',
       contactMessage:
-        "Hi Carmen, I'm interested in the 12-week group programme \"Real results, together\".",
+        "Hi Carmen, I'm interested in the 12-week online group programme \"From thinking to results\".",
     },
     {
       eyebrow: 'UNIQUE MENTORING',
@@ -142,7 +142,7 @@ export const en: Dictionary = {
       duration: '',
       format: 'In person',
       price: '',
-      contactMessage: "Hi Carmen, I'm interested in the Live Event.",
+      contactMessage: "Hi Carmen, I'm interested in the exclusive live experience on Gran Canaria (Live Events).",
     },
   ],
 
