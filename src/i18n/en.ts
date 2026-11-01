@@ -92,22 +92,22 @@ export const en: Dictionary = {
 
   programs: [
     {
-      eyebrow: 'Back to you',
-      title: 'Your fresh start in 7 weeks',
-      subtitle: '7-week coaching · Online',
+      eyebrow: 'Group programme',
+      title: 'Real results, together',
+      subtitle: 'From thinking to results · Online',
       short:
-        "A space for you. Seven weeks: clear, quiet, honest. With impulses that aren't loud, but work.",
+        'Your transformation among like-minded people. This 12-week group programme closes the gap between what you know and what you do, carried by the energy of a strong community.',
       bullets: [
-        'Clarity about who you are and what you truly want',
-        'Calm and order in your mind and your life',
-        'Self-love and accepting yourself as you are',
-        'Recognising your strengths and using them deliberately',
+        'Root your visions in everyday life and unlock untapped potential step by step',
+        'Build powerful new success habits while benefiting from the exchange with the group',
+        'Break through mental blocks together and reach your goals with new clarity',
+        'Develop a true success mindset that lastingly inspires you and those around you',
       ],
-      duration: '7 weeks',
-      format: 'Online · once a week',
-      price: 'On request',
+      duration: '12 weeks',
+      format: 'Online · weekly interactive live group call',
+      price: '',
       contactMessage:
-        "Hi Carmen, I'm interested in Zurück zu dir, the 7-week coaching.",
+        "Hi Carmen, I'm interested in the 12-week group programme \"Real results, together\".",
     },
     {
       eyebrow: 'UNIQUE MENTORING',
@@ -123,7 +123,7 @@ export const en: Dictionary = {
       ],
       duration: '12 weeks',
       format: 'Online · optional in person',
-      price: 'Price on request',
+      price: '',
       contactMessage:
         "Hi Carmen, I'm interested in the exclusive 1:1 guidance (Unique Mentoring).",
     },
@@ -132,16 +132,16 @@ export const en: Dictionary = {
       title: 'Live Events',
       subtitle: 'Exclusive live experience · Small group',
       short:
-        'Pure energy, clear impulses, real connection in inspiring places.',
+        'Pure energy, clear impulses, real connection on Gran Canaria.',
       bullets: [
         'Incl. catering during coaching hours',
-        'Exclusive mentoring at special locations',
+        'Exclusive mentoring at inspiring locations',
         'Strategies for confident decisions and next steps',
         'Inner calm, energy and focus, tools for everyday life',
       ],
       duration: '2 - 4 days',
       format: 'In person',
-      price: 'Dates on request',
+      price: '',
       contactMessage: "Hi Carmen, I'm interested in the Live Event.",
     },
   ],
@@ -232,7 +232,7 @@ export const en: Dictionary = {
     home: {
       metaTitle: 'Carmen Bereiter — Coach & Mentor · Gran Canaria & Online',
       metaDescription:
-        'Personal coaching & mentoring with heart, clarity and the highest professionalism. 7-week coaching, exclusive 1:1 mentoring and live events — online and on Gran Canaria.',
+        'Personal coaching & mentoring with heart, clarity and the highest professionalism. 12-week group programme, exclusive 1:1 mentoring and live events, online and on Gran Canaria.',
       hero: {
         eyebrow: 'Coach & Mentor · Gran Canaria & Online',
         titleHtml:

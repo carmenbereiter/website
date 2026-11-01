@@ -91,22 +91,22 @@ export const es: Dictionary = {
 
   programs: [
     {
-      eyebrow: 'Vuelve a ti mismo',
-      title: 'Tu nuevo comienzo en 7 semanas',
-      subtitle: 'Coaching de 7 semanas · Online',
+      eyebrow: 'Programa grupal',
+      title: 'Juntos hacia resultados reales',
+      subtitle: 'Del pensamiento a los resultados · Online',
       short:
-        'Un espacio para ti. Siete semanas claras, serenas, honestas. Con impulsos que no son ruidosos, pero que funcionan.',
+        'Tu transformación rodeada de personas afines. Este programa grupal de 12 semanas cierra la brecha entre lo que sabes y lo que haces, impulsado por la energía de una comunidad fuerte.',
       bullets: [
-        'Claridad sobre quién eres y qué quieres de verdad',
-        'Calma y orden en tu mente y en tu vida',
-        'Amor propio y aceptarte tal y como eres',
-        'Reconocer tus fortalezas y usarlas con intención',
+        'Arraigar tus visiones en el día a día y liberar paso a paso tu potencial sin explotar',
+        'Crear nuevos y poderosos hábitos de éxito mientras te beneficias del intercambio con el grupo',
+        'Romper juntos los bloqueos mentales y alcanzar tus metas con una nueva claridad',
+        'Desarrollar una auténtica mentalidad de éxito que te inspire a ti y a tu entorno de forma duradera',
       ],
-      duration: '7 semanas',
-      format: 'Online · 1 vez por semana',
-      price: 'Bajo consulta',
+      duration: '12 semanas',
+      format: 'Online · 1 llamada grupal interactiva en directo por semana',
+      price: '',
       contactMessage:
-        'Hola Carmen, me interesa Zurück zu dir, el coaching de 7 semanas.',
+        'Hola Carmen, me interesa el programa grupal de 12 semanas «Juntos hacia resultados reales».',
     },
     {
       eyebrow: 'UNIQUE MENTORING',
@@ -122,7 +122,7 @@ export const es: Dictionary = {
       ],
       duration: '12 semanas',
       format: 'Online · opcional presencial',
-      price: 'Precio bajo consulta',
+      price: '',
       contactMessage:
         'Hola Carmen, me interesa el acompañamiento 1:1 exclusivo (Unique Mentoring).',
     },
@@ -131,16 +131,16 @@ export const es: Dictionary = {
       title: 'Eventos en vivo',
       subtitle: 'Experiencia exclusiva en vivo · Grupo reducido',
       short:
-        'Pura energía, impulsos claros, encuentro real en lugares inspiradores.',
+        'Pura energía, impulsos claros, encuentro real en Gran Canaria.',
       bullets: [
         'Incl. manutención durante las horas de coaching',
-        'Mentoring exclusivo en localizaciones especiales',
+        'Mentoring exclusivo en localizaciones inspiradoras',
         'Estrategias para decisiones seguras y próximos pasos',
         'Calma interior, energía y enfoque, herramientas para el día a día',
       ],
       duration: '2 - 4 días',
       format: 'Presencial',
-      price: 'Fechas bajo consulta',
+      price: '',
       contactMessage: 'Hola Carmen, me interesa el evento en vivo.',
     },
   ],
@@ -231,7 +231,7 @@ export const es: Dictionary = {
     home: {
       metaTitle: 'Carmen Bereiter — Coach y Mentora · Gran Canaria y Online',
       metaDescription:
-        'Coaching y mentoring personal con corazón, claridad y la máxima profesionalidad. Coaching de 7 semanas, mentoring 1:1 exclusivo y eventos en vivo, online y en Gran Canaria.',
+        'Coaching y mentoring personal con corazón, claridad y la máxima profesionalidad. Programa grupal de 12 semanas, mentoring 1:1 exclusivo y eventos en vivo, online y en Gran Canaria.',
       hero: {
         eyebrow: 'Coach y Mentora · Gran Canaria y Online',
         titleHtml:
