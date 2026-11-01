@@ -124,7 +124,7 @@ export const es: Dictionary = {
       format: 'Online · opcional presencial',
       price: '',
       contactMessage:
-        'Hola Carmen, me interesa el acompañamiento 1:1 exclusivo (Unique Mentoring).',
+        'Hola Carmen, me interesa el acompañamiento 1:1 exclusivo de 12 semanas «Unique Mentoring».',
     },
     {
       eyebrow: 'Experiencia en vivo',

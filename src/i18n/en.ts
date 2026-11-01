@@ -125,7 +125,7 @@ export const en: Dictionary = {
       format: 'Online · optional in person',
       price: '',
       contactMessage:
-        "Hi Carmen, I'm interested in the exclusive 1:1 guidance (Unique Mentoring).",
+        "Hi Carmen, I'm interested in the 12-week exclusive 1:1 guidance \"Unique Mentoring\".",
     },
     {
       eyebrow: 'Live experience',

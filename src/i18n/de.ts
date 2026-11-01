@@ -131,7 +131,7 @@ export const de = {
       format: 'Online · optional vor Ort',
       price: '',
       contactMessage:
-        'Hallo Carmen, ich interessiere mich für die exklusive 1:1 Begleitung (Unique Mentoring).',
+        'Hallo Carmen, ich interessiere mich für die 12-wöchige exklusive 1:1 Begleitung „Unique Mentoring“.',
     },
     {
       eyebrow: 'Live-Erlebnis',
